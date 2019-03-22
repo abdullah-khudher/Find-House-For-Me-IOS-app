@@ -1,0 +1,6 @@
+framework module Pods_AkurMe {
+  umbrella header "Pods-AkurMe-umbrella.h"
+
+  export *
+  module * { export * }
+}

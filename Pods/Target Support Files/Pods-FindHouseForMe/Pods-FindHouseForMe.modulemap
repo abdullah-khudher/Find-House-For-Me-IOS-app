@@ -1,0 +1,6 @@
+framework module Pods_FindHouseForMe {
+  umbrella header "Pods-FindHouseForMe-umbrella.h"
+
+  export *
+  module * { export * }
+}
