@@ -12,6 +12,9 @@
 		B6139F91224468E100365795 /* OfficeMainShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6139F90224468E100365795 /* OfficeMainShow.swift */; };
 		B6139F93224468E800365795 /* OfficeAddNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6139F92224468E800365795 /* OfficeAddNew.swift */; };
 		B6139F95224468F700365795 /* OfficeEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6139F94224468F700365795 /* OfficeEdit.swift */; };
+		B6139F9722446FC700365795 /* image service.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6139F9622446FC700365795 /* image service.swift */; };
+		B6139F9D224517D500365795 /* OfficeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6139F9B224517D500365795 /* OfficeCell.swift */; };
+		B6139F9E224517D500365795 /* OfficeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6139F9C224517D500365795 /* OfficeCell.xib */; };
 		B66A57C522444F3A00FAFD94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66A57C422444F3A00FAFD94 /* AppDelegate.swift */; };
 		B66A57CA22444F3A00FAFD94 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B66A57C822444F3A00FAFD94 /* Main.storyboard */; };
 		B66A57CC22444F3B00FAFD94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B66A57CB22444F3B00FAFD94 /* Assets.xcassets */; };
@@ -32,6 +35,9 @@
 		B6139F90224468E100365795 /* OfficeMainShow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfficeMainShow.swift; sourceTree = "<group>"; };
 		B6139F92224468E800365795 /* OfficeAddNew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfficeAddNew.swift; sourceTree = "<group>"; };
 		B6139F94224468F700365795 /* OfficeEdit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfficeEdit.swift; sourceTree = "<group>"; };
+		B6139F9622446FC700365795 /* image service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "image service.swift"; sourceTree = "<group>"; };
+		B6139F9B224517D500365795 /* OfficeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficeCell.swift; sourceTree = "<group>"; };
+		B6139F9C224517D500365795 /* OfficeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OfficeCell.xib; sourceTree = "<group>"; };
 		B66A57C122444F3A00FAFD94 /* FindHouseForMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindHouseForMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B66A57C422444F3A00FAFD94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B66A57C922444F3A00FAFD94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -70,8 +76,18 @@
 			children = (
 				B6139F8B2244647E00365795 /* UserObject.swift */,
 				B6139F8D2244648700365795 /* ItemsObject.swift */,
+				B6139F9622446FC700365795 /* image service.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		B6139F982245176800365795 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				B6139F9B224517D500365795 /* OfficeCell.swift */,
+				B6139F9C224517D500365795 /* OfficeCell.xib */,
+			);
+			path = cells;
 			sourceTree = "<group>";
 		};
 		B66A57B822444F3A00FAFD94 = {
@@ -103,6 +119,7 @@
 				B6139F92224468E800365795 /* OfficeAddNew.swift */,
 				B6139F94224468F700365795 /* OfficeEdit.swift */,
 				B6139F8F2244649200365795 /* Model */,
+				B6139F982245176800365795 /* cells */,
 				B66A57D622444FB300FAFD94 /* addational */,
 			);
 			path = FindHouseForMe;
@@ -191,6 +208,7 @@
 				B66A57CF22444F3B00FAFD94 /* LaunchScreen.storyboard in Resources */,
 				B66A57CC22444F3B00FAFD94 /* Assets.xcassets in Resources */,
 				B66A57DA224457F700FAFD94 /* GoogleService-Info.plist in Resources */,
+				B6139F9E224517D500365795 /* OfficeCell.xib in Resources */,
 				B66A57CA22444F3A00FAFD94 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -255,7 +273,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6139F9722446FC700365795 /* image service.swift in Sources */,
 				B66A57C522444F3A00FAFD94 /* AppDelegate.swift in Sources */,
+				B6139F9D224517D500365795 /* OfficeCell.swift in Sources */,
 				B6139F95224468F700365795 /* OfficeEdit.swift in Sources */,
 				B6139F91224468E100365795 /* OfficeMainShow.swift in Sources */,
 				B66A57D82244577000FAFD94 /* FirstPage.swift in Sources */,

@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Foundation
+import Firebase
+
 
 class OfficeAddNew: UIViewController {
     
@@ -63,13 +66,15 @@ class OfficeAddNew: UIViewController {
         }
     }
     
+    
     @IBOutlet weak var ShowImage: UIImageView!
-    var image1: UIImage? = nil
+    var image1 : UIImage? = nil
     @IBAction func ChooseAPhotoButton(_ sender: UIButton) {
         ImagePickerManager().pickImage(self){ image in
             print("================================")
+        
             self.image1 = image
-            self.ShowImage.image = self.image1
+            self.ShowImage.image = image
             
         }
     }
@@ -77,106 +82,91 @@ class OfficeAddNew: UIViewController {
     
     @IBAction func AddYourNewButton(_ sender: UIButton) {
         
-        
+        if let myUID = Auth.auth().currentUser?.uid {
+            
+            let rendomNameImage = String.random()
+            
+            let storageRef = Storage.storage().reference().child("photos").child("\(rendomNameImage).jpg")
+            //$$$$$$$$$$$$
+//            To load: let image = UIImage(data: data)
+            let data = image1!.jpegData(compressionQuality: 0.5)
+            //$$$$$$$$$$$$
+            let uploadTask = storageRef.putData(data!, metadata: nil) { (metadata, error) in
+                guard let metadata = metadata else {
+                    // Uh-oh, an error occurred!
+                    return
+                }
+                // Metadata contains file metadata such as size, content-type.
+                let size = metadata.size
+                // You can also access to download URL after upload.
+                storageRef.downloadURL { (url, error) in
+                    guard url != nil else {
+                        // Uh-oh, an error occurred!
+                        return
+                    }
+                    
+                     let myurl = url?.absoluteString
+                    print("###############################")
+                        let newItem = ItemObject(TypeOfOffer: self.SelectTypeOfOffer, TypeOfSelling: self.SelectTypeOfselling, Address: self.AddressTextFeild.text, NumberOfRoom: self.NumberOfRoomsTextFeild.text, Price: self.PriceTextFeild.text, Image: myurl, ID: myUID)
+                        
+                        newItem.Upload()
+                    
+
+                    
+                    
+                }
+            }
+           
+        }
     }
     
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
+    
+    
+    
+    
+    
+    
+    
 }
 
 
 
-class ImagePickerManager: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    var picker = UIImagePickerController();
-    var alert = UIAlertController(title: "Choose Image", message: nil, preferredStyle: .actionSheet)
-    var viewController: UIViewController?
-    var pickImageCallback : ((UIImage) -> ())?;
-    
-    override init(){
-        super.init()
+
+
+
+
+
+
+
+
+
+
+ // it's convert to string
+extension UIImage {
+    func toString() -> String? {
+        let data: Data? = self.pngData()
+        return data?.base64EncodedString(options: .endLineWithLineFeed)
     }
-    
-    func pickImage(_ viewController: UIViewController, _ callback: @escaping ((UIImage) -> ())) {
-        pickImageCallback = callback;
-        self.viewController = viewController;
-        
-        let cameraAction = UIAlertAction(title: "Camera", style: .default){
-            UIAlertAction in
-            self.openCamera()
-        }
-        let gallaryAction = UIAlertAction(title: "Gallary", style: .default){
-            UIAlertAction in
-            self.openGallery()
-        }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel){
-            UIAlertAction in
-        }
-        
-        // Add the actions
-        picker.delegate = self
-        alert.addAction(cameraAction)
-        alert.addAction(gallaryAction)
-        alert.addAction(cancelAction)
-        alert.popoverPresentationController?.sourceView = self.viewController!.view
-        viewController.present(alert, animated: true, completion: nil)
-    }
-    func openCamera(){
-        alert.dismiss(animated: true, completion: nil)
-        if(UIImagePickerController .isSourceTypeAvailable(.camera)){
-            picker.sourceType = .camera
-            self.viewController!.present(picker, animated: true, completion: nil)
-        } else {
-            let alertWarning = UIAlertView(title:"Warning", message: "You don't have camera", delegate:nil, cancelButtonTitle:"OK", otherButtonTitles:"")
-            alertWarning.show()
-        }
-    }
-    func openGallery(){
-        alert.dismiss(animated: true, completion: nil)
-        picker.sourceType = .photoLibrary
-        self.viewController!.present(picker, animated: true, completion: nil)
-    }
-    
-    
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true, completion: nil)
-    }
-    
-//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-//        picker.dismiss(animated: true, completion: nil)
-//        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-//        pickImageCallback?(image)
-//    }
-    
-      // For Swift 4.2
-      func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-          picker.dismiss(animated: true, completion: nil)
-          guard let image = info[.originalImage] as? UIImage else {
-              fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
-          }
-          pickImageCallback?(image)
-      }
-    
-    
-    
-    @objc func imagePickerController(_ picker: UIImagePickerController, pickedImage: UIImage?) {
-    }
-    
 }
+
+// to create rendom name for image when upload it to firebase
+extension String {
+    static func random(length: Int = 20) -> String {
+        let base = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        var randomString: String = ""
+        
+        for _ in 0..<length {
+            let randomValue = arc4random_uniform(UInt32(base.count))
+            randomString += "\(base[base.index(base.startIndex, offsetBy: Int(randomValue))])"
+        }
+        return randomString
+    }
+}
+
+
+
