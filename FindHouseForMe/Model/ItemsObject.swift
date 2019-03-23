@@ -9,6 +9,7 @@
 import Foundation
 import FirebaseAuth
 import FirebaseDatabase
+import SwiftyJSON
 
 
 
@@ -31,6 +32,7 @@ class ItemObject {
     var Price : String?
     var Image : String?
     var ID : String?
+    var itemId : String?
     
     
     
@@ -38,7 +40,7 @@ class ItemObject {
     //    ///////////////////////////////////////////////////
     //    //// Initializers
     //    ////////////////////////////////////////////////////
-    init(TypeOfOffer : String? , TypeOfSelling : String?, Address : String?, NumberOfRoom : String? , Price : String?, Image : String?, ID : String? )
+    init(TypeOfOffer : String? , TypeOfSelling : String?, Address : String?, NumberOfRoom : String? , Price : String?, Image : String?, ID : String?, itemId : String? )
     {
         self.TypeOfOffer = TypeOfOffer
         self.TypeOfSelling = TypeOfSelling
@@ -47,6 +49,7 @@ class ItemObject {
         self.Price = Price
         self.Image = Image
         self.ID = ID
+        self.itemId = itemId
         
     }
     
@@ -60,6 +63,8 @@ class ItemObject {
         self.Price = Dictionary["Price"] as? String
         self.Image = Dictionary["Image"] as? String
         self.ID = Dictionary["ID"] as? String
+        self.itemId = Dictionary["itemId"] as? String
+
 
         
     }
@@ -76,6 +81,8 @@ class ItemObject {
         newDictionary["Price"] = self.Price as AnyObject
         newDictionary["Image"] = self.Image as AnyObject
         newDictionary["ID"] = self.ID as AnyObject
+        newDictionary["itemId"] = self.itemId as AnyObject
+
 
         
         return newDictionary
@@ -86,7 +93,7 @@ class ItemObject {
     //    //// Upload User Data To DataBase
     //    ////////////////////////////////////////////////////
     func Upload() {
-        Database.database().reference().child("Items").childByAutoId().setValue(GetDictionary()) }
+        itemRef.setValue(GetDictionary()) }
     
     /*
      
@@ -108,11 +115,13 @@ class ItemObject {
 }
 
 
-
-
-class GetItemFromFirebase {
-
+class ItemModel {
     
+    
+    // 1
+    ///////////////////////////////////////////////////
+    //// Variables
+    ////////////////////////////////////////////////////
     var TypeOfOffer : String?
     var TypeOfSelling : String?
     var Address : String?
@@ -120,100 +129,92 @@ class GetItemFromFirebase {
     var Price : String?
     var Image : String?
     var ID : String?
-    
-    
-    init(snapshot: DataSnapshot) {
-        let json = JSON(snapshot.value)
-        
-        self.TypeOfOffer = json["TypeOfOffer"].stringValue
-        self.TypeOfSelling = json["TypeOfSelling"].stringValue
-        self.Address = json["Address"].stringValue
-        self.NumberOfRoom = json["NumberOfRoom"].stringValue
-        self.Price = json["Price"].stringValue
-        
-        self.ID = json["ID"].stringValue
+    var itemId : String?
 
-        self.Image = json["Image"].string
+    
+    
+    //    // 2
+    //    ///////////////////////////////////////////////////
+    //    //// Initializers
+    //    ////////////////////////////////////////////////////
+    init(TypeOfOffer : String? , TypeOfSelling : String?, Address : String?, NumberOfRoom : String? , Price : String?, Image : String?, ID : String?, itemId : String?  )
+    {
+        self.TypeOfOffer = TypeOfOffer
+        self.TypeOfSelling = TypeOfSelling
+        self.Address = Address
+        self.NumberOfRoom = NumberOfRoom
+        self.Price = Price
+        self.Image = Image
+        self.ID = ID
+        self.itemId = itemId
+
     }
-
+    
+    
+    
+    
     
 }
 
 
 
 
+class ItemAPI {
+
+    static func GetItem(ID : String , completion : @escaping (_ User : ItemObject?) ->()){
+
+        if let CasheItem = Cashe2.ItemWith(ID: ID) {completion (CasheItem) ; return}
+
+        Database.database().reference().child("Items").child(ID).observeSingleEvent(of: .value){ (Snapshot : DataSnapshot) in
+
+            if Snapshot.exists() == false { completion(nil) ; return }
+
+            guard let Userdictionary = Snapshot.value as? [String : AnyObject] else { completion(nil) ; return }
+
+            let newUser = ItemObject(Dictionary: Userdictionary)
+            completion(newUser)
+
+            }
+    }
 
 
 
+    static func GetAllItems (completion : @escaping (_ User : ItemObject?) ->()) {
+
+        Database.database().reference().child("Items").observeSingleEvent(of: .value) { (DataSnapshot) in
+            guard let Userdictionary = DataSnapshot.value as? [String : [String : AnyObject]] else { completion (nil) ; return }
+            for one in Userdictionary.values {
+                let user = ItemObject.init(Dictionary: one)
+                completion(user)
+            }
+        }
+
+    }
+
+    static func CurrentItem(completion : @escaping (_ User : ItemObject?)->()){
+        _ = Auth.auth().addStateDidChangeListener() {(auth, user) in
+
+            guard let UserID = user?.uid else { completion(nil) ; return }
+
+            self.GetItem(ID :UserID, completion: { (User : ItemObject?) in
+
+                guard let CurrentUser = User else { completion(nil) ; return }
+
+                completion(CurrentUser)
+
+            })
+        }
+    }
 
 
+}
 
 
+class Cashe2 {
 
+    static var Items : [ItemObject] = []
+    static func ItemWith(ID : String)->ItemObject? {
+        for one in Items { if ID == one.ID {return one } }
+        return nil }
 
-
-
-
-
-
-
-
-//class ItemAPI {
-//
-//    static func GetItem(ID : String , completion : @escaping (_ User : ItemObject?) ->()){
-//
-//        if let CasheItem = Cashe2.ItemWith(ID: ID) {completion (CasheItem) ; return}
-//
-//        Database.database().reference().child("Items").child(ID).observeSingleEvent(of: .value){ (Snapshot : DataSnapshot) in
-//
-//            if Snapshot.exists() == false { completion(nil) ; return }
-//
-//            guard let Userdictionary = Snapshot.value as? [String : AnyObject] else { completion(nil) ; return }
-//
-//            let newUser = ItemObject(Dictionary: Userdictionary)
-//            completion(newUser)
-//
-//            }
-//    }
-//
-//
-//
-//    static func GetAllItems (completion : @escaping (_ User : ItemObject?) ->()) {
-//
-//        Database.database().reference().child("Items").observeSingleEvent(of: .value) { (DataSnapshot) in
-//            guard let Userdictionary = DataSnapshot.value as? [String : [String : AnyObject]] else { completion (nil) ; return }
-//            for one in Userdictionary.values {
-//                let user = ItemObject.init(Dictionary: one)
-//                completion(user)
-//            }
-//        }
-//
-//    }
-//
-//    static func CurrentItem(completion : @escaping (_ User : ItemObject?)->()){
-//        _ = Auth.auth().addStateDidChangeListener() {(auth, user) in
-//
-//            guard let UserID = user?.uid else { completion(nil) ; return }
-//
-//            self.GetItem(ID :UserID, completion: { (User : ItemObject?) in
-//
-//                guard let CurrentUser = User else { completion(nil) ; return }
-//
-//                completion(CurrentUser)
-//
-//            })
-//        }
-//    }
-//
-//
-//}
-//
-//
-//class Cashe2 {
-//
-//    static var Items : [ItemObject] = []
-//    static func ItemWith(ID : String)->ItemObject? {
-//        for one in Items { if ID == one.ID {return one } }
-//        return nil }
-//
-//}
+}

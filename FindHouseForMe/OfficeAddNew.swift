@@ -91,13 +91,11 @@ class OfficeAddNew: UIViewController {
 //            To load: let image = UIImage(data: data)
             let data = image1!.jpegData(compressionQuality: 0.5)
             //$$$$$$$$$$$$
-            let uploadTask = storageRef.putData(data!, metadata: nil) { (metadata, error) in
-                guard let metadata = metadata else {
+            _ = storageRef.putData(data!, metadata: nil) { (metadata, error) in
+                guard metadata != nil else {
                     // Uh-oh, an error occurred!
                     return
                 }
-                // Metadata contains file metadata such as size, content-type.
-                let size = metadata.size
                 // You can also access to download URL after upload.
                 storageRef.downloadURL { (url, error) in
                     guard url != nil else {
@@ -107,7 +105,7 @@ class OfficeAddNew: UIViewController {
                     
                      let myurl = url?.absoluteString
                     print("###############################")
-                        let newItem = ItemObject(TypeOfOffer: self.SelectTypeOfOffer, TypeOfSelling: self.SelectTypeOfselling, Address: self.AddressTextFeild.text, NumberOfRoom: self.NumberOfRoomsTextFeild.text, Price: self.PriceTextFeild.text, Image: myurl, ID: myUID)
+                    let newItem = ItemObject(TypeOfOffer: self.SelectTypeOfOffer, TypeOfSelling: self.SelectTypeOfselling, Address: self.AddressTextFeild.text, NumberOfRoom: self.NumberOfRoomsTextFeild.text, Price: self.PriceTextFeild.text, Image: myurl, ID: myUID,itemId : itemId)
                         
                         newItem.Upload()
                     
