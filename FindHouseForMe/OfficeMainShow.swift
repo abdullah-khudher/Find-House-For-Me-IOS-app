@@ -10,19 +10,13 @@ import UIKit
 import Firebase
 
 
-class OfficeMainShow: UIViewController, UITableViewDataSource, UITableViewDelegate  {
+class OfficeMainShow: UIViewController, UIGestureRecognizerDelegate, UITableViewDataSource, UITableViewDelegate  {
     
     
     
     @IBAction func addBarButton(_ sender: UIBarButtonItem) {
         self.performSegue(withIdentifier: "AddNewButtonSegue", sender: nil)
     }
-    
-    
-    //        self.performSegue(withIdentifier: "EditButtonSegue", sender: nil)
-
-    
-    
     
     
     @IBOutlet weak var myTableView: UITableView!
@@ -38,17 +32,21 @@ class OfficeMainShow: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        navigationController?.navigationBar.prefersLargeTitles = true
-        
+        //
+        // MARK:longPressGesture1
+        let longPressGesture:UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
+        longPressGesture.minimumPressDuration = 1
+        longPressGesture.delegate = self
+        self.myTableView.addGestureRecognizer(longPressGesture)
         
         
         myTableView.register(UINib(nibName: "OfficeCell", bundle: nil), forCellReuseIdentifier: "myCell")
         
-//        myTableView.refreshControl = UIRefreshControl()
         
         
 /*      ?????????????????????????????????????????????????????????????????
-         //MARK:how to make the code below to function
+         //MARK: get items from database
+         how to make the code below to function
         ?????????????????????????????????????????????????????????????????             */
         
         _ = Database.database().reference().child("Items").observe(DataEventType.value, with: { (snapshot) in
@@ -79,9 +77,6 @@ class OfficeMainShow: UIViewController, UITableViewDataSource, UITableViewDelega
                     //appending it to list
                     self.arrayItems.insert(item, at: 0)
                 }
-/*      ?????????????????????????????????????????????????????????????????
-                 //MARK:which one is better to reloading my tableview
-        ?????????????????????????????????????????????????????????????????             */
                 //reloading the tableview
                 DispatchQueue.main.async { [weak self] in
                     self?.myTableView.reloadData()
@@ -97,37 +92,18 @@ class OfficeMainShow: UIViewController, UITableViewDataSource, UITableViewDelega
             }
         })
     
-
-        
-
-    
-        
-        
-        
-        
-        
-        //  DispatchQueue.main.async
-//        var newItemAsyc : ItemObject? = nil
-//            newItemAsyc = newUser
-//        DispatchQueue.main.async {
-//        self.myTableView.reloadData()
-//            self.arrayItems.insert(newItemAsyc!, at: 0)
-//            let indexPath = IndexPath(row: 0, section: 0)
-//            self.myTableView.insertRows(at: [indexPath], with: .top)
-//        }
         
     }
     
     
-    
+    //MARK: to show massage when table view empty
     func numberOfSections(in tableView: UITableView) -> Int
     {
         var numOfSections: Int = 0
-        
         if checkSnapshotChildrenCount == 0
         {
             let noDataLabel: UILabel  = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
-            noDataLabel.text          = "No data available"
+            noDataLabel.text          = "you didn't do any business yet (: "
             noDataLabel.textColor     = UIColor.black
             noDataLabel.textAlignment = .center
             tableView.backgroundView  = noDataLabel
@@ -159,7 +135,7 @@ class OfficeMainShow: UIViewController, UITableViewDataSource, UITableViewDelega
         let item : ItemModel
         item = arrayItems[indexPath.row]
         
-        // download image
+        //MARK: download image
         if let imageDownloadURL = arrayItems[indexPath.row].Image {
             let imageStorageRef = Storage.storage().reference(forURL: imageDownloadURL)
             imageStorageRef.getData(maxSize: 15 * 1024 * 1024) { [weak self] (data, error) in
@@ -208,8 +184,6 @@ class OfficeMainShow: UIViewController, UITableViewDataSource, UITableViewDelega
         
         let storage = Storage.storage()
         let storageRef = storage.reference(forURL: imageREF!)
-        
-        //Removes image from storage
         storageRef.delete { error in
             if let error = error {
                 print(error)
@@ -217,8 +191,7 @@ class OfficeMainShow: UIViewController, UITableViewDataSource, UITableViewDelega
                 // File deleted successfully
             }
         }
-        print("!@#!@#!@#!@#!@#!@#!@#\(Database.database().reference().child("Items").child(itemREF!))")
-
+        
         Database.database().reference().child("Items").child(itemREF!).removeValue()
         
         arrayItems.remove(at: indexPath.row)
@@ -229,17 +202,63 @@ class OfficeMainShow: UIViewController, UITableViewDataSource, UITableViewDelega
 
     }
     
+
     
     
+    //MARK:longPressGesture 2
+    var indexNumber : Int = 0
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "EditButtonSegue" {
+            let controller = segue.destination as! OfficeEdit
+            controller.itemEdating = self.arrayItems[(indexNumber)]
+            
+        }
+    }
+    
+    @objc func handleLongPress(longPressGesture:UILongPressGestureRecognizer) {
+        
+        let p = longPressGesture.location(in: self.myTableView)
+        let indexPath = self.myTableView.indexPathForRow(at: p)
+        if indexPath == nil {
+            print("Long press on table view, not row.")
+        }
+        else if (longPressGesture.state == UIGestureRecognizer.State.began) {
+            print("Long press on row, at \(indexPath!.row)")
+            let alert = UIAlertController(title: "Are you sure you want to edit?", message: "if you are sure just click on Yes button ... otherwise ckick on Cancel buuton", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+                
+                
+                self.indexNumber = (indexPath?.row)!
+                
+                self.performSegue(withIdentifier: "EditButtonSegue", sender: nil)
   
+            }))
+            
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            
+            self.present(alert, animated: true)
+            
+            
+            
+        }
+    }
 
-
     
-    
-    
-
-    
-    
+    //MARK: profile Button
+    @IBAction func profileButton(_ sender: Any) {
+        
+//        func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//            if segue.identifier == "EditButtonSegue" {
+//                let controller = segue.destination as! OfficeEdit
+//                controller.itemEdating = self.arrayItems[0].Address?
+//
+//            }
+//        }
+        
+        
+        
+    }
     
     
     

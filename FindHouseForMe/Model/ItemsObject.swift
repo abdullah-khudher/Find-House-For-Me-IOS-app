@@ -12,6 +12,7 @@ import FirebaseDatabase
 import SwiftyJSON
 
 
+var chickEditing : Bool = false
 
 let itemRef = Database.database().reference().child("Items").childByAutoId()
 let itemId = itemRef.key
@@ -93,7 +94,14 @@ class ItemObject {
     //    //// Upload User Data To DataBase
     //    ////////////////////////////////////////////////////
     func Upload() {
-        itemRef.setValue(GetDictionary()) }
+        if chickEditing {
+            Database.database().reference().child("Items").child(editingItemId!).setValue(GetDictionary())
+        }else{
+            itemRef.setValue(GetDictionary())
+        }
+        
+        
+    }
     
     /*
      

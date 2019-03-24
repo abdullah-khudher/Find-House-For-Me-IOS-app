@@ -11,7 +11,7 @@ import Foundation
 import Firebase
 
 
-class OfficeAddNew: UIViewController {
+class OfficeAddNew: UIViewController  {
     
     
     @IBOutlet weak var AddressTextFeild: UITextField!
@@ -21,7 +21,27 @@ class OfficeAddNew: UIViewController {
     @IBOutlet weak var TypeOfOfferSeg: UISegmentedControl!
     @IBOutlet weak var TypeOfSellingSeg: UISegmentedControl!
     
+    
+    
+        override func viewDidLoad() {
+        super.viewDidLoad()
+ 
 
+
+        
+        self.navigationItem.title = "Add"
+        self.hideKeyboardWhenTappedAround()
+
+            
+    }
+    
+   
+    
+    
+    
+    
+    
+    
     
     var SelectTypeOfOffer : String = ""
     @IBAction func TypeOfOfferSegment(_ sender: UISegmentedControl) {
@@ -91,30 +111,32 @@ class OfficeAddNew: UIViewController {
 //            To load: let image = UIImage(data: data)
             let data = image1!.jpegData(compressionQuality: 0.5)
             //$$$$$$$$$$$$
-            _ = storageRef.putData(data!, metadata: nil) { (metadata, error) in
-                guard metadata != nil else {
-                    // Uh-oh, an error occurred!
-                    return
-                }
-                // You can also access to download URL after upload.
-                storageRef.downloadURL { (url, error) in
-                    guard url != nil else {
-                        // Uh-oh, an error occurred!
+            if let mydata = data {
+
+                _ = storageRef.putData(mydata, metadata: nil) { (metadata, error) in
+                    guard metadata != nil else {
+                        print("metadata ###############################")
                         return
                     }
-                    
-                     let myurl = url?.absoluteString
-                    print("###############################")
-                    let newItem = ItemObject(TypeOfOffer: self.SelectTypeOfOffer, TypeOfSelling: self.SelectTypeOfselling, Address: self.AddressTextFeild.text, NumberOfRoom: self.NumberOfRoomsTextFeild.text, Price: self.PriceTextFeild.text, Image: myurl, ID: myUID,itemId : itemId)
+                    // You can also access to download URL after upload.
+                    storageRef.downloadURL { (url, error) in
+                        guard url != nil else {
+                            print("url ###############################")
+                            return
+                        }
                         
-                        newItem.Upload()
-                    
+                         let myurl = url?.absoluteString
+                        print("okay ###############################")
+                        let newItem = ItemObject(TypeOfOffer: self.SelectTypeOfOffer, TypeOfSelling: self.SelectTypeOfselling, Address: self.AddressTextFeild.text, NumberOfRoom: self.NumberOfRoomsTextFeild.text, Price: self.PriceTextFeild.text, Image: myurl, ID: myUID,itemId : itemId)
+                        
+                            newItem.Upload()
+                        
 
-                    
-                    
+                        
+                        
+                    }
                 }
             }
-           
         }
     }
     
@@ -165,6 +187,19 @@ extension String {
         return randomString
     }
 }
+
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
+
 
 
 

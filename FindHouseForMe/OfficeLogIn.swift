@@ -79,9 +79,9 @@ class OfficeLogIn: UIViewController {
     
     
     override func viewDidAppear(_ animated: Bool) {
-//        if Auth.auth().currentUser != nil {
-//            self.performSegue(withIdentifier: "GoToHomePage1", sender: nil)
-//        }
+        if Auth.auth().currentUser != nil {
+            self.performSegue(withIdentifier: "GoToHomePage1", sender: nil)
+        }
         
     }
     
