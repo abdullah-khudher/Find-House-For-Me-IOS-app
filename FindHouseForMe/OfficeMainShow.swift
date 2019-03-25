@@ -13,7 +13,7 @@ import Firebase
 class OfficeMainShow: UIViewController, UIGestureRecognizerDelegate, UITableViewDataSource, UITableViewDelegate  {
     
     
-    
+    // to go to add Bar Button
     @IBAction func addBarButton(_ sender: UIBarButtonItem) {
         self.performSegue(withIdentifier: "AddNewButtonSegue", sender: nil)
     }
@@ -27,10 +27,15 @@ class OfficeMainShow: UIViewController, UIGestureRecognizerDelegate, UITableView
     
     
     var arrayItems = [ItemModel]()
+    // to chick if table view empty or not if so show massage " you didn't do any business yet (:  "
     var checkSnapshotChildrenCount : Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        self.hideKeyboardWhenTappedAround()
+
         
         //
         // MARK:longPressGesture1
@@ -39,7 +44,7 @@ class OfficeMainShow: UIViewController, UIGestureRecognizerDelegate, UITableView
         longPressGesture.delegate = self
         self.myTableView.addGestureRecognizer(longPressGesture)
         
-        
+        // for table view
         myTableView.register(UINib(nibName: "OfficeCell", bundle: nil), forCellReuseIdentifier: "myCell")
         
         
@@ -48,7 +53,6 @@ class OfficeMainShow: UIViewController, UIGestureRecognizerDelegate, UITableView
          //MARK: get items from database
          how to make the code below to function
         ?????????????????????????????????????????????????????????????????             */
-        
         _ = Database.database().reference().child("Items").observe(DataEventType.value, with: { (snapshot) in
             
             //if the reference have some values
@@ -71,12 +75,20 @@ class OfficeMainShow: UIViewController, UIGestureRecognizerDelegate, UITableView
                     let itemId = itemObject?["itemId"]
 
                     
-                    //creating artist object with model and fetched values
-                    let item = ItemModel(TypeOfOffer: TypeOfOffer as! String?, TypeOfSelling: TypeOfSelling as! String?, Address: Address as! String?, NumberOfRoom: NumberOfRoom as! String?, Price: Price as! String?, Image: Image as! String?, ID: ID as! String?, itemId:itemId as! String? )
                     
-                    //appending it to list
-                    self.arrayItems.insert(item, at: 0)
+                        //creating artist object with model and fetched values
+                        let item = ItemModel(TypeOfOffer: TypeOfOffer as! String?, TypeOfSelling: TypeOfSelling as! String?, Address: Address as! String?, NumberOfRoom: NumberOfRoom as! String?, Price: Price as! String?, Image: Image as! String?, ID: ID as! String?, itemId:itemId as! String? )
+                    
+                    if let currnetItemId = item.ID ,  let currentUserId = Auth.auth().currentUser?.uid {
+
+                        if currnetItemId == currentUserId {
+                            
+                            //appending it to list
+                            self.arrayItems.insert(item, at: 0)
+                        }
+                    }
                 }
+                
                 //reloading the tableview
                 DispatchQueue.main.async { [weak self] in
                     self?.myTableView.reloadData()
@@ -117,6 +129,10 @@ class OfficeMainShow: UIViewController, UIGestureRecognizerDelegate, UITableView
     }
     
     
+    
+    
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        print("raw ========= \(arrayItems[0].Address) \n\n\n")
 
@@ -130,7 +146,8 @@ class OfficeMainShow: UIViewController, UIGestureRecognizerDelegate, UITableView
         
         let cell = myTableView.dequeueReusableCell(withIdentifier: "myCell") as! OfficeCell
 //        print("cell *********** \(self.arrayItems.count) \n\n\n")
-
+//        print("Auth.auth().currentUser?.uid>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\(Auth.auth().currentUser?.uid)")
+//        print("arrayItems[0].ID >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\(arrayItems[0].ID)")
         
         let item : ItemModel
         item = arrayItems[indexPath.row]
@@ -246,19 +263,19 @@ class OfficeMainShow: UIViewController, UIGestureRecognizerDelegate, UITableView
 
     
     //MARK: profile Button
-    @IBAction func profileButton(_ sender: Any) {
-        
-//        func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//            if segue.identifier == "EditButtonSegue" {
-//                let controller = segue.destination as! OfficeEdit
-//                controller.itemEdating = self.arrayItems[0].Address?
+//    @IBAction func profileButton(_ sender: Any) {
 //
-//            }
-//        }
-        
-        
-        
-    }
+////        func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+////            if segue.identifier == "EditButtonSegue" {
+////                let controller = segue.destination as! OfficeEdit
+////                controller.itemEdating = self.arrayItems[0].Address?
+////
+////            }
+////        }
+//
+//
+//
+//    }
     
     
     

@@ -35,7 +35,8 @@ class OfficeEdit: UIViewController {
         super.viewDidLoad()
 
 //        print("***************************\((self.itemEdating?.TypeOfSelling)!)***********************")
-        
+        self.hideKeyboardWhenTappedAround()
+
         self.navigationItem.title = "Edit"
         
         //MARK:show the item on screen1

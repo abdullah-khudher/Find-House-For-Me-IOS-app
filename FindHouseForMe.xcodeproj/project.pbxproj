@@ -16,6 +16,7 @@
 		B6139F9D224517D500365795 /* OfficeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6139F9B224517D500365795 /* OfficeCell.swift */; };
 		B6139F9E224517D500365795 /* OfficeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6139F9C224517D500365795 /* OfficeCell.xib */; };
 		B6139FA42245E22200365795 /* ThreadClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6139FA32245E22200365795 /* ThreadClass.swift */; };
+		B6139FA8224887B700365795 /* GuestMainShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6139FA7224887B600365795 /* GuestMainShow.swift */; };
 		B66A57C522444F3A00FAFD94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66A57C422444F3A00FAFD94 /* AppDelegate.swift */; };
 		B66A57CA22444F3A00FAFD94 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B66A57C822444F3A00FAFD94 /* Main.storyboard */; };
 		B66A57CC22444F3B00FAFD94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B66A57CB22444F3B00FAFD94 /* Assets.xcassets */; };
@@ -40,6 +41,7 @@
 		B6139F9B224517D500365795 /* OfficeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficeCell.swift; sourceTree = "<group>"; };
 		B6139F9C224517D500365795 /* OfficeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OfficeCell.xib; sourceTree = "<group>"; };
 		B6139FA32245E22200365795 /* ThreadClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ThreadClass.swift; path = "/Users/abdjacksi/Desktop/find-house-for-me-project/FindHouseForMe/FindHouseForMe/Model/ThreadClass.swift"; sourceTree = "<absolute>"; };
+		B6139FA7224887B600365795 /* GuestMainShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GuestMainShow.swift; path = ../GuestMainShow.swift; sourceTree = "<group>"; };
 		B66A57C122444F3A00FAFD94 /* FindHouseForMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindHouseForMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B66A57C422444F3A00FAFD94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B66A57C922444F3A00FAFD94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				B6139F90224468E100365795 /* OfficeMainShow.swift */,
 				B6139F92224468E800365795 /* OfficeAddNew.swift */,
 				B6139F94224468F700365795 /* OfficeEdit.swift */,
+				B6139FA7224887B600365795 /* GuestMainShow.swift */,
 				B6139F8F2244649200365795 /* Model */,
 				B6139F982245176800365795 /* cells */,
 				B66A57D622444FB300FAFD94 /* addational */,
@@ -279,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6139F9722446FC700365795 /* image service.swift in Sources */,
+				B6139FA8224887B700365795 /* GuestMainShow.swift in Sources */,
 				B66A57C522444F3A00FAFD94 /* AppDelegate.swift in Sources */,
 				B6139F9D224517D500365795 /* OfficeCell.swift in Sources */,
 				B6139F95224468F700365795 /* OfficeEdit.swift in Sources */,

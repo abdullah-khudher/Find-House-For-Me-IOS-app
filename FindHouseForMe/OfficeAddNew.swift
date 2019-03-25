@@ -26,10 +26,9 @@ class OfficeAddNew: UIViewController  {
         override func viewDidLoad() {
         super.viewDidLoad()
  
-
-
         
         self.navigationItem.title = "Add"
+            
         self.hideKeyboardWhenTappedAround()
 
             
@@ -44,28 +43,28 @@ class OfficeAddNew: UIViewController  {
     
     
     var SelectTypeOfOffer : String = ""
-    @IBAction func TypeOfOfferSegment(_ sender: UISegmentedControl) {
+    @IBAction func typeOfOfferSegment(_ sender: UISegmentedControl) {
         switch TypeOfOfferSeg.selectedSegmentIndex {
         case 0:
             print("=========================== 0")
             SelectTypeOfOffer = "House"
-
+            
         case 1:
             print("=========================== 1")
             SelectTypeOfOffer = "Department"
-
+            
             
         case 2:
             print("=========================== 2")
             SelectTypeOfOffer = "Land"
-
-
+            
+            
         default:
             let alert = UIAlertController(title: "OPPS!", message: "You didn't choose any tpye of offer ", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "Ok!", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)        }
-        
     }
+
     
     
     var SelectTypeOfselling : String = ""
@@ -85,34 +84,35 @@ class OfficeAddNew: UIViewController  {
             self.present(alert, animated: true, completion: nil)
         }
     }
+
     
     
     @IBOutlet weak var ShowImage: UIImageView!
     var image1 : UIImage? = nil
-    @IBAction func ChooseAPhotoButton(_ sender: UIButton) {
+    @IBAction func ChoosePhotoButton(_ sender: UIButton) {
         ImagePickerManager().pickImage(self){ image in
             print("================================")
-        
+            
             self.image1 = image
             self.ShowImage.image = image
             
         }
     }
+
     
     
     @IBAction func AddYourNewButton(_ sender: UIButton) {
-        
         if let myUID = Auth.auth().currentUser?.uid {
             
             let rendomNameImage = String.random()
             
             let storageRef = Storage.storage().reference().child("photos").child("\(rendomNameImage).jpg")
             //$$$$$$$$$$$$
-//            To load: let image = UIImage(data: data)
+            //            To load: let image = UIImage(data: data)
             let data = image1!.jpegData(compressionQuality: 0.5)
             //$$$$$$$$$$$$
             if let mydata = data {
-
+                
                 _ = storageRef.putData(mydata, metadata: nil) { (metadata, error) in
                     guard metadata != nil else {
                         print("metadata ###############################")
@@ -125,13 +125,13 @@ class OfficeAddNew: UIViewController  {
                             return
                         }
                         
-                         let myurl = url?.absoluteString
+                        let myurl = url?.absoluteString
                         print("okay ###############################")
                         let newItem = ItemObject(TypeOfOffer: self.SelectTypeOfOffer, TypeOfSelling: self.SelectTypeOfselling, Address: self.AddressTextFeild.text, NumberOfRoom: self.NumberOfRoomsTextFeild.text, Price: self.PriceTextFeild.text, Image: myurl, ID: myUID,itemId : itemId)
                         
-                            newItem.Upload()
+                        newItem.Upload()
                         
-
+                        
                         
                         
                     }
@@ -139,6 +139,7 @@ class OfficeAddNew: UIViewController  {
             }
         }
     }
+   
     
     
     
@@ -187,7 +188,7 @@ extension String {
         return randomString
     }
 }
-
+//MARK:show and hide keyboard
 extension UIViewController {
     func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))

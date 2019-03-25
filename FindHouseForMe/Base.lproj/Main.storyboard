@@ -68,7 +68,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="nkJ-uC-UEU"/>
                     <connections>
-                        <segue destination="UAN-Lu-tAF" kind="show" identifier="asAGuest" id="9q2-eC-ns8"/>
+                        <segue destination="zAr-4g-fy2" kind="show" identifier="asAGuest" id="9q2-eC-ns8"/>
                         <segue destination="GlV-OV-Yg7" kind="show" identifier="asAnOffice" id="rgT-vB-OGa"/>
                     </connections>
                 </viewController>
@@ -92,30 +92,39 @@
             </objects>
             <point key="canvasLocation" x="-2443" y="-99"/>
         </scene>
-        <!--View Controller-->
+        <!--Item-->
         <scene sceneID="9IR-TZ-WYx">
             <objects>
-                <viewController id="UAN-Lu-tAF" sceneMemberID="viewController">
+                <viewController id="UAN-Lu-tAF" customClass="GuestMainShow" customModule="FindHouseForMe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1Nx-pc-Jdg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="For Guest" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pa2-ut-BAr">
-                                <rect key="frame" x="14" y="245" width="292" height="79"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="66"/>
-                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="1S6-6p-zHT">
+                                <rect key="frame" x="8" y="8" width="304" height="560"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="560" id="pRA-an-qLw"/>
+                                </constraints>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="1S6-6p-zHT" firstAttribute="top" secondItem="1Nx-pc-Jdg" secondAttribute="top" constant="8" id="9Rd-yq-B3G"/>
+                            <constraint firstItem="1S6-6p-zHT" firstAttribute="leading" secondItem="PZp-90-Yl6" secondAttribute="leading" constant="8" id="i0m-N2-EXV"/>
+                            <constraint firstItem="PZp-90-Yl6" firstAttribute="trailing" secondItem="1S6-6p-zHT" secondAttribute="trailing" constant="8" id="kdA-HE-0SF"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="PZp-90-Yl6"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="zyl-y1-eBC"/>
                     <navigationItem key="navigationItem" id="57I-ex-cQI"/>
+                    <connections>
+                        <outlet property="GuestTableView" destination="1S6-6p-zHT" id="3XI-av-ZHm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dL5-Gu-eMt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="540" y="-880"/>
+            <point key="canvasLocation" x="1537.5" y="-880.9859154929577"/>
         </scene>
         <!--Office Sign Up-->
         <scene sceneID="UXS-re-AYD">
@@ -472,11 +481,6 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Home" id="Y4R-cp-g4Z">
-                        <barButtonItem key="leftBarButtonItem" systemItem="compose" id="BLu-iv-u4U">
-                            <connections>
-                                <action selector="profileButton:" destination="V2g-Ay-XDP" id="5ww-51-aH5"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="agx-Ru-DCL">
                             <connections>
                                 <action selector="addBarButton:" destination="V2g-Ay-XDP" id="DpD-qC-kM1"/>
@@ -508,8 +512,8 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="750"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="320" id="IhG-lK-jKZ"/>
-                                            <constraint firstAttribute="height" constant="750" id="hZQ-3O-rkt"/>
+                                            <constraint firstAttribute="width" constant="320" id="QO6-ZT-cp8"/>
+                                            <constraint firstAttribute="height" constant="750" id="cMI-dj-9BB"/>
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Qix-YV-HDL">
@@ -526,7 +530,7 @@
                                                     <segment title="Land"/>
                                                 </segments>
                                                 <connections>
-                                                    <action selector="TypeOfOfferSegment:" destination="dVF-0k-EFV" eventType="valueChanged" id="WlO-F9-bV0"/>
+                                                    <action selector="typeOfOfferSegment:" destination="dVF-0k-EFV" eventType="valueChanged" id="URu-23-9gb"/>
                                                 </connections>
                                             </segmentedControl>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="LoS-6o-u6Y">
@@ -539,7 +543,7 @@
                                                     <segment title="Rent"/>
                                                 </segments>
                                                 <connections>
-                                                    <action selector="typeOfSellingSegment:" destination="dVF-0k-EFV" eventType="valueChanged" id="scn-0k-KEg"/>
+                                                    <action selector="typeOfSellingSegment:" destination="dVF-0k-EFV" eventType="valueChanged" id="VQm-FZ-pcQ"/>
                                                 </connections>
                                             </segmentedControl>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="eTc-EE-aeX">
@@ -642,7 +646,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="ChooseAPhotoButton:" destination="dVF-0k-EFV" eventType="touchUpInside" id="1R6-ZV-Xvx"/>
+                                                    <action selector="ChoosePhotoButton:" destination="dVF-0k-EFV" eventType="touchUpInside" id="x3Z-Tn-tZd"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -658,7 +662,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="AddYourNewButton:" destination="dVF-0k-EFV" eventType="touchUpInside" id="bbX-V7-2T1"/>
+                                            <action selector="AddYourNewButton:" destination="dVF-0k-EFV" eventType="touchUpInside" id="ibb-4K-H7U"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VTV-xb-KX2">
@@ -698,6 +702,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Q7z-BT-4I2"/>
                     </view>
+                    <connections>
+                        <outlet property="AddressTextFeild" destination="xNl-Hz-CNC" id="2QR-Sh-Qct"/>
+                        <outlet property="NumberOfRoomsTextFeild" destination="mME-hu-WZt" id="Uz2-6j-yop"/>
+                        <outlet property="PriceTextFeild" destination="aGn-q0-RYN" id="7YD-5E-rrd"/>
+                        <outlet property="ShowImage" destination="VTV-xb-KX2" id="02b-SW-Sch"/>
+                        <outlet property="TypeOfOfferSeg" destination="LxX-r1-ECy" id="hXC-UH-WrY"/>
+                        <outlet property="TypeOfSellingSeg" destination="LoS-6o-u6Y" id="t2C-Yo-8Rq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sx7-Na-MXO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -938,6 +950,23 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wXA-p2-dyy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5483" y="1552"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="5Wl-w7-GrL">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="zAr-4g-fy2" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GZJ-lu-Jv7">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="UAN-Lu-tAF" kind="relationship" relationship="viewControllers" id="Wp9-au-sNz"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bzM-SK-OYu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="540" y="-880.9859154929577"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

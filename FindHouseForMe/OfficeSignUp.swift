@@ -18,7 +18,12 @@ class OfficeSignUp: UIViewController {
     @IBOutlet weak var nameOfficeTextField: UITextField!
     @IBOutlet weak var numberOfficeTextField: UITextField!
     
-    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.hideKeyboardWhenTappedAround()
+
+    }
     
     
     @IBAction func signUpButton(_ sender: UIButton) {

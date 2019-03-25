@@ -83,6 +83,11 @@ class OfficeLogIn: UIViewController {
             self.performSegue(withIdentifier: "GoToHomePage1", sender: nil)
         }
         
+        
+        
+        self.hideKeyboardWhenTappedAround()
+
+        
     }
     
     
