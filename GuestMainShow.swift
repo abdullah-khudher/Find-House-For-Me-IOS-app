@@ -7,6 +7,8 @@
 
 import UIKit
 import Firebase
+import SDWebImage
+
 
 class GuestMainShow: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -111,21 +113,11 @@ class GuestMainShow: UIViewController, UITableViewDelegate, UITableViewDataSourc
         item = arrayItems[indexPath.row]
         
         //MARK: download image
-        if let imageDownloadURL = arrayItems[indexPath.row].Image {
-            let imageStorageRef = Storage.storage().reference(forURL: imageDownloadURL)
-            imageStorageRef.getData(maxSize: 15 * 1024 * 1024) { [weak self] (data, error) in
-                if let error = error {
-                    print("$$$$&&&&&$&$&$& \(error)")
-                } else {
-                    if let imageData = data {
-                        let image = UIImage(data: imageData)
-                        DispatchQueue.main.async {
-                            cell.myImage.image = image
-                        }
-                    }
-                }
-                
-            }
+        if let imageDownloadURL = self.arrayItems[indexPath.row].Image {
+            
+            let url = URL(string: imageDownloadURL)
+            cell.myImage.sd_setImage(with: url, placeholderImage: nil)
+            
         }
         
   

@@ -9,6 +9,7 @@
 import UIKit
 import Foundation
 import Firebase
+import SDWebImage
 
 
 var editingItemId :String?
@@ -29,13 +30,48 @@ class OfficeEdit: UIViewController {
     @IBOutlet weak var ShowImage2: UIImageView!
 
     
+    //MARK: show keyboard 1
+    @IBOutlet weak var scrollView2: UIScrollView!
+    
+    @objc func adjustInsetForKeyboard(_ notification: NSNotification) {
+        guard let userInfo = notification.userInfo else { return }
+        let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+
+        let show = (notification.name == UIResponder.keyboardWillShowNotification)
+            ? true
+            : false
+
+        let adjustmentHeight = keyboardFrame.height  * (show ? 1 : -1)
+        scrollView2.contentInset.bottom += adjustmentHeight
+        scrollView2.scrollIndicatorInsets.bottom += adjustmentHeight
+    }
+    
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        print("***************************\((self.itemEdating?.TypeOfSelling)!)***********************")
+       
+        //MARK: show keyboard 2
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(adjustInsetForKeyboard(_:)),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(adjustInsetForKeyboard(_:)),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil)
+
         self.hideKeyboardWhenTappedAround()
+
+        
+        
+        
+        chickEditing = true
 
         self.navigationItem.title = "Edit"
         
@@ -154,9 +190,14 @@ class OfficeEdit: UIViewController {
 
 
 
-    @IBAction func AddYourNewButton(_ sender: UIButton) {
+    @IBAction func AddYourNewButton(_ button: UIButton) {
 
-        // delete image when old image does not same with new image
+
+       
+        
+        
+        
+        // MARK: delete image when old image does not same with new image
         if pressChooseImageBuuton {
             let storage = Storage.storage()
             let storageRef = storage.reference(forURL: (itemEdating?.Image)!)
@@ -243,7 +284,7 @@ class OfficeEdit: UIViewController {
     
     
     
-    
+   
     
     
     

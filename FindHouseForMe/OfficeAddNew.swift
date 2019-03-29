@@ -9,6 +9,7 @@
 import UIKit
 import Foundation
 import Firebase
+import SDWebImage
 
 
 class OfficeAddNew: UIViewController  {
@@ -23,14 +24,53 @@ class OfficeAddNew: UIViewController  {
     
     
     
+    
+    
+    //MARK: show keyboard 1
+    @IBOutlet weak var scrollView: UIScrollView!
+    @objc func adjustInsetForKeyboard(_ notification: NSNotification) {
+        guard let userInfo = notification.userInfo else { return }
+        let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        
+        let show = (notification.name == UIResponder.keyboardWillShowNotification)
+            ? true
+            : false
+        
+        let adjustmentHeight = keyboardFrame.height  * (show ? 1 : -1)
+        scrollView.contentInset.bottom += adjustmentHeight
+        scrollView.scrollIndicatorInsets.bottom += adjustmentHeight
+    }
+    
+    
+    
+    
+    
+    
         override func viewDidLoad() {
         super.viewDidLoad()
  
+        //MARK: show keyboard 2
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(adjustInsetForKeyboard(_:)),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(adjustInsetForKeyboard(_:)),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil)
+
+        self.hideKeyboardWhenTappedAround()
+            
+            
+            
+            
+        chickEditing = false
         
         self.navigationItem.title = "Add"
             
-        self.hideKeyboardWhenTappedAround()
-
             
     }
     
@@ -65,6 +105,8 @@ class OfficeAddNew: UIViewController  {
             self.present(alert, animated: true, completion: nil)        }
     }
 
+   
+    
     
     
     var SelectTypeOfselling : String = ""
@@ -87,6 +129,9 @@ class OfficeAddNew: UIViewController  {
 
     
     
+    
+    
+    
     @IBOutlet weak var ShowImage: UIImageView!
     var image1 : UIImage? = nil
     @IBAction func ChoosePhotoButton(_ sender: UIButton) {
@@ -99,12 +144,23 @@ class OfficeAddNew: UIViewController  {
         }
     }
 
+
     
+    
+    
+
     
     @IBAction func AddYourNewButton(_ sender: UIButton) {
+        
+
+        
+        sender.setTitle("asd", for: .highlighted)
+
+        
         if let myUID = Auth.auth().currentUser?.uid {
             
             let rendomNameImage = String.random()
+            
             
             let storageRef = Storage.storage().reference().child("photos").child("\(rendomNameImage).jpg")
             //$$$$$$$$$$$$
@@ -112,6 +168,7 @@ class OfficeAddNew: UIViewController  {
             let data = image1!.jpegData(compressionQuality: 0.5)
             //$$$$$$$$$$$$
             if let mydata = data {
+                
                 
                 _ = storageRef.putData(mydata, metadata: nil) { (metadata, error) in
                     guard metadata != nil else {
@@ -175,6 +232,8 @@ extension UIImage {
     }
 }
 
+
+
 // to create rendom name for image when upload it to firebase
 extension String {
     static func random(length: Int = 20) -> String {
@@ -188,14 +247,16 @@ extension String {
         return randomString
     }
 }
-//MARK:show and hide keyboard
+
+
+//MARK: show keyboard 3
 extension UIViewController {
     func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }
-    
+
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }

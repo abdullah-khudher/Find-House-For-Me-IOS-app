@@ -7,10 +7,15 @@
 //
 
 import UIKit
+import Foundation
 import Firebase
+import SDWebImage
+import Lottie
+import DZNEmptyDataSet
 
-
-class OfficeMainShow: UIViewController, UIGestureRecognizerDelegate, UITableViewDataSource, UITableViewDelegate  {
+class OfficeMainShow: UIViewController, UIGestureRecognizerDelegate, DZNEmptyDataSetSource,  DZNEmptyDataSetDelegate, UITableViewDataSource, UITableViewDelegate  {
+    
+    
     
     
     // to go to add Bar Button
@@ -19,30 +24,64 @@ class OfficeMainShow: UIViewController, UIGestureRecognizerDelegate, UITableView
     }
     
     
+    
     @IBOutlet weak var myTableView: UITableView!
                                     { didSet {
                                             myTableView.delegate = self ;
                                             myTableView.dataSource = self ;
+                                            myTableView.emptyDataSetSource = self
+                                            myTableView.emptyDataSetDelegate = self
+                                            myTableView.tableFooterView = UIView()
                                                    }     }
     
     
-    var arrayItems = [ItemModel]()
+    var arrayItems = [ItemModel](){ didSet {
+                                        DispatchQueue.main.async { [weak self] in
+                                        self?.myTableView.reloadData()
+                                                }
+                                    }
+                                    }
+    
+    
     // to chick if table view empty or not if so show massage " you didn't do any business yet (:  "
-    var checkSnapshotChildrenCount : Int = 0
+    var checkSnapshotChildrenCount : Int?
+    
+    
+    
+    //MARK: animation part 1
+    @IBOutlet weak var animationView: LOTAnimationView!
+    
+    
+    
+    
+    
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //MARK: animation part 2
+        animationView.isHidden = true
+//        animationView.setAnimation(named: "PinJump")
+//        animationView.loopAnimation = true
+//        animationView.play()
+
         
         
         self.hideKeyboardWhenTappedAround()
 
         
+        
         //
-        // MARK:longPressGesture1
+        // MARK:longPressGesture 1
         let longPressGesture:UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
         longPressGesture.minimumPressDuration = 1
         longPressGesture.delegate = self
         self.myTableView.addGestureRecognizer(longPressGesture)
+        
+        
         
         // for table view
         myTableView.register(UINib(nibName: "OfficeCell", bundle: nil), forCellReuseIdentifier: "myCell")
@@ -99,81 +138,70 @@ class OfficeMainShow: UIViewController, UIGestureRecognizerDelegate, UITableView
 //                Threads.performTaskInMainQueue {
 //                    self.myTableView.reloadData()
 //                }
-            }else{
                 
+//                print("count  ===================")
+//                print(self.arrayItems.count)
+            }else{
+//                print("count2  ===================")
+//                print(self.arrayItems.count)
             }
+            
+            
         })
     
-        
+        print("count down arrayItems ===================")
+        print(arrayItems.count)
     }
     
     
-    //MARK: to show massage when table view empty
-    func numberOfSections(in tableView: UITableView) -> Int
-    {
-        var numOfSections: Int = 0
-        if checkSnapshotChildrenCount == 0
-        {
-            let noDataLabel: UILabel  = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
-            noDataLabel.text          = "you didn't do any business yet (: "
-            noDataLabel.textColor     = UIColor.black
-            noDataLabel.textAlignment = .center
-            tableView.backgroundView  = noDataLabel
-            tableView.separatorStyle  = .none
-        }else {
-            tableView.separatorStyle = .singleLine
-            numOfSections            = 1
-            tableView.backgroundView = nil
-        }
-        return numOfSections
-    }
+   
     
     
     
     
     
     
+    
+    
+    
+    //MARK: main part of table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        print("raw ========= \(arrayItems[0].Address) \n\n\n")
-
-        return arrayItems.count
+        print("raw ========= \(self.arrayItems.count) \n\n\n")
+        
+        //MARK: animation part 3
+//        if arrayItems.count != 0{
+//            animationView.pause()
+//            animationView.isHidden = true
+//        }
+     
+        
+        return self.arrayItems.count
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 692
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = myTableView.dequeueReusableCell(withIdentifier: "myCell") as! OfficeCell
-//        print("cell *********** \(self.arrayItems.count) \n\n\n")
-//        print("Auth.auth().currentUser?.uid>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\(Auth.auth().currentUser?.uid)")
-//        print("arrayItems[0].ID >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\(arrayItems[0].ID)")
+        let cell = self.myTableView.dequeueReusableCell(withIdentifier: "myCell") as! OfficeCell
+        //        print("cell *********** \(self.arrayItems.count) \n\n\n")
+        //        print("Auth.auth().currentUser?.uid>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\(Auth.auth().currentUser?.uid)")
+        //        print("arrayItems[0].ID >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\(arrayItems[0].ID)")
         
         let item : ItemModel
-        item = arrayItems[indexPath.row]
+        item = self.arrayItems[indexPath.row]
         
         //MARK: download image
-        if let imageDownloadURL = arrayItems[indexPath.row].Image {
-            let imageStorageRef = Storage.storage().reference(forURL: imageDownloadURL)
-            imageStorageRef.getData(maxSize: 15 * 1024 * 1024) { [weak self] (data, error) in
-                if let error = error {
-                    print("$$$$&&&&&$&$&$& \(error)")
-                } else {
-                    if let imageData = data {
-                        let image = UIImage(data: imageData)
-                        DispatchQueue.main.async {
-                            cell.myImage.image = image
-                        }
-                    }
-                }
-                
-            }
+        if let imageDownloadURL = self.arrayItems[indexPath.row].Image {
+            
+            let url = URL(string: imageDownloadURL)
+            cell.myImage.sd_setImage(with: url, placeholderImage: nil)
+            
         }
         
         
-    
-        
-        if arrayItems.count > 0 {
+        if self.arrayItems.count > 0 {
             cell.typeOfferTextField?.text = item.TypeOfOffer
             cell.typeSellingTextFiled?.text = item.TypeOfSelling
             cell.addressTextField?.text = item.Address
@@ -183,6 +211,10 @@ class OfficeMainShow: UIViewController, UIGestureRecognizerDelegate, UITableView
         
         return cell
     }
+
+    
+   
+    
     
 
     
@@ -218,6 +250,39 @@ class OfficeMainShow: UIViewController, UIGestureRecognizerDelegate, UITableView
 
 
     }
+    
+    
+    
+    
+    
+    
+    
+    //MARK: to show massage when table view empty
+    
+    // Add title for empty dataset
+    func title(forEmptyDataSet _: UIScrollView!) -> NSAttributedString! {
+        let str = "Welcome"
+        let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: UIFont.TextStyle.headline)]
+        return NSAttributedString(string: str, attributes: attrs)
+    }
+    
+    // Add description/subtitle on empty dataset
+    func description(forEmptyDataSet _: UIScrollView!) -> NSAttributedString! {
+        let str = "Tap the button below to add your first grokkleglob."
+        let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: UIFont.TextStyle.body)]
+        return NSAttributedString(string: str, attributes: attrs)
+    }
+    
+    //Add your image
+    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+        return UIImage(named: "map")
+    }
+
+
+    
+    
+    
+    
     
 
     
@@ -282,3 +347,10 @@ class OfficeMainShow: UIViewController, UIGestureRecognizerDelegate, UITableView
     
 
 }
+
+
+
+
+
+
+
