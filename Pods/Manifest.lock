@@ -213,6 +213,7 @@ DEPENDENCIES:
   - FirebaseUI/Phone (~> 5.0)
   - FirebaseUI/Storage (~> 5.0)
   - FirebaseUI/Twitter (~> 5.0)
+  - GoogleSignIn
   - Kingfisher (~> 5.0)
   - lottie-ios
   - SDWebImage
@@ -290,6 +291,6 @@ SPEC CHECKSUMS:
   TwitterCore: 8cbc9ad34d91c63a0035ea05bfbfc0d7ca72a28c
   TwitterKit: 5e4f41d70b9abdb41df5467f52d7aa2c0fd26ebb
 
-PODFILE CHECKSUM: 07de227f94b1073a46d17515d18f2a2eb268fee7
+PODFILE CHECKSUM: 05b891ad145a3fb2fb28e025aa09aa11bb6284f1
 
 COCOAPODS: 1.6.0
