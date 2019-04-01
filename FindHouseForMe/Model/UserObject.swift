@@ -105,7 +105,9 @@ class UserAPI {
     static func GetAllUsers (completion : @escaping (_ User : UserObject?) ->()) {
         
         Database.database().reference().child("Users").observeSingleEvent(of: .value) { (DataSnapshot) in
+            
             guard let Userdictionary = DataSnapshot.value as? [String : [String : AnyObject]] else { completion (nil) ; return }
+            
             for one in Userdictionary.values {
                 let user = UserObject.init(Dictionary: one)
                 completion(user)

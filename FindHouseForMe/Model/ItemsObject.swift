@@ -19,7 +19,9 @@ let itemId = itemRef.key
 
 
 
-class ItemObject {
+class ItemObject{
+    
+    
     
     
     // 1
@@ -103,6 +105,7 @@ class ItemObject {
         
     }
     
+    
     /*
      
      
@@ -123,7 +126,9 @@ class ItemObject {
 }
 
 
-class ItemModel {
+class ItemModel : Equatable{
+  
+    
     
     
     // 1
@@ -159,10 +164,33 @@ class ItemModel {
     }
     
     
+    static func == (lhs: ItemModel, rhs: ItemModel) -> Bool {
+        var isIt = true
+        isIt = (lhs.TypeOfOffer == "" || lhs.TypeOfOffer == rhs.TypeOfOffer)
+        && (lhs.TypeOfSelling == "" || lhs.TypeOfSelling == rhs.TypeOfSelling)
+        && (lhs.Address == "" || lhs.Address == rhs.Address)
+        && (lhs.NumberOfRoom == "" || lhs.NumberOfRoom == rhs.NumberOfRoom)
+        && (lhs.Price == "" || lhs.Price == rhs.Price)
+
+        return isIt
+
+        
+
+    
+    
+    
     
     
     
 }
+
+
+
+
+
+
+
+
 
 
 
@@ -229,4 +257,5 @@ class Cashe2 {
         for one in Items { if ID == one.ID {return one } }
         return nil }
 
+}
 }

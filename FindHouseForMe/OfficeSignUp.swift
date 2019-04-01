@@ -9,6 +9,11 @@
 import UIKit
 import Firebase
 
+
+
+var SaveNameOfOffice : String?
+
+
 class OfficeSignUp: UIViewController {
 
     
@@ -20,7 +25,6 @@ class OfficeSignUp: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.hideKeyboardWhenTappedAround()
 
     }

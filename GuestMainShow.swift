@@ -8,13 +8,14 @@
 import UIKit
 import Firebase
 import SDWebImage
+import DZNEmptyDataSet
 
-
-class GuestMainShow: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class GuestMainShow: UIViewController, UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource,  DZNEmptyDataSetDelegate {
     
     
     
     var arrayItems = [ItemModel]()
+    
 
     
     @IBOutlet weak var GuestTableView: UITableView!
@@ -23,6 +24,9 @@ class GuestMainShow: UIViewController, UITableViewDelegate, UITableViewDataSourc
         didSet {
             GuestTableView.delegate = self ;
             GuestTableView.dataSource = self ;
+            GuestTableView.emptyDataSetSource = self
+            GuestTableView.emptyDataSetDelegate = self
+            GuestTableView.tableFooterView = UIView()
         }
     }
     
@@ -85,7 +89,7 @@ class GuestMainShow: UIViewController, UITableViewDelegate, UITableViewDataSourc
                 //                    self.myTableView.reloadData()
                 //                }
             }else{
-                
+                print("======================== \n there is no return data because snapshot.childrenCount = 0 ")
             }
         })
         
@@ -131,6 +135,37 @@ class GuestMainShow: UIViewController, UITableViewDelegate, UITableViewDataSourc
         
         return cell
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    //MARK: to show massage when table view empty
+    
+    // Add title for empty dataset
+    func title(forEmptyDataSet _: UIScrollView!) -> NSAttributedString! {
+        let str = "Welcome"
+        let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: UIFont.TextStyle.headline)]
+        return NSAttributedString(string: str, attributes: attrs)
+    }
+    
+    // Add description/subtitle on empty dataset
+    func description(forEmptyDataSet _: UIScrollView!) -> NSAttributedString! {
+        let str = "Tap the button below to add your first grokkleglob."
+        let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: UIFont.TextStyle.body)]
+        return NSAttributedString(string: str, attributes: attrs)
+    }
+    
+    //Add your image
+    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+        return UIImage(named: "map")
+    }
+
+    
+    
     
     
     
