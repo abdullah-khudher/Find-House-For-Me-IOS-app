@@ -141,8 +141,8 @@ class GuestFilterByAll: UIViewController {
         }
         
         
-        print("\n\n%%%%%%%%%%%%%  count %%%%%%%%%%%%%")
-        print(arrayItemsTransfer.count)
+//        print("\n\n%%%%%%%%%%%%%  count %%%%%%%%%%%%%")
+//        print(arrayItemsTransfer.count)
         SelectTypeOfOffer = ""
         SelectTypeOfselling = ""
     
@@ -152,28 +152,10 @@ class GuestFilterByAll: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "showFilteredItems") {
-            let VC = segue.destination as! GuestFilteredItems
-             VC.arraySegueFiltered = arrayItemsTransfer
-        }
+        
+        let destVC : GuestFilteredItems = segue.destination as! GuestFilteredItems
+        destVC.arraySegueFiltered = arrayItemsTransfer
     }
-    
-//    if (SelectTypeOfselling != "" && SelectTypeOfselling == items.TypeOfSelling){
-//    if (addressTextField.text != "" && addressTextField.text == items.Address){
-//    if ( roomsTextField.text != "" && roomsTextField.text == items.NumberOfRoom){
-//    if (priceTextField.text != "" && priceTextField.text == items.Price){
-//
-//    }
-//    }
-//    }
-//    }
-    
-    
-//    if (SelectTypeOfOffer != "" && SelectTypeOfOffer == items.TypeOfOffer) ||
-//    (SelectTypeOfselling != "" && SelectTypeOfselling == items.TypeOfSelling) || (addressTextField.text != "" && addressTextField.text == items.Address) || ( roomsTextField.text != "" && roomsTextField.text == items.NumberOfRoom) || (priceTextField.text != "" && priceTextField.text == items.Price){
-//
-//    arrayItemsTransfer.append(items)
-//    }
     
     
     

@@ -44,13 +44,18 @@ class GuestFilteredItems: UIViewController , UITableViewDelegate, UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableViewFiltered.register(UINib(nibName: "OfficeCell", bundle: nil), forCellReuseIdentifier: "myCell")
+        tableViewFiltered.register(UINib(nibName: "FirstOfficeCell", bundle: nil), forCellReuseIdentifier: "myCell3")
     }
+    
+    
     
     override func viewDidAppear(_ animated: Bool) {
         print("))))))))))))))))))))(((((((((((((((((")
         print(arraySegueFiltered.count)
     }
+    
+    
+    
     
 
     
@@ -60,12 +65,12 @@ class GuestFilteredItems: UIViewController , UITableViewDelegate, UITableViewDat
         return arraySegueFiltered.count
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 692
+        return 130
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableViewFiltered.dequeueReusableCell(withIdentifier: "myCell") as! OfficeCell
+        let cell = tableViewFiltered.dequeueReusableCell(withIdentifier: "myCell3") as! FirstOfficeCell
         //        print("cell *********** \(self.arrayItems.count) \n\n\n")
         //        print("Auth.auth().currentUser?.uid>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\(Auth.auth().currentUser?.uid)")
         //        print("arrayItems[0].ID >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\(arrayItems[0].ID)")
@@ -77,17 +82,20 @@ class GuestFilteredItems: UIViewController , UITableViewDelegate, UITableViewDat
         if let imageDownloadURL = self.arraySegueFiltered[indexPath.row].Image {
             
             let url = URL(string: imageDownloadURL)
-            cell.myImage.sd_setImage(with: url, placeholderImage: nil)
+            let chat = UIImage(named: "bic")
+            cell.smallImageView.sd_setImage(with: url, placeholderImage: chat  )
             
         }
         
         
         if arraySegueFiltered.count > 0 {
-            cell.typeOfferTextField?.text = item.TypeOfOffer
-            cell.typeSellingTextFiled?.text = item.TypeOfSelling
-            cell.addressTextField?.text = item.Address
-            cell.numberRoomTextField?.text = item.NumberOfRoom
-            cell.priceTextField?.text = item.Price
+            cell.smallTextOffer?.text = item.TypeOfOffer
+            cell.smallTextSelling?.text = item.TypeOfSelling
+            cell.smallTextAddress?.text = item.Address
+            cell.smallTextRoom?.text = item.NumberOfRoom
+            cell.smallTextPrice?.text = item.Price
+            cell.smallPlace.text = "400 m2"
+            cell.smallBath.text = "2 baths"
         }
         
         return cell

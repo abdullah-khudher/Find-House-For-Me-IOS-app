@@ -150,12 +150,21 @@ class OfficeAddNew: UIViewController  {
     
 
     
-    @IBAction func AddYourNewButton(_ sender: UIButton) {
+    @IBAction func AddYourNewButton(_ sender: UIButton)  {
         
 
         
-        sender.setTitle("asd", for: .highlighted)
+//        sender.setTitle("asd", for: .highlighted)
 
+        if SelectTypeOfOffer == "" || SelectTypeOfselling == "" || AddressTextFeild.text == "" || NumberOfRoomsTextFeild.text == "" || PriceTextFeild.text == "" || image1 == nil {
+            print("!@#!@#!@#!@#!@#!@#!@#!@#!@#!@#!@#!@#")
+            
+            let alert = UIAlertController(title: "Warning!", message: "You must enter all your OFFER's information ", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Ok!", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        
         
         if let myUID = Auth.auth().currentUser?.uid {
             
@@ -184,10 +193,14 @@ class OfficeAddNew: UIViewController  {
                         
                         let myurl = url?.absoluteString
                         print("okay ###############################")
+                        
+                        
                         let newItem = ItemObject(TypeOfOffer: self.SelectTypeOfOffer, TypeOfSelling: self.SelectTypeOfselling, Address: self.AddressTextFeild.text, NumberOfRoom: self.NumberOfRoomsTextFeild.text, Price: self.PriceTextFeild.text, Image: myurl, ID: myUID,itemId : itemId)
                         
                         newItem.Upload()
                         
+                        
+                        self.dismiss(animated: true, completion: nil)
                         
                         
                         

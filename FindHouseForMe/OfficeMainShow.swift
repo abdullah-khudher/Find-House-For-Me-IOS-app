@@ -19,8 +19,8 @@ class OfficeMainShow: UIViewController, UIGestureRecognizerDelegate, DZNEmptyDat
     
     
     // to go to add Bar Button
-    @IBAction func addBarButton(_ sender: UIBarButtonItem) {
-        self.performSegue(withIdentifier: "AddNewButtonSegue", sender: nil)
+    @IBAction func BackBarButton(_ sender: UIBarButtonItem) {
+        self.performSegue(withIdentifier: "BackButtonSegue", sender: nil)
     }
     
     
@@ -62,6 +62,9 @@ class OfficeMainShow: UIViewController, UIGestureRecognizerDelegate, DZNEmptyDat
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
+        
         //MARK: animation part 2
         animationView.isHidden = true
 //        animationView.setAnimation(named: "PinJump")
@@ -84,7 +87,7 @@ class OfficeMainShow: UIViewController, UIGestureRecognizerDelegate, DZNEmptyDat
         
         
         // for table view
-        myTableView.register(UINib(nibName: "OfficeCell", bundle: nil), forCellReuseIdentifier: "myCell")
+        myTableView.register(UINib(nibName: "FirstOfficeCell", bundle: nil), forCellReuseIdentifier: "myCell5")
         
         
         
@@ -151,7 +154,32 @@ class OfficeMainShow: UIViewController, UIGestureRecognizerDelegate, DZNEmptyDat
     
         print("count down arrayItems ===================")
         print(arrayItems.count)
+        
+        
+        // 1
+        
+        // 2
+        let rightSearchBarButtonItem:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(OfficeMainShow.addTapped))
+        let rightAddBarButtonItem:UIBarButtonItem = UIBarButtonItem(title: "   ", style: UIBarButtonItem.Style.plain, target: self, action: #selector(OfficeMainShow.justSpaceBetEditAndAdd))
+        let rightSearchBarButtonItem2:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.edit, target: self, action: #selector(OfficeMainShow.editProfileTapped))
+        // 3
+        self.navigationItem.setRightBarButtonItems([rightSearchBarButtonItem,rightAddBarButtonItem,rightSearchBarButtonItem2], animated: true)
+        
+        
     }
+        // 4
+        @objc func editProfileTapped(sender:UIButton) {
+            self.performSegue(withIdentifier: "editProfileButtonSegue", sender: nil)
+        }
+        // 5
+        @objc func addTapped (sender:UIButton) {
+            self.performSegue(withIdentifier: "addButtonSegue", sender: nil)
+
+        }
+        @objc func justSpaceBetEditAndAdd (sender:UIButton) {
+            print(" just Space Between Edit And Add ")
+
+        }
     
     
    
@@ -179,12 +207,12 @@ class OfficeMainShow: UIViewController, UIGestureRecognizerDelegate, DZNEmptyDat
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 692
+        return 130
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = self.myTableView.dequeueReusableCell(withIdentifier: "myCell") as! OfficeCell
+        let cell = self.myTableView.dequeueReusableCell(withIdentifier: "myCell5") as! FirstOfficeCell
         //        print("cell *********** \(self.arrayItems.count) \n\n\n")
         //        print("Auth.auth().currentUser?.uid>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\(Auth.auth().currentUser?.uid)")
         //        print("arrayItems[0].ID >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\(arrayItems[0].ID)")
@@ -196,17 +224,20 @@ class OfficeMainShow: UIViewController, UIGestureRecognizerDelegate, DZNEmptyDat
         if let imageDownloadURL = self.arrayItems[indexPath.row].Image {
             
             let url = URL(string: imageDownloadURL)
-            cell.myImage.sd_setImage(with: url, placeholderImage: nil)
+            let chat = UIImage(named: "bic")
+            cell.smallImageView.sd_setImage(with: url, placeholderImage: chat  )
             
         }
         
         
-        if self.arrayItems.count > 0 {
-            cell.typeOfferTextField?.text = item.TypeOfOffer
-            cell.typeSellingTextFiled?.text = item.TypeOfSelling
-            cell.addressTextField?.text = item.Address
-            cell.numberRoomTextField?.text = item.NumberOfRoom
-            cell.priceTextField?.text = item.Price
+        if arrayItems.count > 0 {
+            cell.smallTextOffer?.text = item.TypeOfOffer
+            cell.smallTextSelling?.text = item.TypeOfSelling
+            cell.smallTextAddress?.text = item.Address
+            cell.smallTextRoom?.text = item.NumberOfRoom
+            cell.smallTextPrice?.text = item.Price
+            cell.smallPlace.text = "400 m2"
+            cell.smallBath.text = "2 baths"
         }
         
         return cell

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LrW-S0-JtS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PEN-Hg-tze">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--First Page-->
+        <!-- -->
         <scene sceneID="U5A-Tv-P7N">
             <objects>
                 <viewController id="vW3-gk-sDC" customClass="FirstPage" customModule="FindHouseForMe" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,13 +19,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="welcome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BF1-bQ-TqW">
-                                <rect key="frame" x="32" y="160" width="256" height="54"/>
+                                <rect key="frame" x="32" y="116" width="256" height="54"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="45"/>
                                 <color key="textColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Pog-4v-Qkl">
-                                <rect key="frame" x="16" y="334" width="288" height="166"/>
+                                <rect key="frame" x="16" y="290" width="288" height="166"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F08-bt-PIO">
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="75"/>
@@ -66,7 +66,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Jh-ZO-Amw"/>
                     </view>
-                    <navigationItem key="navigationItem" id="nkJ-uC-UEU"/>
+                    <navigationItem key="navigationItem" title=" " largeTitleDisplayMode="never" id="GaX-q3-wv0"/>
                     <connections>
                         <segue destination="zAr-4g-fy2" kind="show" identifier="asAGuest" id="9q2-eC-ns8"/>
                         <segue destination="GlV-OV-Yg7" kind="show" identifier="asAnOffice" id="rgT-vB-OGa"/>
@@ -74,7 +74,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z2T-db-MmF" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1352" y="-108"/>
+            <point key="canvasLocation" x="-3626" y="-397"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6DO-97-iR2">
@@ -90,7 +90,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zbD-By-0SK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2443" y="-99"/>
+            <point key="canvasLocation" x="-4718" y="-390"/>
         </scene>
         <!--Guest Main Show-->
         <scene sceneID="9IR-TZ-WYx">
@@ -124,7 +124,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dL5-Gu-eMt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1605" y="-3223"/>
+            <point key="canvasLocation" x="-3668" y="-4183"/>
         </scene>
         <!--Office Sign Up FirebaseUI-->
         <scene sceneID="7LT-Z7-yoS">
@@ -146,7 +146,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dIK-f2-uYG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-461" y="1318"/>
+            <point key="canvasLocation" x="-1549" y="1514"/>
         </scene>
         <!--Office Sign Up-->
         <scene sceneID="UXS-re-AYD">
@@ -157,7 +157,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="n46-vA-nIx">
-                                <rect key="frame" x="16" y="80" width="288" height="387.5"/>
+                                <rect key="frame" x="16" y="36" width="288" height="387.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="6KK-7m-7cO">
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="61.5"/>
@@ -338,7 +338,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TfO-rF-Z00" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="540" y="1803"/>
+            <point key="canvasLocation" x="-409" y="2075"/>
         </scene>
         <!--Office Log In-->
         <scene sceneID="orT-Rd-hNa">
@@ -373,7 +373,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="DtG-ed-9cx">
-                                <rect key="frame" x="16" y="108" width="288" height="143"/>
+                                <rect key="frame" x="16" y="64" width="288" height="143"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="HAn-QD-h0t">
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="61.5"/>
@@ -474,7 +474,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M0P-Ke-waN" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="540" y="829"/>
+            <point key="canvasLocation" x="-409" y="1194"/>
         </scene>
         <!--Home-->
         <scene sceneID="EPe-06-mvy">
@@ -508,9 +508,9 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Home" id="Y4R-cp-g4Z">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="agx-Ru-DCL">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="apH-Aa-cNf">
                             <connections>
-                                <action selector="addBarButton:" destination="V2g-Ay-XDP" id="DpD-qC-kM1"/>
+                                <action selector="BackBarButton:" destination="V2g-Ay-XDP" id="hsH-ll-3nw"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -518,13 +518,39 @@
                     <connections>
                         <outlet property="animationView" destination="J2M-rN-C7h" id="Uxn-ta-2Ls"/>
                         <outlet property="myTableView" destination="bKK-cU-0Fb" id="CAW-C2-riD"/>
-                        <segue destination="9P8-ZD-JbG" kind="show" identifier="AddNewButtonSegue" id="sju-3X-pXw"/>
+                        <segue destination="9P8-ZD-JbG" kind="show" identifier="addButtonSegue" id="sju-3X-pXw"/>
                         <segue destination="uSW-2l-ceW" kind="show" identifier="EditButtonSegue" id="K9h-cp-12b"/>
+                        <segue destination="vW3-gk-sDC" kind="show" identifier="BackButtonSegue" id="Dkn-Cq-G8r"/>
+                        <segue destination="7QD-va-F7b" kind="show" identifier="editProfileButtonSegue" id="k7e-Jb-XR6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uE4-N2-MFn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4020" y="1214.7887323943662"/>
+            <point key="canvasLocation" x="5156" y="-330"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="hvS-9I-ieg">
+            <objects>
+                <viewController id="7QD-va-F7b" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jB0-u3-pRc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Edit    +    sign out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dLj-jL-MIr">
+                                <rect key="frame" x="92" y="271" width="165" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="PLm-zX-VpW"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9TV-On-GAE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6253" y="1406"/>
         </scene>
         <!--Office Add New-->
         <scene sceneID="spD-sN-Oyx">
@@ -661,7 +687,7 @@
                                                     </stackView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z8c-i3-iNf">
                                                         <rect key="frame" x="0.0" y="349" width="304" height="45"/>
-                                                        <color key="backgroundColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" red="0.87662595180000003" green="0.36695209070000001" blue="0.089442886580000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="45" id="UdO-6C-0L4"/>
                                                         </constraints>
@@ -744,7 +770,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dXV-nA-tMT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5483" y="202"/>
+            <point key="canvasLocation" x="5158" y="1634"/>
         </scene>
         <!--Office Edit-->
         <scene sceneID="cG9-9U-HFR">
@@ -881,7 +907,7 @@
                                                     </stackView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JI2-jf-0JB">
                                                         <rect key="frame" x="0.0" y="349" width="304" height="45"/>
-                                                        <color key="backgroundColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" red="0.87662595180000003" green="0.36695209070000001" blue="0.089442886580000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="45" id="Ky1-15-Fne"/>
                                                         </constraints>
@@ -965,7 +991,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cee-pb-muv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5483" y="1939"/>
+            <point key="canvasLocation" x="4054" y="1635"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tEm-N7-krT">
@@ -983,7 +1009,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RaO-oZ-vFm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3022.5" y="1214.7887323943662"/>
+            <point key="canvasLocation" x="5154" y="-1207"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="5Wl-w7-GrL">
@@ -1003,7 +1029,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bzM-SK-OYu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-218" y="-1704"/>
+            <point key="canvasLocation" x="-1358" y="-2318"/>
         </scene>
         <!--Guest Filter By Name Of Office-->
         <scene sceneID="czP-Cb-VhH">
@@ -1014,7 +1040,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vYR-OB-jDx">
-                                <rect key="frame" x="16" y="161" width="288" height="50"/>
+                                <rect key="frame" x="16" y="117" width="288" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5eh-id-BTo">
                                         <rect key="frame" x="0.0" y="0.0" width="140" height="50"/>
@@ -1048,7 +1074,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4jH-Ih-a4w">
-                                <rect key="frame" x="16" y="80" width="288" height="65"/>
+                                <rect key="frame" x="16" y="36" width="288" height="65"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search by the Name of Office" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y5T-aV-SGF">
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="24"/>
@@ -1076,7 +1102,7 @@
                                 </subviews>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="K8a-Fv-wHN">
-                                <rect key="frame" x="0.0" y="227" width="320" height="292"/>
+                                <rect key="frame" x="0.0" y="183" width="320" height="336"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
@@ -1103,7 +1129,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LOv-lm-fdV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1605" y="-2176"/>
+            <point key="canvasLocation" x="-1358" y="-4183"/>
         </scene>
         <!--Guest Filter By All-->
         <scene sceneID="kRt-Bi-Tc4">
@@ -1321,7 +1347,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qtA-qT-QeO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1605" y="-925"/>
+            <point key="canvasLocation" x="369" y="-3955"/>
         </scene>
         <!--Guest Filtered Items-->
         <scene sceneID="6TA-xl-CRo">
@@ -1332,7 +1358,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WFr-PG-BPj">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
@@ -1351,10 +1377,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LDb-KF-3eN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2616" y="-926"/>
+            <point key="canvasLocation" x="368" y="-5299"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="2oP-r2-PlF"/>
+        <segue reference="8I6-6X-Jp2"/>
+        <segue reference="Dkn-Cq-G8r"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -13,36 +13,19 @@ import GoogleSignIn
 
 
 
-class OfficeSignUpFirebaseUI: UIViewController, GIDSignInUIDelegate {
+class OfficeSignUpFirebaseUI: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        GIDSignIn.sharedInstance().uiDelegate = self
-        GIDSignIn.sharedInstance().signIn()
-        
+
     }
+
     
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
-        // ...
-        if error != nil {
-            // ...
-            return
-        }
-        
-        guard let authentication = user.authentication else { return }
-        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
-                                                       accessToken: authentication.accessToken)
-        // ...
-        Auth.auth().signInAndRetrieveData(with: credential) { (authResult, error) in
-            if error != nil {
-                // ...
-                return
-            }
-            // User is signed in
-            // ...
-        }
-    }
+    
+    
+    
+    
 
     /*
     // MARK: - Navigation

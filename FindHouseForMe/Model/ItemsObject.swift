@@ -126,15 +126,8 @@ class ItemObject{
 }
 
 
-class ItemModel : Equatable{
+class ItemModel : Equatable {
   
-    
-    
-    
-    // 1
-    ///////////////////////////////////////////////////
-    //// Variables
-    ////////////////////////////////////////////////////
     var TypeOfOffer : String?
     var TypeOfSelling : String?
     var Address : String?
@@ -144,12 +137,7 @@ class ItemModel : Equatable{
     var ID : String?
     var itemId : String?
 
-    
-    
-    //    // 2
-    //    ///////////////////////////////////////////////////
-    //    //// Initializers
-    //    ////////////////////////////////////////////////////
+
     init(TypeOfOffer : String? , TypeOfSelling : String?, Address : String?, NumberOfRoom : String? , Price : String?, Image : String?, ID : String?, itemId : String?  )
     {
         self.TypeOfOffer = TypeOfOffer
@@ -160,9 +148,7 @@ class ItemModel : Equatable{
         self.Image = Image
         self.ID = ID
         self.itemId = itemId
-
     }
-    
     
     static func == (lhs: ItemModel, rhs: ItemModel) -> Bool {
         var isIt = true
@@ -173,20 +159,11 @@ class ItemModel : Equatable{
         && (lhs.Price == "" || lhs.Price == rhs.Price)
 
         return isIt
+    }
 
-        
 
-    
-    
-    
-    
-    
-    
+
 }
-
-
-
-
 
 
 
@@ -258,4 +235,4 @@ class Cashe2 {
         return nil }
 
 }
-}
+

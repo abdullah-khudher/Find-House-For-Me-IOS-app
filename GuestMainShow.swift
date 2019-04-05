@@ -38,7 +38,7 @@ class GuestMainShow: UIViewController, UITableViewDelegate, UITableViewDataSourc
         super.viewDidLoad()
 
         // for table view
-        GuestTableView.register(UINib(nibName: "OfficeCell", bundle: nil), forCellReuseIdentifier: "myCell")
+        GuestTableView.register(UINib(nibName: "FirstOfficeCell", bundle: nil), forCellReuseIdentifier: "myCell2")
         
         
         
@@ -103,12 +103,12 @@ class GuestMainShow: UIViewController, UITableViewDelegate, UITableViewDataSourc
         return arrayItems.count
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 692
+        return 130
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = GuestTableView.dequeueReusableCell(withIdentifier: "myCell") as! OfficeCell
+        let cell = GuestTableView.dequeueReusableCell(withIdentifier: "myCell2") as! FirstOfficeCell
         //        print("cell *********** \(self.arrayItems.count) \n\n\n")
         //        print("Auth.auth().currentUser?.uid>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\(Auth.auth().currentUser?.uid)")
         //        print("arrayItems[0].ID >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\(arrayItems[0].ID)")
@@ -118,19 +118,22 @@ class GuestMainShow: UIViewController, UITableViewDelegate, UITableViewDataSourc
         
         //MARK: download image
         if let imageDownloadURL = self.arrayItems[indexPath.row].Image {
-            
+
             let url = URL(string: imageDownloadURL)
-            cell.myImage.sd_setImage(with: url, placeholderImage: nil)
+            let chat = UIImage(named: "bic")
+            cell.smallImageView.sd_setImage(with: url, placeholderImage: chat  )
             
         }
         
   
         if arrayItems.count > 0 {
-            cell.typeOfferTextField?.text = item.TypeOfOffer
-            cell.typeSellingTextFiled?.text = item.TypeOfSelling
-            cell.addressTextField?.text = item.Address
-            cell.numberRoomTextField?.text = item.NumberOfRoom
-            cell.priceTextField?.text = item.Price
+            cell.smallTextOffer?.text = item.TypeOfOffer
+            cell.smallTextSelling?.text = item.TypeOfSelling
+            cell.smallTextAddress?.text = item.Address
+            cell.smallTextRoom?.text = item.NumberOfRoom
+            cell.smallTextPrice?.text = item.Price
+            cell.smallPlace.text = "400 m2"
+            cell.smallBath.text = "2 baths"
         }
         
         return cell

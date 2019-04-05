@@ -33,14 +33,14 @@ class OfficeSignUp: UIViewController {
     @IBAction func signUpButton(_ sender: UIButton) {
         
         if passwordTextField.text != repasswordTextField.text {
-            print(" Error : must write your password correctly in Re-passowrd text ")
+            print(" \n Error : must write your password correctly in Re-passowrd text ")
             return
         }
         if let myEnterEmail = emailTextField.text , let myEnterpassword = passwordTextField.text{
             Auth.auth().createUser(withEmail: (myEnterEmail), password: (myEnterpassword)) { (auth, error) in
                 if error != nil {
                     //something bad happning
-                    print("ERROR : \(String(describing: error)) ")
+                    print("\nERROR : \(String(describing: error)) ")
                 }else{
 //                    user registered successfully
                     if let myUID = Auth.auth().currentUser?.uid {

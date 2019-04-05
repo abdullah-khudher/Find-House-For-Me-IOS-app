@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:FirstOfficeCell.swift">
+   </FileRef>
+   <FileRef
+      location = "group:FirstOfficeCell.xib">
+   </FileRef>
+   <FileRef
       location = "group:FindHouseForMe.xcodeproj">
    </FileRef>
    <FileRef

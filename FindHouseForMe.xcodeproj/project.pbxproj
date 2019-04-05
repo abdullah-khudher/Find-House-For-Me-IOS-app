@@ -17,6 +17,9 @@
 		B6139F9E224517D500365795 /* OfficeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6139F9C224517D500365795 /* OfficeCell.xib */; };
 		B6139FA42245E22200365795 /* ThreadClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6139FA32245E22200365795 /* ThreadClass.swift */; };
 		B6139FA8224887B700365795 /* GuestMainShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6139FA7224887B600365795 /* GuestMainShow.swift */; };
+		B630C49822562963002FC0B6 /* GuestFilteredItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = B630C49722562963002FC0B6 /* GuestFilteredItems.swift */; };
+		B630C49F22562F19002FC0B6 /* FirstOfficeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B630C49D22562F19002FC0B6 /* FirstOfficeCell.swift */; };
+		B630C4A022564942002FC0B6 /* FirstOfficeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B630C49E22562F19002FC0B6 /* FirstOfficeCell.xib */; };
 		B65035032249C26800FC4569 /* testDownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65035022249C26800FC4569 /* testDownloadImage.swift */; };
 		B6503509224B192100FC4569 /* CheckInternet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6503508224B192100FC4569 /* CheckInternet.swift */; };
 		B650350D224BB28300FC4569 /* PinJump.json in Resources */ = {isa = PBXBuildFile; fileRef = B650350A224BB28200FC4569 /* PinJump.json */; };
@@ -24,7 +27,6 @@
 		B650350F224BB28300FC4569 /* buttonOff.json in Resources */ = {isa = PBXBuildFile; fileRef = B650350C224BB28300FC4569 /* buttonOff.json */; };
 		B6503514224E12DD00FC4569 /* GuestFilterByNameOfOffice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6503513224E12DD00FC4569 /* GuestFilterByNameOfOffice.swift */; };
 		B6503516224F5B5D00FC4569 /* GuestFilterByAll.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6503515224F5B5D00FC4569 /* GuestFilterByAll.swift */; };
-		B65035182250357300FC4569 /* GuestFilteredItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65035172250357300FC4569 /* GuestFilteredItems.swift */; };
 		B650351C225237CF00FC4569 /* OfficeSignUpFirebaseUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B650351B225237CF00FC4569 /* OfficeSignUpFirebaseUI.swift */; };
 		B66A57C522444F3A00FAFD94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66A57C422444F3A00FAFD94 /* AppDelegate.swift */; };
 		B66A57CA22444F3A00FAFD94 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B66A57C822444F3A00FAFD94 /* Main.storyboard */; };
@@ -51,6 +53,9 @@
 		B6139F9C224517D500365795 /* OfficeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OfficeCell.xib; sourceTree = "<group>"; };
 		B6139FA32245E22200365795 /* ThreadClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ThreadClass.swift; path = "/Users/abdjacksi/Desktop/find-house-for-me-project/FindHouseForMe/FindHouseForMe/Model/ThreadClass.swift"; sourceTree = "<absolute>"; };
 		B6139FA7224887B600365795 /* GuestMainShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GuestMainShow.swift; path = ../GuestMainShow.swift; sourceTree = "<group>"; };
+		B630C49722562963002FC0B6 /* GuestFilteredItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuestFilteredItems.swift; sourceTree = "<group>"; };
+		B630C49D22562F19002FC0B6 /* FirstOfficeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FirstOfficeCell.swift; path = ../../FirstOfficeCell.swift; sourceTree = "<group>"; };
+		B630C49E22562F19002FC0B6 /* FirstOfficeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FirstOfficeCell.xib; path = ../../FirstOfficeCell.xib; sourceTree = "<group>"; };
 		B65035022249C26800FC4569 /* testDownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testDownloadImage.swift; sourceTree = "<group>"; };
 		B6503508224B192100FC4569 /* CheckInternet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInternet.swift; sourceTree = "<group>"; };
 		B650350A224BB28200FC4569 /* PinJump.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PinJump.json; sourceTree = "<group>"; };
@@ -58,7 +63,6 @@
 		B650350C224BB28300FC4569 /* buttonOff.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = buttonOff.json; sourceTree = "<group>"; };
 		B6503513224E12DD00FC4569 /* GuestFilterByNameOfOffice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestFilterByNameOfOffice.swift; sourceTree = "<group>"; };
 		B6503515224F5B5D00FC4569 /* GuestFilterByAll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestFilterByAll.swift; sourceTree = "<group>"; };
-		B65035172250357300FC4569 /* GuestFilteredItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestFilteredItems.swift; sourceTree = "<group>"; };
 		B650351B225237CF00FC4569 /* OfficeSignUpFirebaseUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficeSignUpFirebaseUI.swift; sourceTree = "<group>"; };
 		B66A57C122444F3A00FAFD94 /* FindHouseForMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindHouseForMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B66A57C422444F3A00FAFD94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +112,8 @@
 		B6139F982245176800365795 /* cells */ = {
 			isa = PBXGroup;
 			children = (
+				B630C49D22562F19002FC0B6 /* FirstOfficeCell.swift */,
+				B630C49E22562F19002FC0B6 /* FirstOfficeCell.xib */,
 				B6139F9B224517D500365795 /* OfficeCell.swift */,
 				B6139F9C224517D500365795 /* OfficeCell.xib */,
 			);
@@ -157,7 +163,7 @@
 				B6139FA7224887B600365795 /* GuestMainShow.swift */,
 				B6503513224E12DD00FC4569 /* GuestFilterByNameOfOffice.swift */,
 				B6503515224F5B5D00FC4569 /* GuestFilterByAll.swift */,
-				B65035172250357300FC4569 /* GuestFilteredItems.swift */,
+				B630C49722562963002FC0B6 /* GuestFilteredItems.swift */,
 				B6139F8F2244649200365795 /* Model */,
 				B6503510224BB29B00FC4569 /* anmation */,
 				B6139F982245176800365795 /* cells */,
@@ -251,6 +257,7 @@
 				B66A57CC22444F3B00FAFD94 /* Assets.xcassets in Resources */,
 				B650350E224BB28300FC4569 /* buttonOn.json in Resources */,
 				B66A57DA224457F700FAFD94 /* GoogleService-Info.plist in Resources */,
+				B630C4A022564942002FC0B6 /* FirstOfficeCell.xib in Resources */,
 				B6139F9E224517D500365795 /* OfficeCell.xib in Resources */,
 				B650350F224BB28300FC4569 /* buttonOff.json in Resources */,
 				B66A57CA22444F3A00FAFD94 /* Main.storyboard in Resources */,
@@ -398,12 +405,13 @@
 				B6139F91224468E100365795 /* OfficeMainShow.swift in Sources */,
 				B6139FA42245E22200365795 /* ThreadClass.swift in Sources */,
 				B66A57D82244577000FAFD94 /* FirstPage.swift in Sources */,
+				B630C49822562963002FC0B6 /* GuestFilteredItems.swift in Sources */,
 				B66A57DC22445AB800FAFD94 /* OfficeLogIn.swift in Sources */,
 				B6139F93224468E800365795 /* OfficeAddNew.swift in Sources */,
 				B6139F8E2244648700365795 /* ItemsObject.swift in Sources */,
+				B630C49F22562F19002FC0B6 /* FirstOfficeCell.swift in Sources */,
 				B6139F8C2244647E00365795 /* UserObject.swift in Sources */,
 				B66A57DE22445B3D00FAFD94 /* OfficeSignUp.swift in Sources */,
-				B65035182250357300FC4569 /* GuestFilteredItems.swift in Sources */,
 				B65035032249C26800FC4569 /* testDownloadImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

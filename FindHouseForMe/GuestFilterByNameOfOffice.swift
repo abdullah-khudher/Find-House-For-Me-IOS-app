@@ -125,7 +125,7 @@ class GuestFilterByNameOfOffice: UIViewController, UITableViewDelegate, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        GuestTabelViewNameSearch.register(UINib(nibName: "OfficeCell", bundle: nil), forCellReuseIdentifier: "myCell")
+        GuestTabelViewNameSearch.register(UINib(nibName: "FirstOfficeCell", bundle: nil), forCellReuseIdentifier: "myCell4")
         
         
     }
@@ -142,12 +142,12 @@ class GuestFilterByNameOfOffice: UIViewController, UITableViewDelegate, UITableV
         return arrayItems3.count
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 692
+        return 130
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = GuestTabelViewNameSearch.dequeueReusableCell(withIdentifier: "myCell") as! OfficeCell
+        let cell = GuestTabelViewNameSearch.dequeueReusableCell(withIdentifier: "myCell4") as! FirstOfficeCell
         //        print("cell *********** \(self.arrayItems.count) \n\n\n")
         //        print("Auth.auth().currentUser?.uid>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\(Auth.auth().currentUser?.uid)")
         //        print("arrayItems[0].ID >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\(arrayItems[0].ID)")
@@ -159,17 +159,20 @@ class GuestFilterByNameOfOffice: UIViewController, UITableViewDelegate, UITableV
         if let imageDownloadURL = self.arrayItems3[indexPath.row].Image {
             
             let url = URL(string: imageDownloadURL)
-            cell.myImage.sd_setImage(with: url, placeholderImage: nil)
+            let chat = UIImage(named: "bic")
+            cell.smallImageView.sd_setImage(with: url, placeholderImage: chat  )
             
         }
         
         
         if arrayItems3.count > 0 {
-            cell.typeOfferTextField?.text = item.TypeOfOffer
-            cell.typeSellingTextFiled?.text = item.TypeOfSelling
-            cell.addressTextField?.text = item.Address
-            cell.numberRoomTextField?.text = item.NumberOfRoom
-            cell.priceTextField?.text = item.Price
+            cell.smallTextOffer?.text = item.TypeOfOffer
+            cell.smallTextSelling?.text = item.TypeOfSelling
+            cell.smallTextAddress?.text = item.Address
+            cell.smallTextRoom?.text = item.NumberOfRoom
+            cell.smallTextPrice?.text = item.Price
+            cell.smallPlace.text = "400 m2"
+            cell.smallBath.text = "2 baths"
         }
         
         return cell

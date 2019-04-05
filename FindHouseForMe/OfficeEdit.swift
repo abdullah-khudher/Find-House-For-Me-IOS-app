@@ -99,7 +99,7 @@ class OfficeEdit: UIViewController {
             let imageStorageRef = Storage.storage().reference(forURL: imageDownloadURL)
             imageStorageRef.getData(maxSize: 2 * 1024 * 1024) { [weak self] (data, error) in
                 if let error = error {
-                    print("$$$$&&&#####################&&$&$&$& \(error)")
+                    print("$$$$&&&$%$%$%$%$%$%&&$&$&$& \(error)")
                 } else {
                     if let imageData = data {
                         let image = UIImage(data: imageData)
@@ -193,7 +193,14 @@ class OfficeEdit: UIViewController {
     @IBAction func AddYourNewButton(_ button: UIButton) {
 
 
-       
+        if SelectTypeOfOffer2 == "" || SelectTypeOfselling2 == "" || AddressTextFeild.text == "" || NumberOfRoomsTextFeild.text == "" || PriceTextFeild.text == "" || image1 == nil {
+            print("!@#!@#!@#!@#!@#!@#!@#!@#!@#!@#!@#!@#")
+            
+            let alert = UIAlertController(title: "Warning!", message: "You must enter all your OFFER's information ", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Ok!", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
         
         
         
@@ -245,7 +252,8 @@ class OfficeEdit: UIViewController {
                                     let newItem = ItemObject(TypeOfOffer: self.SelectTypeOfOffer2, TypeOfSelling: self.SelectTypeOfselling2, Address: self.AddressTextFeild.text, NumberOfRoom: self.NumberOfRoomsTextFeild.text, Price: self.PriceTextFeild.text, Image: myurl2, ID: self.itemEdating?.ID, itemId : editingItemId)
                                     
                                     newItem.Upload()
-                                    
+                                    self.dismiss(animated: true, completion: nil)
+
                                     
                                 }
                             }
@@ -257,7 +265,7 @@ class OfficeEdit: UIViewController {
             
             
                         
-                print("><><<><><><><><><>>><><><><<>>>>>>><><><><<><><><><>")
+                print("><><<><><><><><><>>><><>++++++++++++++++++++<<>>>>>>><><><><<><><><><>")
                 
                 if self.SelectTypeOfOffer2.isEmpty{
                     self.SelectTypeOfOffer2 = (self.itemEdating?.TypeOfOffer)!
@@ -272,7 +280,8 @@ class OfficeEdit: UIViewController {
                 let newItem = ItemObject(TypeOfOffer: self.SelectTypeOfOffer2, TypeOfSelling: self.SelectTypeOfselling2, Address: self.AddressTextFeild.text, NumberOfRoom: self.NumberOfRoomsTextFeild.text, Price: self.PriceTextFeild.text, Image: itemEdating?.Image, ID: itemEdating?.ID, itemId : editingItemId)
             
                 newItem.Upload()
-                
+            self.dismiss(animated: true, completion: nil)
+
                 
 
             }
