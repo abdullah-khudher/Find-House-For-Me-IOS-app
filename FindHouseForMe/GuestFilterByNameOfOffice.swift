@@ -74,13 +74,16 @@ class GuestFilterByNameOfOffice: UIViewController, UITableViewDelegate, UITableV
                                         let TypeOfSelling  = itemObject?["TypeOfSelling"]
                                         let Address = itemObject?["Address"]
                                         let NumberOfRoom = itemObject?["NumberOfRoom"]
+                                        let NumberOfBath = itemObject?["NumberOfBath"]
+                                        let HouseArea = itemObject?["HouseArea"]
                                         let Price = itemObject?["Price"]
                                         let Image = itemObject?["Image"]
                                         let itemId = itemObject?["itemId"]
                                         
                                         if myConnectionId == ID {
                                             //creating artist object with model and fetched values
-                                            let item = ItemModel(TypeOfOffer: TypeOfOffer as! String?, TypeOfSelling: TypeOfSelling as! String?, Address: Address as! String?, NumberOfRoom: NumberOfRoom as! String?, Price: Price as! String?, Image: Image as! String?, ID: ID , itemId:itemId as! String? )
+                                            let item = ItemModel(TypeOfOffer: TypeOfOffer as! String?, TypeOfSelling: TypeOfSelling as! String?, Address: Address as! String?, NumberOfRoom: NumberOfRoom as! String? ,NumberOfBath: NumberOfBath as! String? , HouseArea: HouseArea as! String? ,Price: Price as! String?, Image: Image as! String?, ID: ID , itemId:itemId as! String? )
+                                            
                                             
 
                                             self.arrayItems3.append(item)

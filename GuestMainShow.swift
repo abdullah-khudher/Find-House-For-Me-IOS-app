@@ -61,6 +61,8 @@ class GuestMainShow: UIViewController, UITableViewDelegate, UITableViewDataSourc
                     let TypeOfSelling  = itemObject?["TypeOfSelling"]
                     let Address = itemObject?["Address"]
                     let NumberOfRoom = itemObject?["NumberOfRoom"]
+                    let NumberOfBath = itemObject?["NumberOfBath"]
+                    let HouseArea = itemObject?["HouseArea"]
                     let Price = itemObject?["Price"]
                     let Image = itemObject?["Image"]
                     let ID = itemObject?["ID"]
@@ -69,7 +71,7 @@ class GuestMainShow: UIViewController, UITableViewDelegate, UITableViewDataSourc
                     
                     
                     //creating artist object with model and fetched values
-                    let item = ItemModel(TypeOfOffer: TypeOfOffer as! String?, TypeOfSelling: TypeOfSelling as! String?, Address: Address as! String?, NumberOfRoom: NumberOfRoom as! String?, Price: Price as! String?, Image: Image as! String?, ID: ID as! String?, itemId:itemId as! String? )
+                    let item = ItemModel(TypeOfOffer: TypeOfOffer as! String?, TypeOfSelling: TypeOfSelling as! String?, Address: Address as! String?, NumberOfRoom: NumberOfRoom as! String? ,NumberOfBath: NumberOfBath as! String? , HouseArea: HouseArea as! String? ,Price: Price as! String?, Image: Image as! String?, ID: ID as! String?, itemId:itemId as! String? )
                     
                     
                     //appending it to list
@@ -132,8 +134,8 @@ class GuestMainShow: UIViewController, UITableViewDelegate, UITableViewDataSourc
             cell.smallTextAddress?.text = item.Address
             cell.smallTextRoom?.text = item.NumberOfRoom
             cell.smallTextPrice?.text = item.Price
-            cell.smallPlace.text = "400 m2"
-            cell.smallBath.text = "2 baths"
+            cell.smallPlace?.text = item.HouseArea
+            cell.smallBath?.text = item.NumberOfBath
         }
         
         return cell

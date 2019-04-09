@@ -94,8 +94,8 @@ class GuestFilteredItems: UIViewController , UITableViewDelegate, UITableViewDat
             cell.smallTextAddress?.text = item.Address
             cell.smallTextRoom?.text = item.NumberOfRoom
             cell.smallTextPrice?.text = item.Price
-            cell.smallPlace.text = "400 m2"
-            cell.smallBath.text = "2 baths"
+            cell.smallPlace?.text = item.HouseArea
+            cell.smallBath?.text = item.NumberOfBath
         }
         
         return cell

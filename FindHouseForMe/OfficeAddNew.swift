@@ -17,6 +17,8 @@ class OfficeAddNew: UIViewController  {
     
     @IBOutlet weak var AddressTextFeild: UITextField!
     @IBOutlet weak var NumberOfRoomsTextFeild: UITextField!
+    @IBOutlet weak var NumberOFBathsTextField: UITextField!
+    @IBOutlet weak var HouseAreaTextField: UITextField!
     @IBOutlet weak var PriceTextFeild: UITextField!
 
     @IBOutlet weak var TypeOfOfferSeg: UISegmentedControl!
@@ -156,7 +158,8 @@ class OfficeAddNew: UIViewController  {
         
 //        sender.setTitle("asd", for: .highlighted)
 
-        if SelectTypeOfOffer == "" || SelectTypeOfselling == "" || AddressTextFeild.text == "" || NumberOfRoomsTextFeild.text == "" || PriceTextFeild.text == "" || image1 == nil {
+        if SelectTypeOfOffer == "" || SelectTypeOfselling == "" || AddressTextFeild.text == "" || NumberOfRoomsTextFeild.text == "" ||
+            NumberOFBathsTextField.text == "" || HouseAreaTextField.text == "" || PriceTextFeild.text == "" || image1 == nil {
             print("!@#!@#!@#!@#!@#!@#!@#!@#!@#!@#!@#!@#")
             
             let alert = UIAlertController(title: "Warning!", message: "You must enter all your OFFER's information ", preferredStyle: UIAlertController.Style.alert)
@@ -195,7 +198,7 @@ class OfficeAddNew: UIViewController  {
                         print("okay ###############################")
                         
                         
-                        let newItem = ItemObject(TypeOfOffer: self.SelectTypeOfOffer, TypeOfSelling: self.SelectTypeOfselling, Address: self.AddressTextFeild.text, NumberOfRoom: self.NumberOfRoomsTextFeild.text, Price: self.PriceTextFeild.text, Image: myurl, ID: myUID,itemId : itemId)
+                       let newItem = ItemObject(TypeOfOffer: self.SelectTypeOfOffer , TypeOfSelling: self.SelectTypeOfselling , Address: self.AddressTextFeild.text , NumberOfRoom: self.NumberOfRoomsTextFeild.text , NumberOfBath : self.NumberOFBathsTextField.text , HouseArea : self.HouseAreaTextField.text , Price: self.PriceTextFeild.text, Image: myurl, ID: myUID,itemId : itemId)
                         
                         newItem.Upload()
                         

@@ -88,6 +88,8 @@ class testDownloadImage: UIViewController {
                 let TypeOfSelling  = itemObject?["TypeOfSelling"]
                 let Address = itemObject?["Address"]
                 let NumberOfRoom = itemObject?["NumberOfRoom"]
+                let NumberOfBath = itemObject?["NumberOfBath"]
+                let HouseArea = itemObject?["HouseArea"]
                 let Price = itemObject?["Price"]
                 let Image = itemObject?["Image"]
                 let ID = itemObject?["ID"]
@@ -96,7 +98,7 @@ class testDownloadImage: UIViewController {
                 
                 
                 //creating artist object with model and fetched values
-                let item = ItemModel(TypeOfOffer: TypeOfOffer as! String?, TypeOfSelling: TypeOfSelling as! String?, Address: Address as! String?, NumberOfRoom: NumberOfRoom as! String?, Price: Price as! String?, Image: Image as! String?, ID: ID as! String?, itemId:itemId as! String? )
+                let item = ItemModel(TypeOfOffer: TypeOfOffer as! String?, TypeOfSelling: TypeOfSelling as! String?, Address: Address as! String?, NumberOfRoom: NumberOfRoom as! String? ,NumberOfBath: NumberOfBath as! String? , HouseArea: HouseArea as! String? ,Price: Price as! String?, Image: Image as! String?, ID: ID as! String?, itemId:itemId as! String? )
                 
                 
                 arrayItems2.insert(item, at: 0)

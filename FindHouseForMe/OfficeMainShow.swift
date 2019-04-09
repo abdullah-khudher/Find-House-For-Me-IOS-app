@@ -18,10 +18,10 @@ class OfficeMainShow: UIViewController, UIGestureRecognizerDelegate, DZNEmptyDat
     
     
     
-    // to go to add Bar Button
-    @IBAction func BackBarButton(_ sender: UIBarButtonItem) {
-        self.performSegue(withIdentifier: "BackButtonSegue", sender: nil)
-    }
+//    // to go to add Bar Button
+//    @IBAction func BackBarButton(_ sender: UIBarButtonItem) {
+//        self.performSegue(withIdentifier: "BackButtonSegue", sender: nil)
+//    }
     
     
     
@@ -111,15 +111,17 @@ class OfficeMainShow: UIViewController, UIGestureRecognizerDelegate, DZNEmptyDat
                     let TypeOfSelling  = itemObject?["TypeOfSelling"]
                     let Address = itemObject?["Address"]
                     let NumberOfRoom = itemObject?["NumberOfRoom"]
+                    let NumberOfBath = itemObject?["NumberOfBath"]
+                    let HouseArea = itemObject?["HouseArea"]
                     let Price = itemObject?["Price"]
                     let Image = itemObject?["Image"]
                     let ID = itemObject?["ID"]
                     let itemId = itemObject?["itemId"]
-
                     
                     
-                        //creating artist object with model and fetched values
-                        let item = ItemModel(TypeOfOffer: TypeOfOffer as! String?, TypeOfSelling: TypeOfSelling as! String?, Address: Address as! String?, NumberOfRoom: NumberOfRoom as! String?, Price: Price as! String?, Image: Image as! String?, ID: ID as! String?, itemId:itemId as! String? )
+                    
+                    //creating artist object with model and fetched values
+                    let item = ItemModel(TypeOfOffer: TypeOfOffer as! String?, TypeOfSelling: TypeOfSelling as! String?, Address: Address as! String?, NumberOfRoom: NumberOfRoom as! String? ,NumberOfBath: NumberOfBath as! String? , HouseArea: HouseArea as! String? ,Price: Price as! String?, Image: Image as! String?, ID: ID as! String?, itemId:itemId as! String? )
                     
                     if let currnetItemId = item.ID ,  let currentUserId = Auth.auth().currentUser?.uid {
 
@@ -156,30 +158,55 @@ class OfficeMainShow: UIViewController, UIGestureRecognizerDelegate, DZNEmptyDat
         print(arrayItems.count)
         
         
-        // 1
         
-        // 2
-        let rightSearchBarButtonItem:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(OfficeMainShow.addTapped))
-        let rightAddBarButtonItem:UIBarButtonItem = UIBarButtonItem(title: "   ", style: UIBarButtonItem.Style.plain, target: self, action: #selector(OfficeMainShow.justSpaceBetEditAndAdd))
-        let rightSearchBarButtonItem2:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.edit, target: self, action: #selector(OfficeMainShow.editProfileTapped))
-        // 3
-        self.navigationItem.setRightBarButtonItems([rightSearchBarButtonItem,rightAddBarButtonItem,rightSearchBarButtonItem2], animated: true)
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //////////////////////////////////////////// MARK:tab bar buttons ///////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
+        
+        //right buttons
+        let rightAddBarButtonItem:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(OfficeMainShow.addTapped))
+        
+        let rightSpaceBetEditAndAddItem:UIBarButtonItem = UIBarButtonItem(title: "   ", style: UIBarButtonItem.Style.plain, target: self, action: #selector(OfficeMainShow.justSpaceBetEditAndAdd))
+        
+        let rightSearchBarButtonItem:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.edit, target: self, action: #selector(OfficeMainShow.editCell))
+        self.navigationItem.setRightBarButtonItems([rightAddBarButtonItem,rightSpaceBetEditAndAddItem,rightSearchBarButtonItem], animated: true)
         
         
     }
-        // 4
-        @objc func editProfileTapped(sender:UIButton) {
-            self.performSegue(withIdentifier: "editProfileButtonSegue", sender: nil)
-        }
-        // 5
-        @objc func addTapped (sender:UIButton) {
-            self.performSegue(withIdentifier: "addButtonSegue", sender: nil)
-
-        }
-        @objc func justSpaceBetEditAndAdd (sender:UIButton) {
-            print(" just Space Between Edit And Add ")
-
-        }
+    
+    
+    //right buttons
+    @objc func editCell(sender:UIButton) {
+        let alert = UIAlertController(title: "Note!", message: "if you want to edit one of your items just long Press Gesture on a item which you want to edit", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK!", style: .cancel, handler: nil))
+        self.present(alert, animated: true)
+    }
+    @objc func justSpaceBetEditAndAdd (sender:UIButton) {
+        print(" just Space Between Edit And Add ")
+    }
+    @objc func addTapped (sender:UIButton) {
+        self.performSegue(withIdentifier: "addButtonSegue", sender: nil)
+    }
+    
+    //left buttons
+    
+    @IBAction func BackButton(_ sender: Any) {
+        self.performSegue(withIdentifier: "BackButtonSegue", sender: nil)
+    }
+    
+    
+    //    MARK: profile Button
+    @IBAction func profileButton(_ sender: Any) {
+        
+        //        func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //            if segue.identifier == "EditButtonSegue" {
+        //                let controller = segue.destination as! OfficeEdit
+        //                controller.itemEdating = self.arrayItems[0].Address?
+        //
+        //            }
+        //        }
+    }
     
     
    
@@ -236,19 +263,12 @@ class OfficeMainShow: UIViewController, UIGestureRecognizerDelegate, DZNEmptyDat
             cell.smallTextAddress?.text = item.Address
             cell.smallTextRoom?.text = item.NumberOfRoom
             cell.smallTextPrice?.text = item.Price
-            cell.smallPlace.text = "400 m2"
-            cell.smallBath.text = "2 baths"
+            cell.smallPlace?.text = item.HouseArea
+            cell.smallBath?.text = item.NumberOfBath
         }
         
         return cell
     }
-
-    
-   
-    
-    
-
-    
     
     
     
@@ -277,7 +297,7 @@ class OfficeMainShow: UIViewController, UIGestureRecognizerDelegate, DZNEmptyDat
         arrayItems.remove(at: indexPath.row)
         let deleteIndex = [indexPath]
         tableView.deleteRows(at: deleteIndex, with: .automatic)
-        self.myTableView.reloadData()
+//        self.myTableView.reloadData()
 
 
     }
@@ -315,7 +335,13 @@ class OfficeMainShow: UIViewController, UIGestureRecognizerDelegate, DZNEmptyDat
     
     
     
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("\n\n\n###################################\n\n\n")
+        let alert = UIAlertController(title: "Note!", message: "good try", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK!", style: .cancel, handler: nil))
+        self.present(alert, animated: true)
+    }
+    
     
     
     //MARK:longPressGesture 2
@@ -358,25 +384,12 @@ class OfficeMainShow: UIViewController, UIGestureRecognizerDelegate, DZNEmptyDat
     }
 
     
-    //MARK: profile Button
-//    @IBAction func profileButton(_ sender: Any) {
-//
-////        func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-////            if segue.identifier == "EditButtonSegue" {
-////                let controller = segue.destination as! OfficeEdit
-////                controller.itemEdating = self.arrayItems[0].Address?
-////
-////            }
-////        }
-//
-//
-//
-//    }
-    
-    
-    
-    
 
+    
+    
+    
+    
+/////////////////////////////////////////////
 }
 
 

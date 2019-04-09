@@ -22,6 +22,8 @@ class OfficeEdit: UIViewController {
     
     @IBOutlet weak var AddressTextFeild: UITextField!
     @IBOutlet weak var NumberOfRoomsTextFeild: UITextField!
+    @IBOutlet weak var NumberOFBathsTextField: UITextField!
+    @IBOutlet weak var HouseAreaTextField: UITextField!
     @IBOutlet weak var PriceTextFeild: UITextField!
     
     @IBOutlet weak var TypeOfOfferSeg2: UISegmentedControl!
@@ -75,9 +77,11 @@ class OfficeEdit: UIViewController {
 
         self.navigationItem.title = "Edit"
         
-        //MARK:show the item on screen1
+        //MARK:show the item on screen 1
         AddressTextFeild.text = itemEdating?.Address
         NumberOfRoomsTextFeild.text = itemEdating?.NumberOfRoom
+        NumberOFBathsTextField.text = itemEdating?.NumberOfBath
+        HouseAreaTextField.text = itemEdating?.HouseArea
         PriceTextFeild.text = itemEdating?.Price
         
         if (itemEdating?.TypeOfOffer) == "House" {
@@ -95,26 +99,12 @@ class OfficeEdit: UIViewController {
 
         }
 
-        if let imageDownloadURL = itemEdating!.Image {
-            let imageStorageRef = Storage.storage().reference(forURL: imageDownloadURL)
-            imageStorageRef.getData(maxSize: 2 * 1024 * 1024) { [weak self] (data, error) in
-                if let error = error {
-                    print("$$$$&&&$%$%$%$%$%$%&&$&$&$& \(error)")
-                } else {
-                    if let imageData = data {
-                        let image = UIImage(data: imageData)
-                        if let myimage = image{
-//                            DispatchQueue.main.async {
-                                self!.ShowImage2.image = myimage
-                                self!.image2 = myimage
-                                //                        }
-                        }else{
-                            self!.ShowImage2.backgroundColor = UIColor.red
-                        }
-//
-                    }
-                }
-            }
+        if let imageDownloadURL = itemEdating?.Image {
+            
+            let url = URL(string: imageDownloadURL)
+            let chat = UIImage(named: "bic")
+            ShowImage2.sd_setImage(with: url, placeholderImage: chat  )
+            
         }
     }
     
@@ -192,8 +182,16 @@ class OfficeEdit: UIViewController {
 
     @IBAction func AddYourNewButton(_ button: UIButton) {
 
+        // if i did not change type of offer and type of selling
+        if self.SelectTypeOfOffer2.isEmpty{
+            self.SelectTypeOfOffer2 = (self.itemEdating?.TypeOfOffer)!
+        }
+        if self.SelectTypeOfselling2.isEmpty{
+            self.SelectTypeOfselling2 = (self.itemEdating?.TypeOfSelling)!
+        }
 
-        if SelectTypeOfOffer2 == "" || SelectTypeOfselling2 == "" || AddressTextFeild.text == "" || NumberOfRoomsTextFeild.text == "" || PriceTextFeild.text == "" || image1 == nil {
+        // to show massage when some item empty
+        if SelectTypeOfOffer2 == "" || SelectTypeOfselling2 == "" || AddressTextFeild.text == "" || NumberOfRoomsTextFeild.text == "" ||  NumberOFBathsTextField.text == "" || HouseAreaTextField.text == "" || PriceTextFeild.text == "" {
             print("!@#!@#!@#!@#!@#!@#!@#!@#!@#!@#!@#!@#")
             
             let alert = UIAlertController(title: "Warning!", message: "You must enter all your OFFER's information ", preferredStyle: UIAlertController.Style.alert)
@@ -249,7 +247,7 @@ class OfficeEdit: UIViewController {
                                     chickEditing = true
                                     editingItemId = self.itemEdating?.itemId
                                     
-                                    let newItem = ItemObject(TypeOfOffer: self.SelectTypeOfOffer2, TypeOfSelling: self.SelectTypeOfselling2, Address: self.AddressTextFeild.text, NumberOfRoom: self.NumberOfRoomsTextFeild.text, Price: self.PriceTextFeild.text, Image: myurl2, ID: self.itemEdating?.ID, itemId : editingItemId)
+                                    let newItem = ItemObject(TypeOfOffer: self.SelectTypeOfOffer2, TypeOfSelling: self.SelectTypeOfselling2, Address: self.AddressTextFeild.text, NumberOfRoom: self.NumberOfRoomsTextFeild.text , NumberOfBath : self.NumberOFBathsTextField.text , HouseArea : self.HouseAreaTextField.text , Price: self.PriceTextFeild.text, Image: myurl2, ID: self.itemEdating?.ID, itemId : editingItemId)
                                     
                                     newItem.Upload()
                                     self.dismiss(animated: true, completion: nil)
@@ -267,20 +265,15 @@ class OfficeEdit: UIViewController {
                         
                 print("><><<><><><><><><>>><><>++++++++++++++++++++<<>>>>>>><><><><<><><><><>")
                 
-                if self.SelectTypeOfOffer2.isEmpty{
-                    self.SelectTypeOfOffer2 = (self.itemEdating?.TypeOfOffer)!
-                }
-                if self.SelectTypeOfselling2.isEmpty{
-                    self.SelectTypeOfselling2 = (self.itemEdating?.TypeOfSelling)!
-                }
+            
                 // to make item refrence same for old one
                 chickEditing = true
                 editingItemId = self.itemEdating?.itemId
                 
-                let newItem = ItemObject(TypeOfOffer: self.SelectTypeOfOffer2, TypeOfSelling: self.SelectTypeOfselling2, Address: self.AddressTextFeild.text, NumberOfRoom: self.NumberOfRoomsTextFeild.text, Price: self.PriceTextFeild.text, Image: itemEdating?.Image, ID: itemEdating?.ID, itemId : editingItemId)
+                let newItem = ItemObject(TypeOfOffer: self.SelectTypeOfOffer2, TypeOfSelling: self.SelectTypeOfselling2, Address: self.AddressTextFeild.text, NumberOfRoom: self.NumberOfRoomsTextFeild.text , NumberOfBath : self.NumberOFBathsTextField.text , HouseArea : self.HouseAreaTextField.text , Price: self.PriceTextFeild.text, Image: itemEdating?.Image, ID: self.itemEdating?.ID, itemId : editingItemId)
             
                 newItem.Upload()
-            self.dismiss(animated: true, completion: nil)
+                self.dismiss(animated: true, completion: nil)
 
                 
 

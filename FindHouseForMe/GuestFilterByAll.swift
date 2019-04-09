@@ -18,13 +18,15 @@ class GuestFilterByAll: UIViewController {
     
     var arrayItems4 = [ItemModel]()
     var arrayItemsTransfer = [ItemModel]()
-    var itemTransfer = ItemModel(TypeOfOffer: "", TypeOfSelling: "", Address: "", NumberOfRoom: "", Price: "", Image: "", ID: "", itemId: "")
-    
+    var itemTransfer = ItemModel(TypeOfOffer: "", TypeOfSelling: "", Address: "", NumberOfRoom: "", NumberOfBath: "", HouseArea: "", Price: "", Image: "", ID: "", itemId: "")
+
     @IBOutlet weak var offerSeg: UISegmentedControl!
     @IBOutlet weak var sellingSeg: UISegmentedControl!
     
     @IBOutlet weak var addressTextField: UITextField!
     @IBOutlet weak var roomsTextField: UITextField!
+    @IBOutlet weak var NumberOFBathsTextField: UITextField!
+    @IBOutlet weak var HouseAreaTextField: UITextField!
     @IBOutlet weak var priceTextField: UITextField!
     
     
@@ -105,21 +107,23 @@ class GuestFilterByAll: UIViewController {
 
         
         arrayItemsTransfer = []
-        itemTransfer = ItemModel(TypeOfOffer: "", TypeOfSelling: "", Address: "", NumberOfRoom: "", Price: "", Image: "", ID: "", itemId: "")
+        itemTransfer = ItemModel(TypeOfOffer: "", TypeOfSelling: "", Address: "", NumberOfRoom: "" , NumberOfBath: "", HouseArea: "", Price: "", Image: "", ID: "", itemId: "")
+
         
         
-        
-        if let addressTextField1 = addressTextField.text , let roomsTextField1 = roomsTextField.text , let priceTextField1 = priceTextField.text {
+        if let addressTextField1 = addressTextField.text , let roomsTextField1 = roomsTextField.text , let NumberOFBathsTextField1 = NumberOFBathsTextField.text , let HouseArea1 = HouseAreaTextField.text ,  let priceTextField1 = priceTextField.text {
             
             itemTransfer.TypeOfOffer = SelectTypeOfOffer
             itemTransfer.TypeOfSelling = SelectTypeOfselling
             itemTransfer.Address = addressTextField1
             itemTransfer.NumberOfRoom = roomsTextField1
+            itemTransfer.NumberOfBath = NumberOFBathsTextField1
+            itemTransfer.HouseArea = HouseArea1
             itemTransfer.Price = priceTextField1
             
-//
-//            print("\n\n%%%%%%%%%%%%% offer %%%%%%%%%%%%%")
-//            print(SelectTypeOfOffer)
+            //
+            //            print("\n\n%%%%%%%%%%%%% offer %%%%%%%%%%%%%")
+            //            print(SelectTypeOfOffer)
         }
         
         
@@ -206,15 +210,16 @@ class GuestFilterByAll: UIViewController {
                     let TypeOfSelling  = itemObject?["TypeOfSelling"]
                     let Address = itemObject?["Address"]
                     let NumberOfRoom = itemObject?["NumberOfRoom"]
+                    let NumberOfBath = itemObject?["NumberOfBath"]
+                    let HouseArea = itemObject?["HouseArea"]
                     let Price = itemObject?["Price"]
                     let Image = itemObject?["Image"]
                     let ID = itemObject?["ID"]
                     let itemId = itemObject?["itemId"]
                     
                     
-                    
                     //creating artist object with model and fetched values
-                    let item = ItemModel(TypeOfOffer: TypeOfOffer as! String?, TypeOfSelling: TypeOfSelling as! String?, Address: Address as! String?, NumberOfRoom: NumberOfRoom as! String?, Price: Price as! String?, Image: Image as! String?, ID: ID as! String?, itemId:itemId as! String? )
+                    let item = ItemModel(TypeOfOffer: TypeOfOffer as! String?, TypeOfSelling: TypeOfSelling as! String?, Address: Address as! String?, NumberOfRoom: NumberOfRoom as! String? ,NumberOfBath: NumberOfBath as! String? , HouseArea: HouseArea as! String? ,Price: Price as! String?, Image: Image as! String?, ID: ID as! String?, itemId:itemId as! String? )
                     
                     
                     //appending it to list
