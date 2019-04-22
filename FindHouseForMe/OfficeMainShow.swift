@@ -8,7 +8,9 @@
 
 import UIKit
 import Foundation
+
 import Firebase
+
 import SDWebImage
 import Lottie
 import DZNEmptyDataSet
@@ -31,7 +33,8 @@ class OfficeMainShow: UIViewController, UIGestureRecognizerDelegate, DZNEmptyDat
                                             myTableView.dataSource = self ;
                                             myTableView.emptyDataSetSource = self
                                             myTableView.emptyDataSetDelegate = self
-                                            myTableView.tableFooterView = UIView()
+                                        //MARK : what is this ????? myTableView.tableFooterView = UIView()
+//                                            myTableView.tableFooterView = UIView()
                                                    }     }
     
     
@@ -129,6 +132,7 @@ class OfficeMainShow: UIViewController, UIGestureRecognizerDelegate, DZNEmptyDat
                             
                             //appending it to list
                             self.arrayItems.insert(item, at: 0)
+
                         }
                     }
                 }
@@ -150,7 +154,8 @@ class OfficeMainShow: UIViewController, UIGestureRecognizerDelegate, DZNEmptyDat
 //                print("count2  ===================")
 //                print(self.arrayItems.count)
             }
-            
+            print(")))))))))))))))((((((((((((")
+            print(self.arrayItems.count)
             
         })
     
@@ -231,6 +236,7 @@ class OfficeMainShow: UIViewController, UIGestureRecognizerDelegate, DZNEmptyDat
      
         
         return self.arrayItems.count
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

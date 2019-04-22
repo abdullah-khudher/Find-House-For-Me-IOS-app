@@ -16,6 +16,7 @@
 		B6139F9E224517D500365795 /* OfficeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6139F9C224517D500365795 /* OfficeCell.xib */; };
 		B6139FA42245E22200365795 /* ThreadClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6139FA32245E22200365795 /* ThreadClass.swift */; };
 		B6139FA8224887B700365795 /* GuestMainShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6139FA7224887B600365795 /* GuestMainShow.swift */; };
+		B6306615226DEC9300877AE1 /* ItemsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6306614226DEC9300877AE1 /* ItemsObject.swift */; };
 		B630C49822562963002FC0B6 /* GuestFilteredItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = B630C49722562963002FC0B6 /* GuestFilteredItems.swift */; };
 		B630C49F22562F19002FC0B6 /* FirstOfficeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B630C49D22562F19002FC0B6 /* FirstOfficeCell.swift */; };
 		B630C4A022564942002FC0B6 /* FirstOfficeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B630C49E22562F19002FC0B6 /* FirstOfficeCell.xib */; };
@@ -33,7 +34,6 @@
 		B66A57DA224457F700FAFD94 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B66A57D9224457F700FAFD94 /* GoogleService-Info.plist */; };
 		B66A57DC22445AB800FAFD94 /* OfficeLogIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66A57DB22445AB800FAFD94 /* OfficeLogIn.swift */; };
 		B66A57DE22445B3D00FAFD94 /* OfficeSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66A57DD22445B3D00FAFD94 /* OfficeSignUp.swift */; };
-		B6BBD6DA225BAE81004B299E /* ItemsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BBD6D9225BAE81004B299E /* ItemsObject.swift */; };
 		F176A188072C30CE5D121618 /* Pods_FindHouseForMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FC2B0AD0F7B83115DCD3B3 /* Pods_FindHouseForMe.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +50,8 @@
 		B6139F9C224517D500365795 /* OfficeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OfficeCell.xib; sourceTree = "<group>"; };
 		B6139FA32245E22200365795 /* ThreadClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ThreadClass.swift; path = "/Users/abdjacksi/Desktop/find-house-for-me-project/FindHouseForMe/FindHouseForMe/Model/ThreadClass.swift"; sourceTree = "<absolute>"; };
 		B6139FA7224887B600365795 /* GuestMainShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GuestMainShow.swift; path = ../GuestMainShow.swift; sourceTree = "<group>"; };
+		B6306611226DA7D300877AE1 /* FindHouseForMe.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FindHouseForMe.entitlements; sourceTree = "<group>"; };
+		B6306614226DEC9300877AE1 /* ItemsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsObject.swift; sourceTree = "<group>"; };
 		B630C49722562963002FC0B6 /* GuestFilteredItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuestFilteredItems.swift; sourceTree = "<group>"; };
 		B630C49D22562F19002FC0B6 /* FirstOfficeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FirstOfficeCell.swift; path = ../../FirstOfficeCell.swift; sourceTree = "<group>"; };
 		B630C49E22562F19002FC0B6 /* FirstOfficeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FirstOfficeCell.xib; path = ../../FirstOfficeCell.xib; sourceTree = "<group>"; };
@@ -69,7 +71,6 @@
 		B66A57D9224457F700FAFD94 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B66A57DB22445AB800FAFD94 /* OfficeLogIn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfficeLogIn.swift; sourceTree = "<group>"; };
 		B66A57DD22445B3D00FAFD94 /* OfficeSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficeSignUp.swift; sourceTree = "<group>"; };
-		B6BBD6D9225BAE81004B299E /* ItemsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemsObject.swift; path = "../../../../untitled folder 2/Archive/Model/ItemsObject.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				B6139F8B2244647E00365795 /* UserObject.swift */,
-				B6BBD6D9225BAE81004B299E /* ItemsObject.swift */,
+				B6306614226DEC9300877AE1 /* ItemsObject.swift */,
 				B6139F9622446FC700365795 /* image service.swift */,
 				B6503508224B192100FC4569 /* CheckInternet.swift */,
 				B6139FA32245E22200365795 /* ThreadClass.swift */,
@@ -147,6 +148,7 @@
 		B66A57C322444F3A00FAFD94 /* FindHouseForMe */ = {
 			isa = PBXGroup;
 			children = (
+				B6306611226DA7D300877AE1 /* FindHouseForMe.entitlements */,
 				B66A57C822444F3A00FAFD94 /* Main.storyboard */,
 				B66A57D72244577000FAFD94 /* FirstPage.swift */,
 				B66A57DB22445AB800FAFD94 /* OfficeLogIn.swift */,
@@ -221,6 +223,11 @@
 				TargetAttributes = {
 					B66A57C022444F3A00FAFD94 = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -395,7 +402,6 @@
 				B6503509224B192100FC4569 /* CheckInternet.swift in Sources */,
 				B6503514224E12DD00FC4569 /* GuestFilterByNameOfOffice.swift in Sources */,
 				B6139F95224468F700365795 /* OfficeEdit.swift in Sources */,
-				B6BBD6DA225BAE81004B299E /* ItemsObject.swift in Sources */,
 				B6139F91224468E100365795 /* OfficeMainShow.swift in Sources */,
 				B6139FA42245E22200365795 /* ThreadClass.swift in Sources */,
 				B66A57D82244577000FAFD94 /* FirstPage.swift in Sources */,
@@ -403,6 +409,7 @@
 				B66A57DC22445AB800FAFD94 /* OfficeLogIn.swift in Sources */,
 				B6139F93224468E800365795 /* OfficeAddNew.swift in Sources */,
 				B630C49F22562F19002FC0B6 /* FirstOfficeCell.swift in Sources */,
+				B6306615226DEC9300877AE1 /* ItemsObject.swift in Sources */,
 				B6139F8C2244647E00365795 /* UserObject.swift in Sources */,
 				B66A57DE22445B3D00FAFD94 /* OfficeSignUp.swift in Sources */,
 			);
@@ -551,8 +558,9 @@
 			baseConfigurationReference = 1FEDEF0DE84E9812C9C47F4C /* Pods-FindHouseForMe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FindHouseForMe/FindHouseForMe.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9CQG957Y49;
+				DEVELOPMENT_TEAM = 2H56JFLC94;
 				INFOPLIST_FILE = "$(SRCROOT)/FindHouseForMe/addational/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -571,8 +579,9 @@
 			baseConfigurationReference = 3B07310A4D881B4760F2383B /* Pods-FindHouseForMe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FindHouseForMe/FindHouseForMe.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9CQG957Y49;
+				DEVELOPMENT_TEAM = 2H56JFLC94;
 				INFOPLIST_FILE = "$(SRCROOT)/FindHouseForMe/addational/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = (

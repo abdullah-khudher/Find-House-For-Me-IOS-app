@@ -36,14 +36,15 @@ class ItemObject{
     var Image : String?
     var ID : String?
     var itemId : String?
-    
+    var NumberOfBath : String?
+    var HouseArea : String?
     
     
     //    // 2
     //    ///////////////////////////////////////////////////
     //    //// Initializers
     //    ////////////////////////////////////////////////////
-    init(TypeOfOffer : String? , TypeOfSelling : String?, Address : String?, NumberOfRoom : String? , Price : String?, Image : String?, ID : String?, itemId : String? )
+    init(TypeOfOffer : String? , TypeOfSelling : String?, Address : String?, NumberOfRoom : String? , NumberOfBath : String?, HouseArea : String? , Price : String?, Image : String? , ID : String?, itemId : String? )
     {
         self.TypeOfOffer = TypeOfOffer
         self.TypeOfSelling = TypeOfSelling
@@ -53,6 +54,9 @@ class ItemObject{
         self.Image = Image
         self.ID = ID
         self.itemId = itemId
+        self.NumberOfBath = NumberOfBath
+        self.HouseArea = HouseArea
+
         
     }
     
@@ -67,6 +71,9 @@ class ItemObject{
         self.Image = Dictionary["Image"] as? String
         self.ID = Dictionary["ID"] as? String
         self.itemId = Dictionary["itemId"] as? String
+        self.NumberOfBath = Dictionary["NumberOfBath"] as? String
+        self.HouseArea = Dictionary["HouseArea"] as? String
+
 
 
         
@@ -85,9 +92,12 @@ class ItemObject{
         newDictionary["Image"] = self.Image as AnyObject
         newDictionary["ID"] = self.ID as AnyObject
         newDictionary["itemId"] = self.itemId as AnyObject
+        newDictionary["NumberOfBath"] = self.NumberOfBath as AnyObject
+        newDictionary["HouseArea"] = self.HouseArea as AnyObject
 
 
-        
+
+
         return newDictionary
     }
     //
@@ -124,7 +134,8 @@ class ItemObject{
     
     
 }
-
+//    NumberOfBath
+//    HouseArea
 
 class ItemModel : Equatable {
   
@@ -136,9 +147,11 @@ class ItemModel : Equatable {
     var Image : String?
     var ID : String?
     var itemId : String?
+    var NumberOfBath : String?
+    var HouseArea : String?
+    
 
-
-    init(TypeOfOffer : String? , TypeOfSelling : String?, Address : String?, NumberOfRoom : String? , Price : String?, Image : String?, ID : String?, itemId : String?  )
+    init(TypeOfOffer : String? , TypeOfSelling : String?, Address : String? , NumberOfRoom : String? , NumberOfBath : String?, HouseArea : String? , Price : String?, Image : String?, ID : String?, itemId : String?  )
     {
         self.TypeOfOffer = TypeOfOffer
         self.TypeOfSelling = TypeOfSelling
@@ -148,6 +161,8 @@ class ItemModel : Equatable {
         self.Image = Image
         self.ID = ID
         self.itemId = itemId
+        self.NumberOfBath = NumberOfBath
+        self.HouseArea = HouseArea
     }
     
     static func == (lhs: ItemModel, rhs: ItemModel) -> Bool {
@@ -157,6 +172,9 @@ class ItemModel : Equatable {
         && (lhs.Address == "" || lhs.Address == rhs.Address)
         && (lhs.NumberOfRoom == "" || lhs.NumberOfRoom == rhs.NumberOfRoom)
         && (lhs.Price == "" || lhs.Price == rhs.Price)
+        && (lhs.NumberOfBath == "" || lhs.NumberOfBath == rhs.NumberOfBath)
+        && (lhs.HouseArea == "" || lhs.HouseArea == rhs.HouseArea)
+
 
         return isIt
     }
