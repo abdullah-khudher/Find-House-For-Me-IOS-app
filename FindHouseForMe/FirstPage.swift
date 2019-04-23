@@ -24,6 +24,15 @@ class FirstPage: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        if Auth.auth().currentUser != nil {
+//            do{
+//                try Auth.auth().signOut()
+//            }
+//            catch let error{
+//                print(error)
+//            }
+//        }
 }
     
 

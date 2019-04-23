@@ -34,6 +34,10 @@
 		B66A57DA224457F700FAFD94 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B66A57D9224457F700FAFD94 /* GoogleService-Info.plist */; };
 		B66A57DC22445AB800FAFD94 /* OfficeLogIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66A57DB22445AB800FAFD94 /* OfficeLogIn.swift */; };
 		B66A57DE22445B3D00FAFD94 /* OfficeSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66A57DD22445B3D00FAFD94 /* OfficeSignUp.swift */; };
+		B6E0DC4A226E52B900F37DB6 /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E0DC49226E52B900F37DB6 /* SignIn.swift */; };
+		B6E0DC50226E57F400F37DB6 /* VerifyCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E0DC4F226E57F400F37DB6 /* VerifyCode.swift */; };
+		B6E0DC52226E5A3500F37DB6 /* infoOffice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E0DC51226E5A3500F37DB6 /* infoOffice.swift */; };
+		B6E0DC54226EE2A600F37DB6 /* officeProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E0DC53226EE2A600F37DB6 /* officeProfile.swift */; };
 		F176A188072C30CE5D121618 /* Pods_FindHouseForMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FC2B0AD0F7B83115DCD3B3 /* Pods_FindHouseForMe.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +75,10 @@
 		B66A57D9224457F700FAFD94 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B66A57DB22445AB800FAFD94 /* OfficeLogIn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfficeLogIn.swift; sourceTree = "<group>"; };
 		B66A57DD22445B3D00FAFD94 /* OfficeSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficeSignUp.swift; sourceTree = "<group>"; };
+		B6E0DC49226E52B900F37DB6 /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
+		B6E0DC4F226E57F400F37DB6 /* VerifyCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyCode.swift; sourceTree = "<group>"; };
+		B6E0DC51226E5A3500F37DB6 /* infoOffice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = infoOffice.swift; sourceTree = "<group>"; };
+		B6E0DC53226EE2A600F37DB6 /* officeProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = officeProfile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,8 +159,10 @@
 				B6306611226DA7D300877AE1 /* FindHouseForMe.entitlements */,
 				B66A57C822444F3A00FAFD94 /* Main.storyboard */,
 				B66A57D72244577000FAFD94 /* FirstPage.swift */,
-				B66A57DB22445AB800FAFD94 /* OfficeLogIn.swift */,
-				B66A57DD22445B3D00FAFD94 /* OfficeSignUp.swift */,
+				B6E0DC49226E52B900F37DB6 /* SignIn.swift */,
+				B6E0DC4F226E57F400F37DB6 /* VerifyCode.swift */,
+				B6E0DC51226E5A3500F37DB6 /* infoOffice.swift */,
+				B6E0DC53226EE2A600F37DB6 /* officeProfile.swift */,
 				B6139F90224468E100365795 /* OfficeMainShow.swift */,
 				B6139F92224468E800365795 /* OfficeAddNew.swift */,
 				B6139F94224468F700365795 /* OfficeEdit.swift */,
@@ -171,6 +181,8 @@
 		B66A57D622444FB300FAFD94 /* addational */ = {
 			isa = PBXGroup;
 			children = (
+				B66A57DB22445AB800FAFD94 /* OfficeLogIn.swift */,
+				B66A57DD22445B3D00FAFD94 /* OfficeSignUp.swift */,
 				B66A57D9224457F700FAFD94 /* GoogleService-Info.plist */,
 				B66A57C422444F3A00FAFD94 /* AppDelegate.swift */,
 				B66A57CB22444F3B00FAFD94 /* Assets.xcassets */,
@@ -397,13 +409,17 @@
 				B6139F9722446FC700365795 /* image service.swift in Sources */,
 				B6139FA8224887B700365795 /* GuestMainShow.swift in Sources */,
 				B66A57C522444F3A00FAFD94 /* AppDelegate.swift in Sources */,
+				B6E0DC50226E57F400F37DB6 /* VerifyCode.swift in Sources */,
 				B6503516224F5B5D00FC4569 /* GuestFilterByAll.swift in Sources */,
 				B6139F9D224517D500365795 /* OfficeCell.swift in Sources */,
 				B6503509224B192100FC4569 /* CheckInternet.swift in Sources */,
+				B6E0DC52226E5A3500F37DB6 /* infoOffice.swift in Sources */,
 				B6503514224E12DD00FC4569 /* GuestFilterByNameOfOffice.swift in Sources */,
 				B6139F95224468F700365795 /* OfficeEdit.swift in Sources */,
 				B6139F91224468E100365795 /* OfficeMainShow.swift in Sources */,
 				B6139FA42245E22200365795 /* ThreadClass.swift in Sources */,
+				B6E0DC4A226E52B900F37DB6 /* SignIn.swift in Sources */,
+				B6E0DC54226EE2A600F37DB6 /* officeProfile.swift in Sources */,
 				B66A57D82244577000FAFD94 /* FirstPage.swift in Sources */,
 				B630C49822562963002FC0B6 /* GuestFilteredItems.swift in Sources */,
 				B66A57DC22445AB800FAFD94 /* OfficeLogIn.swift in Sources */,

@@ -52,7 +52,8 @@ class OfficeMainShow: UIViewController, UIGestureRecognizerDelegate, DZNEmptyDat
     
     
     //MARK: animation part 1
-    @IBOutlet weak var animationView: LOTAnimationView!
+//    add this LOTAnimationView to my animationView
+//    @IBOutlet weak var animationView: LOTAnimationView!
     
     
     
@@ -69,7 +70,7 @@ class OfficeMainShow: UIViewController, UIGestureRecognizerDelegate, DZNEmptyDat
         
         
         //MARK: animation part 2
-        animationView.isHidden = true
+//        animationView.isHidden = true
 //        animationView.setAnimation(named: "PinJump")
 //        animationView.loopAnimation = true
 //        animationView.play()
@@ -81,11 +82,11 @@ class OfficeMainShow: UIViewController, UIGestureRecognizerDelegate, DZNEmptyDat
         
         
         //
-        // MARK:longPressGesture 1
-        let longPressGesture:UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
-        longPressGesture.minimumPressDuration = 1
-        longPressGesture.delegate = self
-        self.myTableView.addGestureRecognizer(longPressGesture)
+//        // MARK:longPressGesture 1
+//        let longPressGesture:UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
+//        longPressGesture.minimumPressDuration = 1
+//        longPressGesture.delegate = self
+//        self.myTableView.addGestureRecognizer(longPressGesture)
         
         
         
@@ -194,16 +195,14 @@ class OfficeMainShow: UIViewController, UIGestureRecognizerDelegate, DZNEmptyDat
         self.performSegue(withIdentifier: "addButtonSegue", sender: nil)
     }
     
-    //left buttons
     
-    @IBAction func BackButton(_ sender: Any) {
-        self.performSegue(withIdentifier: "BackButtonSegue", sender: nil)
-    }
     
     
     //    MARK: profile Button
     @IBAction func profileButton(_ sender: Any) {
         
+        self.performSegue(withIdentifier: "goEditPage", sender: nil)
+
         //        func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //            if segue.identifier == "EditButtonSegue" {
         //                let controller = segue.destination as! OfficeEdit
@@ -211,6 +210,7 @@ class OfficeMainShow: UIViewController, UIGestureRecognizerDelegate, DZNEmptyDat
         //
         //            }
         //        }
+        
     }
     
     
@@ -350,44 +350,44 @@ class OfficeMainShow: UIViewController, UIGestureRecognizerDelegate, DZNEmptyDat
     
     
     
-    //MARK:longPressGesture 2
-    var indexNumber : Int = 0
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "EditButtonSegue" {
-            let controller = segue.destination as! OfficeEdit
-            controller.itemEdating = self.arrayItems[(indexNumber)]
-            
-        }
-    }
-    
-    @objc func handleLongPress(longPressGesture:UILongPressGestureRecognizer) {
-        
-        let p = longPressGesture.location(in: self.myTableView)
-        let indexPath = self.myTableView.indexPathForRow(at: p)
-        if indexPath == nil {
-            print("Long press on table view, not row.")
-        }
-        else if (longPressGesture.state == UIGestureRecognizer.State.began) {
-            print("Long press on row, at \(indexPath!.row)")
-            let alert = UIAlertController(title: "Are you sure you want to edit?", message: "if you are sure just click on Yes button ... otherwise ckick on Cancel buuton", preferredStyle: .alert)
-            
-            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
-                
-                
-                self.indexNumber = (indexPath?.row)!
-                
-                self.performSegue(withIdentifier: "EditButtonSegue", sender: nil)
-  
-            }))
-            
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-            
-            self.present(alert, animated: true)
-            
-            
-            
-        }
-    }
+//    //MARK:longPressGesture 2
+//    var indexNumber : Int = 0
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "EditButtonSegue" {
+//            let controller = segue.destination as! OfficeEdit
+//            controller.itemEdating = self.arrayItems[(indexNumber)]
+//
+//        }
+//    }
+//
+//    @objc func handleLongPress(longPressGesture:UILongPressGestureRecognizer) {
+//
+//        let p = longPressGesture.location(in: self.myTableView)
+//        let indexPath = self.myTableView.indexPathForRow(at: p)
+//        if indexPath == nil {
+//            print("Long press on table view, not row.")
+//        }
+//        else if (longPressGesture.state == UIGestureRecognizer.State.began) {
+//            print("Long press on row, at \(indexPath!.row)")
+//            let alert = UIAlertController(title: "Are you sure you want to edit?", message: "if you are sure just click on Yes button ... otherwise ckick on Cancel buuton", preferredStyle: .alert)
+//
+//            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+//
+//
+//                self.indexNumber = (indexPath?.row)!
+//
+//                self.performSegue(withIdentifier: "EditButtonSegue", sender: nil)
+//
+//            }))
+//
+//            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+//
+//            self.present(alert, animated: true)
+//
+//
+//
+//        }
+//    }
 
     
 
