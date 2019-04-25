@@ -31,7 +31,7 @@ class officeProfile: UIViewController {
     
 
     @IBAction func signOutButton(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "goHomePage", sender: nil)
+        self.performSegue(withIdentifier: "goFirstPage", sender: nil)
         if Auth.auth().currentUser != nil {
             do{
                 try Auth.auth().signOut()
@@ -46,6 +46,10 @@ class officeProfile: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        self.hideKeyboardWhenTappedAround()
+
+        
         // Do any additional setup after loading the view.
         user.CurrentUser { (user) in
             self.nameField.text = user?.NumeOfOffice

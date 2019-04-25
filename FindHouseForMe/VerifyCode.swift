@@ -27,6 +27,9 @@ class VerifyCode: UIViewController {
                 print(user!)
             })
         }
+        self.performSegue(withIdentifier: "goToCreateProfile", sender: nil)
+
+        
     }
     
     

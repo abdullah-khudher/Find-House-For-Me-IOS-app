@@ -84,17 +84,17 @@ class OfficeEdit: UIViewController {
         HouseAreaTextField.text = itemEdating?.HouseArea
         PriceTextFeild.text = itemEdating?.Price
         
-        if (itemEdating?.TypeOfOffer) == "House" {
+        if (itemEdating?.TypeOfOffer) == "بيت" {
             TypeOfOfferSeg2.selectedSegmentIndex = 0
-        }else if (itemEdating?.TypeOfOffer) == "Department" {
+        }else if (itemEdating?.TypeOfOffer) == "شقة" {
             TypeOfOfferSeg2.selectedSegmentIndex = 1
         }else  {
             TypeOfOfferSeg2.selectedSegmentIndex = 2
         }
         
-        if (itemEdating?.TypeOfSelling) == "sell" {
+        if (itemEdating?.TypeOfSelling) == "بيع" {
             TypeOfSellingSeg2.selectedSegmentIndex = 0
-        }else if (itemEdating?.TypeOfSelling) == "Rent" {
+        }else if (itemEdating?.TypeOfSelling) == "ايجار" {
             TypeOfSellingSeg2.selectedSegmentIndex = 1
 
         }
@@ -118,16 +118,16 @@ class OfficeEdit: UIViewController {
         switch TypeOfOfferSeg2.selectedSegmentIndex {
         case 0:
             print("=========================== 0")
-            SelectTypeOfOffer2 = "House"
+            SelectTypeOfOffer2 = "بيت"
             
         case 1:
             print("=========================== 1")
-            SelectTypeOfOffer2 = "Department"
+            SelectTypeOfOffer2 = "شقة"
             
             
         case 2:
             print("=========================== 2")
-            SelectTypeOfOffer2 = "Land"
+            SelectTypeOfOffer2 = "أرض"
             
             
         default:
@@ -142,11 +142,11 @@ class OfficeEdit: UIViewController {
         switch TypeOfSellingSeg2.selectedSegmentIndex {
         case 0:
             print("=========================== 0")
-            SelectTypeOfselling2 = "sell"
+            SelectTypeOfselling2 = "بيع"
             
         case 1:
             print("=========================== 1")
-            SelectTypeOfselling2 = "Rent"
+            SelectTypeOfselling2 = "أيجار"
             
         default:
             let alert = UIAlertController(title: "OPPS!", message: "You didn't choose any tpye of selling ", preferredStyle: UIAlertController.Style.alert)
@@ -194,8 +194,8 @@ class OfficeEdit: UIViewController {
         if SelectTypeOfOffer2 == "" || SelectTypeOfselling2 == "" || AddressTextFeild.text == "" || NumberOfRoomsTextFeild.text == "" ||  NumberOFBathsTextField.text == "" || HouseAreaTextField.text == "" || PriceTextFeild.text == "" {
             print("!@#!@#!@#!@#!@#!@#!@#!@#!@#!@#!@#!@#")
             
-            let alert = UIAlertController(title: "Warning!", message: "You must enter all your OFFER's information ", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "Ok!", style: UIAlertAction.Style.default, handler: nil))
+            let alert = UIAlertController(title: "تنبيه", message: " يجب ادخال كل البيانات ", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "نعم", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
             return
         }

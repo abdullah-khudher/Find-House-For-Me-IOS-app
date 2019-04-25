@@ -193,21 +193,21 @@ class GuestFilterByNameOfOffice: UIViewController, UITableViewDelegate, UITableV
     
     // Add title for empty dataset
     func title(forEmptyDataSet _: UIScrollView!) -> NSAttributedString! {
-        let str = "Welcome"
+        let str = "مرحبا"
         let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: UIFont.TextStyle.headline)]
         return NSAttributedString(string: str, attributes: attrs)
     }
     
     // Add description/subtitle on empty dataset
     func description(forEmptyDataSet _: UIScrollView!) -> NSAttributedString! {
-        let str = "Tap the button below to add your first grokkleglob."
+        let str = "لم يتم اضافة اي عنصر جديد"
         let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: UIFont.TextStyle.body)]
         return NSAttributedString(string: str, attributes: attrs)
     }
     
     //Add your image
     func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
-        return UIImage(named: "map")
+        return UIImage(named: "map2")
     }
     
     

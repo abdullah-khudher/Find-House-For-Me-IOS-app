@@ -89,16 +89,16 @@ class OfficeAddNew: UIViewController  {
         switch TypeOfOfferSeg.selectedSegmentIndex {
         case 0:
             print("=========================== 0")
-            SelectTypeOfOffer = "House"
+            SelectTypeOfOffer = "بيت"
             
         case 1:
             print("=========================== 1")
-            SelectTypeOfOffer = "Department"
+            SelectTypeOfOffer = "شقة"
             
             
         case 2:
             print("=========================== 2")
-            SelectTypeOfOffer = "Land"
+            SelectTypeOfOffer = "أرض"
             
             
         default:
@@ -116,11 +116,11 @@ class OfficeAddNew: UIViewController  {
         switch TypeOfSellingSeg.selectedSegmentIndex {
         case 0:
             print("=========================== 0")
-            SelectTypeOfselling = "sell"
+            SelectTypeOfselling = "بيع"
             
         case 1:
             print("=========================== 1")
-            SelectTypeOfselling = "Rent"
+            SelectTypeOfselling = "أيجار"
             
         default:
             let alert = UIAlertController(title: "OPPS!", message: "You didn't choose any tpye of selling ", preferredStyle: UIAlertController.Style.alert)
@@ -162,8 +162,8 @@ class OfficeAddNew: UIViewController  {
             NumberOFBathsTextField.text == "" || HouseAreaTextField.text == "" || PriceTextFeild.text == "" || image1 == nil {
             print("!@#!@#!@#!@#!@#!@#!@#!@#!@#!@#!@#!@#")
             
-            let alert = UIAlertController(title: "Warning!", message: "You must enter all your OFFER's information ", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "Ok!", style: UIAlertAction.Style.default, handler: nil))
+            let alert = UIAlertController(title: "تنبيه", message: "يجب ادخال كل البيانات ", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "نعم", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
             return
         }
@@ -196,14 +196,14 @@ class OfficeAddNew: UIViewController  {
                         
                         let myurl = url?.absoluteString
                         print("okay ###############################")
-                        
+                         
                         
                        let newItem = ItemObject(TypeOfOffer: self.SelectTypeOfOffer , TypeOfSelling: self.SelectTypeOfselling , Address: self.AddressTextFeild.text , NumberOfRoom: self.NumberOfRoomsTextFeild.text , NumberOfBath : self.NumberOFBathsTextField.text , HouseArea : self.HouseAreaTextField.text , Price: self.PriceTextFeild.text, Image: myurl, ID: myUID,itemId : itemId)
                         
                         newItem.Upload()
                         
                         
-                        self.dismiss(animated: true, completion: nil)
+//                        self.dismiss(animated: true, completion: nil)
                         
                         
                         

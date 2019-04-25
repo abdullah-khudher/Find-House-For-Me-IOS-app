@@ -19,20 +19,14 @@ class FirstPage: UIViewController {
     }
     
     @IBAction func HavingAnOffice(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "asAnOffice", sender: nil)
+        self.performSegue(withIdentifier: "goToSignIn", sender: nil)
+        
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        if Auth.auth().currentUser != nil {
-//            do{
-//                try Auth.auth().signOut()
-//            }
-//            catch let error{
-//                print(error)
-//            }
-//        }
 }
     
 

@@ -175,19 +175,19 @@ class OfficeMainShow: UIViewController, UIGestureRecognizerDelegate, DZNEmptyDat
         
         let rightSpaceBetEditAndAddItem:UIBarButtonItem = UIBarButtonItem(title: "   ", style: UIBarButtonItem.Style.plain, target: self, action: #selector(OfficeMainShow.justSpaceBetEditAndAdd))
         
-        let rightSearchBarButtonItem:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.edit, target: self, action: #selector(OfficeMainShow.editCell))
-        self.navigationItem.setRightBarButtonItems([rightAddBarButtonItem,rightSpaceBetEditAndAddItem,rightSearchBarButtonItem], animated: true)
+//        let rightSearchBarButtonItem:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.edit, target: self, action: #selector(OfficeMainShow.editCell))
+        self.navigationItem.setRightBarButtonItems([rightAddBarButtonItem,rightSpaceBetEditAndAddItem,], animated: true)
         
         
     }
     
     
     //right buttons
-    @objc func editCell(sender:UIButton) {
-        let alert = UIAlertController(title: "Note!", message: "if you want to edit one of your items just long Press Gesture on a item which you want to edit", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK!", style: .cancel, handler: nil))
-        self.present(alert, animated: true)
-    }
+//    @objc func editCell(sender:UIButton) {
+//        let alert = UIAlertController(title: "Note!", message: "if you want to edit one of your items just long Press Gesture on a item which you want to edit", preferredStyle: .alert)
+//        alert.addAction(UIAlertAction(title: "OK!", style: .cancel, handler: nil))
+//        self.present(alert, animated: true)
+//    }
     @objc func justSpaceBetEditAndAdd (sender:UIButton) {
         print(" just Space Between Edit And Add ")
     }
@@ -318,21 +318,21 @@ class OfficeMainShow: UIViewController, UIGestureRecognizerDelegate, DZNEmptyDat
     
     // Add title for empty dataset
     func title(forEmptyDataSet _: UIScrollView!) -> NSAttributedString! {
-        let str = "Welcome"
+        let str = "مرحبا"
         let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: UIFont.TextStyle.headline)]
         return NSAttributedString(string: str, attributes: attrs)
     }
     
     // Add description/subtitle on empty dataset
     func description(forEmptyDataSet _: UIScrollView!) -> NSAttributedString! {
-        let str = "Tap the button below to add your first grokkleglob."
+        let str = "لم يتم اضافة اي عنصر جديد"
         let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: UIFont.TextStyle.body)]
         return NSAttributedString(string: str, attributes: attrs)
     }
     
     //Add your image
     func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
-        return UIImage(named: "map")
+        return UIImage(named: "map2")
     }
 
 
@@ -342,10 +342,13 @@ class OfficeMainShow: UIViewController, UIGestureRecognizerDelegate, DZNEmptyDat
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         print("\n\n\n###################################\n\n\n")
-        let alert = UIAlertController(title: "Note!", message: "good try", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK!", style: .cancel, handler: nil))
-        self.present(alert, animated: true)
+        self.performSegue(withIdentifier: "EditButtonSegue", sender: nil)
+
+//        let alert = UIAlertController(title: "Note!", message: "good try", preferredStyle: .alert)
+//        alert.addAction(UIAlertAction(title: "OK!", style: .cancel, handler: nil))
+//        self.present(alert, animated: true)
     }
     
     

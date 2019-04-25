@@ -25,7 +25,8 @@ class infoOffice: UIViewController {
             let newUser = UserObject.init(NumeOfOffice: self.nameFiled.text, NumberOfOffice: self.numberFiled.text, ID: myUID)
             
             newUser.Upload()
-            
+            self.performSegue(withIdentifier: "goHomePage", sender: nil)
+
         }
         
     }
@@ -35,6 +36,7 @@ class infoOffice: UIViewController {
 
         self.hideKeyboardWhenTappedAround()
 
+        
         // Do any additional setup after loading the view.
     }
     

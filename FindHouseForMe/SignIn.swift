@@ -26,6 +26,9 @@ class SignIn: UIViewController {
             UserDefaults.standard.set(verificationId, forKey: "authVerificationID")
             print("Authentication called")
         })
+        
+        self.performSegue(withIdentifier: "goToVerity", sender: nil)
+
     }
     
     
@@ -36,9 +39,9 @@ class SignIn: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if Auth.auth().currentUser != nil {
-            self.performSegue(withIdentifier: "GoToHomePage1", sender: nil)
-        }
+//        if Auth.auth().currentUser != nil {
+//            self.performSegue(withIdentifier: "GoToHomePage1", sender: nil)
+//        }
     }
     /*
     // MARK: - Navigation
