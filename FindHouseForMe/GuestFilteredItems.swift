@@ -26,7 +26,7 @@ class GuestFilteredItems: UIViewController , UITableViewDelegate, UITableViewDat
             tableViewFiltered.dataSource = self ;
             tableViewFiltered.emptyDataSetSource = self
             tableViewFiltered.emptyDataSetDelegate = self
-            tableViewFiltered.tableFooterView = UIView()
+//            tableViewFiltered.tableFooterView = UIView()
         }
     }
     
@@ -93,7 +93,7 @@ class GuestFilteredItems: UIViewController , UITableViewDelegate, UITableViewDat
             cell.smallTextSelling?.text = item.TypeOfSelling
             cell.smallTextAddress?.text = item.Address
             cell.smallTextRoom?.text = item.NumberOfRoom
-            cell.smallTextPrice?.text = item.Price
+            cell.smallTextPrice?.text = "$ " + item.Price!
             cell.smallPlace?.text = item.HouseArea
             cell.smallBath?.text = item.NumberOfBath
         }

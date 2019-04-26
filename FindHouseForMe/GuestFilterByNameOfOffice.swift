@@ -26,7 +26,7 @@ class GuestFilterByNameOfOffice: UIViewController, UITableViewDelegate, UITableV
             GuestTabelViewNameSearch.dataSource = self ;
             GuestTabelViewNameSearch.emptyDataSetSource = self
             GuestTabelViewNameSearch.emptyDataSetDelegate = self
-            GuestTabelViewNameSearch.tableFooterView = UIView()
+//            GuestTabelViewNameSearch.tableFooterView = UIView()
         }
     }
     
@@ -35,6 +35,7 @@ class GuestFilterByNameOfOffice: UIViewController, UITableViewDelegate, UITableV
     
     
     var arrayItems3 = [ItemModel]()
+    var arrayItemsFiltered = [ItemModel]()
     var connectionId : String?
     
     
@@ -43,11 +44,8 @@ class GuestFilterByNameOfOffice: UIViewController, UITableViewDelegate, UITableV
     
     @IBAction func searchButton(_ sender: Any) {
         
-        arrayItems3 = []
-        
         _ = Database.database().reference().child("Users").observe(DataEventType.value, with: { (snapshot) in
             
-         
                 for Items in snapshot.children.allObjects as! [DataSnapshot] {
                     //getting values
                     let itemObject = Items.value as? [String: AnyObject]
@@ -65,6 +63,8 @@ class GuestFilterByNameOfOffice: UIViewController, UITableViewDelegate, UITableV
                             
                             _ = Database.database().reference().child("Items").observe(DataEventType.value, with: { (snapshot) in
                                 
+                                self.arrayItems3.removeAll()
+
                                     for Items in snapshot.children.allObjects as! [DataSnapshot] {
                                         //getting values
                                         let itemObject = Items.value as? [String: AnyObject]
@@ -84,15 +84,17 @@ class GuestFilterByNameOfOffice: UIViewController, UITableViewDelegate, UITableV
                                             //creating artist object with model and fetched values
                                             let item = ItemModel(TypeOfOffer: TypeOfOffer as! String?, TypeOfSelling: TypeOfSelling as! String?, Address: Address as! String?, NumberOfRoom: NumberOfRoom as! String? ,NumberOfBath: NumberOfBath as! String? , HouseArea: HouseArea as! String? ,Price: Price as! String?, Image: Image as! String?, ID: ID , itemId:itemId as! String? )
                                             
-                                            
-
+                                        
                                             self.arrayItems3.append(item)
                                             print("#########")
                                             print(self.arrayItems3.count)
                                         }
    
                                 }
+                                
+                                
                                 DispatchQueue.main.async { [weak self] in
+                                    
                                     self?.GuestTabelViewNameSearch.reloadData()
                                 }
                             })
@@ -114,7 +116,10 @@ class GuestFilterByNameOfOffice: UIViewController, UITableViewDelegate, UITableV
     
     @IBAction func CleanSearchButton(_ sender: UIButton) {
         nameTextFiled.text = ""
-        arrayItems3 = []
+        self.arrayItems3.removeAll()
+        DispatchQueue.main.async { [weak self] in
+            self?.GuestTabelViewNameSearch.reloadData()
+        }
 
     }
     
@@ -173,9 +178,9 @@ class GuestFilterByNameOfOffice: UIViewController, UITableViewDelegate, UITableV
             cell.smallTextSelling?.text = item.TypeOfSelling
             cell.smallTextAddress?.text = item.Address
             cell.smallTextRoom?.text = item.NumberOfRoom
-            cell.smallTextPrice?.text = item.Price
-            cell.smallPlace.text = "400 m2"
-            cell.smallBath.text = "2 baths"
+            cell.smallTextPrice?.text = "$ " + item.Price!
+            cell.smallPlace?.text = item.HouseArea
+            cell.smallBath?.text = item.NumberOfBath
         }
         
         return cell
@@ -228,3 +233,6 @@ class GuestFilterByNameOfOffice: UIViewController, UITableViewDelegate, UITableV
     */
 
 }
+
+
+

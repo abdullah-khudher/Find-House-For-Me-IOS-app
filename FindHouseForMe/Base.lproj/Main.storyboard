@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo2" translatesAutoresizingMaskIntoConstraints="NO" id="jZT-Zo-8TP">
-                                <rect key="frame" x="16" y="64" width="343" height="307.5"/>
+                                <rect key="frame" x="16" y="20" width="343" height="307.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="jZT-Zo-8TP" secondAttribute="height" multiplier="48:43" id="Mgq-Qa-9co"/>
                                 </constraints>
@@ -29,7 +29,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ae8-O7-bDT">
-                                <rect key="frame" x="16" y="548" width="343" height="50"/>
+                                <rect key="frame" x="16" y="597" width="343" height="50"/>
                                 <color key="backgroundColor" red="0.024924044421060033" green="0.66612174577519379" blue="0.6286808051542393" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="H1E-Ze-8FL"/>
@@ -43,7 +43,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F08-bt-PIO">
-                                <rect key="frame" x="16" y="490" width="343" height="50"/>
+                                <rect key="frame" x="16" y="539" width="343" height="50"/>
                                 <color key="backgroundColor" red="0.024924044419999999" green="0.66612174580000005" blue="0.62868080520000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Ev7-Gm-T5I"/>
@@ -90,7 +90,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ادخل رقم الهاتف" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AYD-M5-Jg2">
-                                <rect key="frame" x="8" y="227" width="359" height="35"/>
+                                <rect key="frame" x="8" y="183" width="359" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="95N-rb-5Pq"/>
                                 </constraints>
@@ -99,8 +99,8 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TGk-c2-nAy">
-                                <rect key="frame" x="8" y="307" width="359" height="40"/>
-                                <color key="backgroundColor" red="0.024924044419999999" green="0.66612174580000005" blue="0.62868080520000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="8" y="263" width="359" height="40"/>
+                                <color key="backgroundColor" red="0.083835802969999998" green="0.73960787059999999" blue="0.67994600530000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="OxA-4i-gFp"/>
                                 </constraints>
@@ -143,7 +143,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="تاكيد الحساب" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nVr-Ze-LDs">
-                                <rect key="frame" x="8" y="274" width="359" height="35"/>
+                                <rect key="frame" x="8" y="230" width="359" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="3oj-dX-go4"/>
                                 </constraints>
@@ -152,8 +152,8 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="16Q-kT-kcU">
-                                <rect key="frame" x="8" y="357" width="359" height="40"/>
-                                <color key="backgroundColor" red="0.024924044419999999" green="0.66612174580000005" blue="0.62868080520000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="8" y="313" width="359" height="40"/>
+                                <color key="backgroundColor" red="0.083835802969999998" green="0.73960787059999999" blue="0.67994600530000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="rA1-9i-wx6"/>
                                 </constraints>
@@ -166,8 +166,8 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="سيتم ارسال كود الى رقم الهاتف الذي ادخلته" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="af3-4f-Yim">
-                                <rect key="frame" x="6" y="115" width="363" height="19.5"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <rect key="frame" x="6" y="71" width="363" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <color key="textColor" red="0.021305796850380632" green="0.56942020939086291" blue="0.53741460623589576" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -204,7 +204,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="O0D-6F-Dio">
-                                <rect key="frame" x="16" y="257" width="343" height="143"/>
+                                <rect key="frame" x="16" y="213" width="343" height="143"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="AfQ-Sz-n79">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="61.5"/>
@@ -226,7 +226,7 @@
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cPz-5y-mhb">
                                                 <rect key="frame" x="0.0" y="60.5" width="343" height="1"/>
-                                                <color key="backgroundColor" red="0.0077399866599999999" green="0.54322196229999997" blue="0.66161815589999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.083835802969999998" green="0.73960787059999999" blue="0.67994600530000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="IFz-ip-wwj"/>
@@ -254,7 +254,7 @@
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A8q-kE-F56">
                                                 <rect key="frame" x="0.0" y="60.5" width="343" height="1"/>
-                                                <color key="backgroundColor" red="0.0077399866599999999" green="0.54322196229999997" blue="0.66161815589999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.083835802969999998" green="0.73960787059999999" blue="0.67994600530000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="za6-Fa-67g"/>
@@ -265,17 +265,17 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="رجاء ادخل بيانات المكتب" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qdR-W9-gdT">
-                                <rect key="frame" x="16" y="115" width="343" height="45"/>
+                                <rect key="frame" x="16" y="71" width="343" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="nCd-61-iXf"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                                 <color key="textColor" red="0.025693168860000001" green="0.58754068609999999" blue="0.54945665600000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xGO-ME-zmb">
-                                <rect key="frame" x="16" y="548" width="343" height="50"/>
-                                <color key="backgroundColor" red="0.024924044419999999" green="0.66612174580000005" blue="0.62868080520000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="16" y="597" width="343" height="50"/>
+                                <color key="backgroundColor" red="0.083835802969999998" green="0.73960787059999999" blue="0.67994600530000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="8f4-7L-ANL"/>
                                 </constraints>
@@ -337,7 +337,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="1S6-6p-zHT">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -799,7 +799,7 @@
                                                                     </textField>
                                                                     <view contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" translatesAutoresizingMaskIntoConstraints="NO" id="mvo-8Y-AAu">
                                                                         <rect key="frame" x="0.0" y="55" width="304" height="1"/>
-                                                                        <color key="backgroundColor" red="0.0077399866599999999" green="0.54322196229999997" blue="0.66161815589999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <color key="backgroundColor" red="0.083835802969999998" green="0.73960787059999999" blue="0.67994600530000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="1" id="rvZ-nj-sOU"/>
@@ -827,7 +827,7 @@
                                                                     </textField>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xeX-cj-Jm5">
                                                                         <rect key="frame" x="0.0" y="55.5" width="304" height="1"/>
-                                                                        <color key="backgroundColor" red="0.0077399866599999999" green="0.54322196229999997" blue="0.66161815589999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <color key="backgroundColor" red="0.083835802969999998" green="0.73960787059999999" blue="0.67994600530000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="1" id="24D-Di-cbN"/>
@@ -855,7 +855,7 @@
                                                                     </textField>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jaW-54-Ooa">
                                                                         <rect key="frame" x="0.0" y="55" width="304" height="1"/>
-                                                                        <color key="backgroundColor" red="0.0077399866599999999" green="0.54322196229999997" blue="0.66161815589999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <color key="backgroundColor" red="0.083835802969999998" green="0.73960787059999999" blue="0.67994600530000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="1" id="lEM-55-IqS"/>
@@ -883,7 +883,7 @@
                                                                     </textField>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HUP-Ru-uWY">
                                                                         <rect key="frame" x="0.0" y="55.5" width="304" height="1"/>
-                                                                        <color key="backgroundColor" red="0.0077399866599999999" green="0.54322196229999997" blue="0.66161815589999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <color key="backgroundColor" red="0.083835802969999998" green="0.73960787059999999" blue="0.67994600530000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="1" id="DvF-j5-a6A"/>
@@ -911,7 +911,7 @@
                                                                     </textField>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kPf-h8-nr4">
                                                                         <rect key="frame" x="0.0" y="55" width="304" height="1"/>
-                                                                        <color key="backgroundColor" red="0.0077399866599999999" green="0.54322196229999997" blue="0.66161815589999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <color key="backgroundColor" red="0.083835802969999998" green="0.73960787059999999" blue="0.67994600530000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="1" id="y8L-cW-rIS"/>
@@ -923,7 +923,7 @@
                                                     </stackView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z8c-i3-iNf">
                                                         <rect key="frame" x="0.0" y="539" width="304" height="45"/>
-                                                        <color key="backgroundColor" red="0.024924044419999999" green="0.66612174580000005" blue="0.62868080520000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" red="0.083835802969999998" green="0.73960787059999999" blue="0.67994600530000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="45" id="UdO-6C-0L4"/>
                                                         </constraints>
@@ -950,7 +950,7 @@
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1e8-kJ-FKE">
                                                 <rect key="frame" x="8" y="866" width="304" height="45"/>
-                                                <color key="backgroundColor" red="0.024924044419999999" green="0.66612174580000005" blue="0.62868080520000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.083835802969999998" green="0.73960787059999999" blue="0.67994600530000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="bmD-f3-n5O"/>
                                                 </constraints>
@@ -1041,7 +1041,7 @@
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NSE-dz-u44">
                                                 <rect key="frame" x="0.0" y="60.5" width="343" height="1"/>
-                                                <color key="backgroundColor" red="0.0077399866599999999" green="0.54322196229999997" blue="0.66161815589999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.083835802969999998" green="0.73960787059999999" blue="0.67994600530000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="SqB-Bh-9RA"/>
@@ -1069,7 +1069,7 @@
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gqc-jo-RG8">
                                                 <rect key="frame" x="0.0" y="60.5" width="343" height="1"/>
-                                                <color key="backgroundColor" red="0.0077399866599999999" green="0.54322196229999997" blue="0.66161815589999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.083835802969999998" green="0.73960787059999999" blue="0.67994600530000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="FzA-sc-P2j"/>
@@ -1090,7 +1090,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hlh-hl-tEj">
                                 <rect key="frame" x="16" y="548" width="343" height="50"/>
-                                <color key="backgroundColor" red="0.024924044419999999" green="0.66612174580000005" blue="0.62868080520000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.083835802969999998" green="0.73960787059999999" blue="0.67994600530000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="pBx-qD-MnV"/>
                                 </constraints>
@@ -1104,7 +1104,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qom-bb-Rbr">
                                 <rect key="frame" x="16" y="490" width="343" height="50"/>
-                                <color key="backgroundColor" red="0.024924044419999999" green="0.66612174580000005" blue="0.62868080520000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.083835802969999998" green="0.73960787059999999" blue="0.67994600530000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Q6k-Zy-el6"/>
                                 </constraints>
@@ -1213,7 +1213,7 @@
                                                                     </textField>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e9a-n5-e90">
                                                                         <rect key="frame" x="0.0" y="55" width="304" height="1"/>
-                                                                        <color key="backgroundColor" red="0.0077399866599999999" green="0.54322196229999997" blue="0.66161815589999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <color key="backgroundColor" red="0.083835802969999998" green="0.73960787059999999" blue="0.67994600530000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <color key="tintColor" red="0.0077399866599999999" green="0.54322196229999997" blue="0.66161815589999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="1" id="3LI-SY-mNi"/>
@@ -1241,7 +1241,7 @@
                                                                     </textField>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nzz-nz-TlA">
                                                                         <rect key="frame" x="0.0" y="55.5" width="304" height="1"/>
-                                                                        <color key="backgroundColor" red="0.0077399866599999999" green="0.54322196229999997" blue="0.66161815589999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <color key="backgroundColor" red="0.083835802969999998" green="0.73960787059999999" blue="0.67994600530000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <color key="tintColor" red="0.0077399866599999999" green="0.54322196229999997" blue="0.66161815589999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="1" id="cX1-x7-0gO"/>
@@ -1269,7 +1269,7 @@
                                                                     </textField>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xca-Hj-gSo">
                                                                         <rect key="frame" x="0.0" y="55" width="304" height="1"/>
-                                                                        <color key="backgroundColor" red="0.024924044419999999" green="0.66612174580000005" blue="0.62868080520000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <color key="backgroundColor" red="0.083835802969999998" green="0.73960787059999999" blue="0.67994600530000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <color key="tintColor" red="0.024924044419999999" green="0.66612174580000005" blue="0.62868080520000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="1" id="qPd-tC-tOJ"/>
@@ -1297,7 +1297,7 @@
                                                                     </textField>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6tS-qc-POL">
                                                                         <rect key="frame" x="0.0" y="55.5" width="304" height="1"/>
-                                                                        <color key="backgroundColor" red="0.0077399866599999999" green="0.54322196229999997" blue="0.66161815589999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <color key="backgroundColor" red="0.083835802969999998" green="0.73960787059999999" blue="0.67994600530000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <color key="tintColor" red="0.0077399866599999999" green="0.54322196229999997" blue="0.66161815589999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="1" id="3ms-ep-RS9"/>
@@ -1325,7 +1325,7 @@
                                                                     </textField>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z2R-5v-5JC">
                                                                         <rect key="frame" x="0.0" y="55" width="304" height="1"/>
-                                                                        <color key="backgroundColor" red="0.0077399866599999999" green="0.54322196229999997" blue="0.66161815589999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <color key="backgroundColor" red="0.083835802969999998" green="0.73960787059999999" blue="0.67994600530000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <color key="tintColor" red="0.0077399866599999999" green="0.54322196229999997" blue="0.66161815589999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="1" id="P1A-vm-dVr"/>
@@ -1337,7 +1337,7 @@
                                                     </stackView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JI2-jf-0JB">
                                                         <rect key="frame" x="0.0" y="539" width="304" height="45"/>
-                                                        <color key="backgroundColor" red="0.024924044419999999" green="0.66612174580000005" blue="0.62868080520000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" red="0.083835802969999998" green="0.73960787059999999" blue="0.67994600530000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="45" id="Ky1-15-Fne"/>
                                                         </constraints>
@@ -1365,7 +1365,7 @@
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z0X-Qv-dRi">
                                                 <rect key="frame" x="8" y="866" width="304" height="45"/>
-                                                <color key="backgroundColor" red="0.0077399866599999999" green="0.54322196229999997" blue="0.66161815589999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.083835802969999998" green="0.73960787059999999" blue="0.67994600530000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="skb-vx-Lqu"/>
                                                 </constraints>
@@ -1473,11 +1473,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vYR-OB-jDx">
-                                <rect key="frame" x="16" y="161" width="343" height="50"/>
+                                <rect key="frame" x="16" y="117" width="343" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5eh-id-BTo">
                                         <rect key="frame" x="0.0" y="0.0" width="167.5" height="50"/>
-                                        <color key="backgroundColor" red="0.93498378989999997" green="0.35020369289999997" blue="0.15303915739999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.083835802969999998" green="0.73960787059999999" blue="0.67994600530000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="3HD-Ao-0JI"/>
                                         </constraints>
@@ -1486,13 +1486,12 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="CleanSearchButton:" destination="TfF-j4-65k" eventType="touchUpInside" id="EvV-58-i38"/>
-                                            <action selector="searchButton:" destination="TfF-j4-65k" eventType="touchUpInside" id="tsG-9A-rR7"/>
+                                            <action selector="CleanSearchButton:" destination="TfF-j4-65k" eventType="touchUpInside" id="mdk-CZ-fnf"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8wO-KX-eJ8">
                                         <rect key="frame" x="175.5" y="0.0" width="167.5" height="50"/>
-                                        <color key="backgroundColor" red="0.93498378989999997" green="0.35020369289999997" blue="0.15303915739999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.083835802972316742" green="0.73960787057876587" blue="0.67994600534439087" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Bv0-cw-ppG"/>
                                         </constraints>
@@ -1501,13 +1500,13 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="searchButton:" destination="TfF-j4-65k" eventType="touchUpInside" id="mUD-IQ-m3F"/>
+                                            <action selector="searchButton:" destination="TfF-j4-65k" eventType="touchUpInside" id="6Gm-K2-Z2J"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4jH-Ih-a4w">
-                                <rect key="frame" x="16" y="80" width="343" height="65"/>
+                                <rect key="frame" x="16" y="36" width="343" height="65"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="بحث بواسطة اسم مكتب العقار" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y5T-aV-SGF">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="24"/>
@@ -1526,7 +1525,7 @@
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TQi-xd-pgA">
                                         <rect key="frame" x="0.0" y="64" width="343" height="1"/>
-                                        <color key="backgroundColor" red="0.0077399866599999999" green="0.54322196229999997" blue="0.66161815589999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.083835802969999998" green="0.73960787059999999" blue="0.67994600530000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="Dzd-io-CfS"/>
@@ -1534,9 +1533,9 @@
                                     </view>
                                 </subviews>
                             </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="K8a-Fv-wHN">
-                                <rect key="frame" x="0.0" y="227" width="375" height="391"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="K8a-Fv-wHN">
+                                <rect key="frame" x="0.0" y="183" width="375" height="435"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1633,7 +1632,7 @@
                                                             </textField>
                                                             <view contentMode="left" translatesAutoresizingMaskIntoConstraints="NO" id="yWn-aN-D82">
                                                                 <rect key="frame" x="0.0" y="60.5" width="304" height="1"/>
-                                                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="backgroundColor" red="0.083835802969999998" green="0.73960787059999999" blue="0.67994600530000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="1" id="dys-pt-y4C"/>
@@ -1661,7 +1660,7 @@
                                                             </textField>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZMs-32-ufm">
                                                                 <rect key="frame" x="0.0" y="60.5" width="304" height="1"/>
-                                                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="backgroundColor" red="0.083835802969999998" green="0.73960787059999999" blue="0.67994600530000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="1" id="soj-zR-hME"/>
@@ -1689,7 +1688,7 @@
                                                             </textField>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wwD-FD-wWC">
                                                                 <rect key="frame" x="0.0" y="60.5" width="304" height="1"/>
-                                                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="backgroundColor" red="0.083835802969999998" green="0.73960787059999999" blue="0.67994600530000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="1" id="NRg-yW-Nxi"/>
@@ -1717,7 +1716,7 @@
                                                             </textField>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="54e-xH-hHT">
                                                                 <rect key="frame" x="0.0" y="60.5" width="304" height="1"/>
-                                                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="backgroundColor" red="0.083835802969999998" green="0.73960787059999999" blue="0.67994600530000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="1" id="0Zd-DK-g5u"/>
@@ -1745,7 +1744,7 @@
                                                             </textField>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iFX-5H-X2k">
                                                                 <rect key="frame" x="0.0" y="60.5" width="304" height="1"/>
-                                                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="backgroundColor" red="0.083835802969999998" green="0.73960787059999999" blue="0.67994600530000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="1" id="gRG-Ak-OU4"/>
@@ -1760,7 +1759,7 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="diK-D0-001">
                                                         <rect key="frame" x="0.0" y="0.0" width="150.5" height="50"/>
-                                                        <color key="backgroundColor" red="0.93498378989999997" green="0.35020369289999997" blue="0.15303915739999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" red="0.083835802969999998" green="0.73960787059999999" blue="0.67994600530000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="Ov4-Xe-siD"/>
                                                         </constraints>
@@ -1774,7 +1773,7 @@
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t8O-2u-Jzu">
                                                         <rect key="frame" x="153.5" y="0.0" width="150.5" height="50"/>
-                                                        <color key="backgroundColor" red="0.93498378989999997" green="0.35020369289999997" blue="0.15303915739999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" red="0.083835802969999998" green="0.73960787059999999" blue="0.67994600530000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="gRz-cs-Yvj"/>
                                                         </constraints>
@@ -1848,9 +1847,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WFr-PG-BPj">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="WFr-PG-BPj">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1875,8 +1874,7 @@
         <image name="logo2" width="626" height="626"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nJg-Rn-KKR"/>
-        <segue reference="A3S-zu-YzP"/>
+        <segue reference="ANq-Kf-hNM"/>
         <segue reference="xB9-sc-Sox"/>
     </inferredMetricsTieBreakers>
 </document>

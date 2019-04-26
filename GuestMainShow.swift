@@ -26,7 +26,7 @@ class GuestMainShow: UIViewController, UITableViewDelegate, UITableViewDataSourc
             GuestTableView.dataSource = self ;
             GuestTableView.emptyDataSetSource = self
             GuestTableView.emptyDataSetDelegate = self
-            GuestTableView.tableFooterView = UIView()
+//            GuestTableView.tableFooterView = UIView()
         }
     }
     
@@ -133,7 +133,7 @@ class GuestMainShow: UIViewController, UITableViewDelegate, UITableViewDataSourc
             cell.smallTextSelling?.text = item.TypeOfSelling
             cell.smallTextAddress?.text = item.Address
             cell.smallTextRoom?.text = item.NumberOfRoom
-            cell.smallTextPrice?.text = item.Price
+            cell.smallTextPrice?.text = "$ " + item.Price!
             cell.smallPlace?.text = item.HouseArea
             cell.smallBath?.text = item.NumberOfBath
         }
