@@ -152,14 +152,14 @@ class GuestMainShow: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     // Add title for empty dataset
     func title(forEmptyDataSet _: UIScrollView!) -> NSAttributedString! {
-        let str = "مرحبا"
+        let str = "Hello!"
         let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: UIFont.TextStyle.headline)]
         return NSAttributedString(string: str, attributes: attrs)
     }
     
     // Add description/subtitle on empty dataset
     func description(forEmptyDataSet _: UIScrollView!) -> NSAttributedString! {
-        let str = "لم يتم اضافة اي عنصر جديد"
+        let str = "the table view is empty right now!!!"
         let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: UIFont.TextStyle.body)]
         return NSAttributedString(string: str, attributes: attrs)
     }

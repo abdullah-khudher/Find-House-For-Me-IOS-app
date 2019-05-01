@@ -33,7 +33,7 @@ class OfficeMainShow: UIViewController, UIGestureRecognizerDelegate, DZNEmptyDat
                                             myTableView.dataSource = self ;
                                             myTableView.emptyDataSetSource = self
                                             myTableView.emptyDataSetDelegate = self
-                                        //MARK : what is this ????? myTableView.tableFooterView = UIView()
+                                            myTableView.tableFooterView = UIView()
 //                                            myTableView.tableFooterView = UIView()
                                                    }     }
     
@@ -142,18 +142,9 @@ class OfficeMainShow: UIViewController, UIGestureRecognizerDelegate, DZNEmptyDat
                 DispatchQueue.main.async { [weak self] in
                     self?.myTableView.reloadData()
                 }
-                // or
-//                  self?.myTableView.reloadData()
-                // or
-//                Threads.performTaskInMainQueue {
-//                    self.myTableView.reloadData()
-//                }
-                
-//                print("count  ===================")
-//                print(self.arrayItems.count)
+
             }else{
-//                print("count2  ===================")
-//                print(self.arrayItems.count)
+
             }
             print(")))))))))))))))((((((((((((")
             print(self.arrayItems.count)
@@ -165,10 +156,7 @@ class OfficeMainShow: UIViewController, UIGestureRecognizerDelegate, DZNEmptyDat
         
         
         
-        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        //////////////////////////////////////////// MARK:tab bar buttons ///////////////////////////////////////////////////////
-        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        
+
         
         //right buttons
         let rightAddBarButtonItem:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(OfficeMainShow.addTapped))
@@ -183,11 +171,7 @@ class OfficeMainShow: UIViewController, UIGestureRecognizerDelegate, DZNEmptyDat
     
     
     //right buttons
-//    @objc func editCell(sender:UIButton) {
-//        let alert = UIAlertController(title: "Note!", message: "if you want to edit one of your items just long Press Gesture on a item which you want to edit", preferredStyle: .alert)
-//        alert.addAction(UIAlertAction(title: "OK!", style: .cancel, handler: nil))
-//        self.present(alert, animated: true)
-//    }
+
     @objc func justSpaceBetEditAndAdd (sender:UIButton) {
         print(" just Space Between Edit And Add ")
     }
@@ -202,14 +186,6 @@ class OfficeMainShow: UIViewController, UIGestureRecognizerDelegate, DZNEmptyDat
     @IBAction func profileButton(_ sender: Any) {
         
         self.performSegue(withIdentifier: "goEditPage", sender: nil)
-
-        //        func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //            if segue.identifier == "EditButtonSegue" {
-        //                let controller = segue.destination as! OfficeEdit
-        //                controller.itemEdating = self.arrayItems[0].Address?
-        //
-        //            }
-        //        }
         
     }
     
@@ -240,7 +216,7 @@ class OfficeMainShow: UIViewController, UIGestureRecognizerDelegate, DZNEmptyDat
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 130
+        return 160
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -308,7 +284,21 @@ class OfficeMainShow: UIViewController, UIGestureRecognizerDelegate, DZNEmptyDat
 
     }
     
-    
+    // MARK: go to edit page
+    var indexNumber : Int = 0
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "EditButtonSegue" {
+            let controller = segue.destination as! OfficeEdit
+            controller.itemEdating = self.arrayItems[(indexNumber)]
+            
+        }
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        print("\n\n\n###################################\n\n\n")
+        self.performSegue(withIdentifier: "EditButtonSegue", sender: nil)
+        
+    }
     
     
     
@@ -318,14 +308,14 @@ class OfficeMainShow: UIViewController, UIGestureRecognizerDelegate, DZNEmptyDat
     
     // Add title for empty dataset
     func title(forEmptyDataSet _: UIScrollView!) -> NSAttributedString! {
-        let str = "مرحبا"
+        let str = "Hello!"
         let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: UIFont.TextStyle.headline)]
         return NSAttributedString(string: str, attributes: attrs)
     }
     
     // Add description/subtitle on empty dataset
     func description(forEmptyDataSet _: UIScrollView!) -> NSAttributedString! {
-        let str = "لم يتم اضافة اي عنصر جديد"
+        let str = "the table view is empty right now!!!"
         let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: UIFont.TextStyle.body)]
         return NSAttributedString(string: str, attributes: attrs)
     }
@@ -340,20 +330,7 @@ class OfficeMainShow: UIViewController, UIGestureRecognizerDelegate, DZNEmptyDat
     
     
     
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        print("\n\n\n###################################\n\n\n")
-        self.performSegue(withIdentifier: "EditButtonSegue", sender: nil)
-
-//        let alert = UIAlertController(title: "Note!", message: "good try", preferredStyle: .alert)
-//        alert.addAction(UIAlertAction(title: "OK!", style: .cancel, handler: nil))
-//        self.present(alert, animated: true)
-    }
-    
-    
-    
-//    //MARK:longPressGesture 2
+    //MARK:longPressGesture 2
 //    var indexNumber : Int = 0
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //        if segue.identifier == "EditButtonSegue" {
@@ -362,7 +339,7 @@ class OfficeMainShow: UIViewController, UIGestureRecognizerDelegate, DZNEmptyDat
 //
 //        }
 //    }
-//
+
 //    @objc func handleLongPress(longPressGesture:UILongPressGestureRecognizer) {
 //
 //        let p = longPressGesture.location(in: self.myTableView)

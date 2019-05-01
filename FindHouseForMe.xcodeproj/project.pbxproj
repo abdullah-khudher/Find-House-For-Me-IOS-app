@@ -11,7 +11,7 @@
 		B6139F91224468E100365795 /* OfficeMainShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6139F90224468E100365795 /* OfficeMainShow.swift */; };
 		B6139F93224468E800365795 /* OfficeAddNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6139F92224468E800365795 /* OfficeAddNew.swift */; };
 		B6139F95224468F700365795 /* OfficeEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6139F94224468F700365795 /* OfficeEdit.swift */; };
-		B6139F9722446FC700365795 /* image service.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6139F9622446FC700365795 /* image service.swift */; };
+		B6139F9722446FC700365795 /* ImagePickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6139F9622446FC700365795 /* ImagePickerManager.swift */; };
 		B6139F9D224517D500365795 /* OfficeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6139F9B224517D500365795 /* OfficeCell.swift */; };
 		B6139F9E224517D500365795 /* OfficeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6139F9C224517D500365795 /* OfficeCell.xib */; };
 		B6139FA42245E22200365795 /* ThreadClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6139FA32245E22200365795 /* ThreadClass.swift */; };
@@ -34,6 +34,7 @@
 		B66A57DA224457F700FAFD94 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B66A57D9224457F700FAFD94 /* GoogleService-Info.plist */; };
 		B66A57DC22445AB800FAFD94 /* OfficeLogIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66A57DB22445AB800FAFD94 /* OfficeLogIn.swift */; };
 		B66A57DE22445B3D00FAFD94 /* OfficeSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66A57DD22445B3D00FAFD94 /* OfficeSignUp.swift */; };
+		B6CF62F52279A5EB00212988 /* extensionFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CF62F42279A5EB00212988 /* extensionFile.swift */; };
 		B6E0DC4A226E52B900F37DB6 /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E0DC49226E52B900F37DB6 /* SignIn.swift */; };
 		B6E0DC50226E57F400F37DB6 /* VerifyCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E0DC4F226E57F400F37DB6 /* VerifyCode.swift */; };
 		B6E0DC52226E5A3500F37DB6 /* infoOffice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E0DC51226E5A3500F37DB6 /* infoOffice.swift */; };
@@ -49,7 +50,7 @@
 		B6139F90224468E100365795 /* OfficeMainShow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfficeMainShow.swift; sourceTree = "<group>"; };
 		B6139F92224468E800365795 /* OfficeAddNew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfficeAddNew.swift; sourceTree = "<group>"; };
 		B6139F94224468F700365795 /* OfficeEdit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfficeEdit.swift; sourceTree = "<group>"; };
-		B6139F9622446FC700365795 /* image service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "image service.swift"; sourceTree = "<group>"; };
+		B6139F9622446FC700365795 /* ImagePickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerManager.swift; sourceTree = "<group>"; };
 		B6139F9B224517D500365795 /* OfficeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficeCell.swift; sourceTree = "<group>"; };
 		B6139F9C224517D500365795 /* OfficeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OfficeCell.xib; sourceTree = "<group>"; };
 		B6139FA32245E22200365795 /* ThreadClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ThreadClass.swift; path = "/Users/abdjacksi/Desktop/find-house-for-me-project/FindHouseForMe/FindHouseForMe/Model/ThreadClass.swift"; sourceTree = "<absolute>"; };
@@ -75,6 +76,7 @@
 		B66A57D9224457F700FAFD94 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B66A57DB22445AB800FAFD94 /* OfficeLogIn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfficeLogIn.swift; sourceTree = "<group>"; };
 		B66A57DD22445B3D00FAFD94 /* OfficeSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficeSignUp.swift; sourceTree = "<group>"; };
+		B6CF62F42279A5EB00212988 /* extensionFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionFile.swift; sourceTree = "<group>"; };
 		B6E0DC49226E52B900F37DB6 /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
 		B6E0DC4F226E57F400F37DB6 /* VerifyCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyCode.swift; sourceTree = "<group>"; };
 		B6E0DC51226E5A3500F37DB6 /* infoOffice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = infoOffice.swift; sourceTree = "<group>"; };
@@ -107,9 +109,8 @@
 			children = (
 				B6139F8B2244647E00365795 /* UserObject.swift */,
 				B6306614226DEC9300877AE1 /* ItemsObject.swift */,
-				B6139F9622446FC700365795 /* image service.swift */,
-				B6503508224B192100FC4569 /* CheckInternet.swift */,
-				B6139FA32245E22200365795 /* ThreadClass.swift */,
+				B6139F9622446FC700365795 /* ImagePickerManager.swift */,
+				B6CF62F42279A5EB00212988 /* extensionFile.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -119,8 +120,6 @@
 			children = (
 				B630C49D22562F19002FC0B6 /* FirstOfficeCell.swift */,
 				B630C49E22562F19002FC0B6 /* FirstOfficeCell.xib */,
-				B6139F9B224517D500365795 /* OfficeCell.swift */,
-				B6139F9C224517D500365795 /* OfficeCell.xib */,
 			);
 			path = cells;
 			sourceTree = "<group>";
@@ -181,8 +180,7 @@
 		B66A57D622444FB300FAFD94 /* addational */ = {
 			isa = PBXGroup;
 			children = (
-				B66A57DB22445AB800FAFD94 /* OfficeLogIn.swift */,
-				B66A57DD22445B3D00FAFD94 /* OfficeSignUp.swift */,
+				B6CF62F322798EC200212988 /* spare */,
 				B66A57D9224457F700FAFD94 /* GoogleService-Info.plist */,
 				B66A57C422444F3A00FAFD94 /* AppDelegate.swift */,
 				B66A57CB22444F3B00FAFD94 /* Assets.xcassets */,
@@ -190,6 +188,19 @@
 				B66A57D022444F3B00FAFD94 /* Info.plist */,
 			);
 			path = addational;
+			sourceTree = "<group>";
+		};
+		B6CF62F322798EC200212988 /* spare */ = {
+			isa = PBXGroup;
+			children = (
+				B6503508224B192100FC4569 /* CheckInternet.swift */,
+				B6139FA32245E22200365795 /* ThreadClass.swift */,
+				B6139F9B224517D500365795 /* OfficeCell.swift */,
+				B6139F9C224517D500365795 /* OfficeCell.xib */,
+				B66A57DB22445AB800FAFD94 /* OfficeLogIn.swift */,
+				B66A57DD22445B3D00FAFD94 /* OfficeSignUp.swift */,
+			);
+			path = spare;
 			sourceTree = "<group>";
 		};
 		F4FDCAB86978A38DBDBCE0E1 /* Frameworks */ = {
@@ -406,7 +417,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6139F9722446FC700365795 /* image service.swift in Sources */,
+				B6139F9722446FC700365795 /* ImagePickerManager.swift in Sources */,
+				B6CF62F52279A5EB00212988 /* extensionFile.swift in Sources */,
 				B6139FA8224887B700365795 /* GuestMainShow.swift in Sources */,
 				B66A57C522444F3A00FAFD94 /* AppDelegate.swift in Sources */,
 				B6E0DC50226E57F400F37DB6 /* VerifyCode.swift in Sources */,

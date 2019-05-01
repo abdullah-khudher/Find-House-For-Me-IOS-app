@@ -12,11 +12,15 @@ import Firebase
 class SignIn: UIViewController {
 
     
+    @IBOutlet weak var myPicker: UIPickerView!
+    
+    
     @IBOutlet weak var numberLabel: UITextField!
     
     @IBAction func signInButton(_ sender: UIButton) {
         print("Initiating authentication")
-        PhoneAuthProvider.provider().verifyPhoneNumber("+964" + numberLabel.text!, uiDelegate: nil, completion: { (verificationId, error) in
+        
+        PhoneAuthProvider.provider().verifyPhoneNumber( numberLabel.text!, uiDelegate: nil, completion: { (verificationId, error) in
             if error != nil{
                 print("+++++++++++++++++++++@@@@@@@@@@@@@@@@")
                 print(error!)

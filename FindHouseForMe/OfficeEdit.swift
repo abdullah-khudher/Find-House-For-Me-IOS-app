@@ -78,6 +78,8 @@ class OfficeEdit: UIViewController {
         self.navigationItem.title = "Edit"
         
         //MARK:show the item on screen 1
+        print(itemEdating?.Address)
+        print("dddd\n\n\n")
         AddressTextFeild.text = itemEdating?.Address
         NumberOfRoomsTextFeild.text = itemEdating?.NumberOfRoom
         NumberOFBathsTextField.text = itemEdating?.NumberOfBath
@@ -118,16 +120,16 @@ class OfficeEdit: UIViewController {
         switch TypeOfOfferSeg2.selectedSegmentIndex {
         case 0:
             print("=========================== 0")
-            SelectTypeOfOffer2 = "بيت"
+            SelectTypeOfOffer2 = "house"
             
         case 1:
             print("=========================== 1")
-            SelectTypeOfOffer2 = "شقة"
+            SelectTypeOfOffer2 = "department"
             
             
         case 2:
             print("=========================== 2")
-            SelectTypeOfOffer2 = "أرض"
+            SelectTypeOfOffer2 = "land"
             
             
         default:
@@ -142,11 +144,11 @@ class OfficeEdit: UIViewController {
         switch TypeOfSellingSeg2.selectedSegmentIndex {
         case 0:
             print("=========================== 0")
-            SelectTypeOfselling2 = "بيع"
+            SelectTypeOfselling2 = "buy"
             
         case 1:
             print("=========================== 1")
-            SelectTypeOfselling2 = "أيجار"
+            SelectTypeOfselling2 = "rent"
             
         default:
             let alert = UIAlertController(title: "OPPS!", message: "You didn't choose any tpye of selling ", preferredStyle: UIAlertController.Style.alert)
@@ -194,8 +196,8 @@ class OfficeEdit: UIViewController {
         if SelectTypeOfOffer2 == "" || SelectTypeOfselling2 == "" || AddressTextFeild.text == "" || NumberOfRoomsTextFeild.text == "" ||  NumberOFBathsTextField.text == "" || HouseAreaTextField.text == "" || PriceTextFeild.text == "" {
             print("!@#!@#!@#!@#!@#!@#!@#!@#!@#!@#!@#!@#")
             
-            let alert = UIAlertController(title: "تنبيه", message: " يجب ادخال كل البيانات ", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "نعم", style: UIAlertAction.Style.default, handler: nil))
+            let alert = UIAlertController(title: "OPPS!", message: "You didn't choose any tpye of offer ", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "ok", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
             return
         }

@@ -36,16 +36,16 @@ class GuestFilterByAll: UIViewController {
             switch offerSeg.selectedSegmentIndex {
             case 0:
                 print("=========================== 0")
-                SelectTypeOfOffer = "بيت"
+                SelectTypeOfOffer = "house"
                 
             case 1:
                 print("=========================== 1")
-                SelectTypeOfOffer = "شقة"
+                SelectTypeOfOffer = "department"
                 
                 
             case 2:
                 print("=========================== 2")
-                SelectTypeOfOffer = "أرض"
+                SelectTypeOfOffer = "land"
                 
                 
             default:
@@ -60,11 +60,11 @@ class GuestFilterByAll: UIViewController {
             switch sellingSeg.selectedSegmentIndex {
             case 0:
                 print("=========================== 0")
-                SelectTypeOfselling = "بيع "
+                SelectTypeOfselling = "buy"
                 
             case 1:
                 print("=========================== 1")
-                SelectTypeOfselling = "أيجار"
+                SelectTypeOfselling = "rent"
                 
             default:
                 let alert = UIAlertController(title: "OPPS!", message: "You didn't choose any tpye of selling ", preferredStyle: UIAlertController.Style.alert)
@@ -127,13 +127,7 @@ class GuestFilterByAll: UIViewController {
         }
         
         
-//        print("\n\n%%%%%%%%%%%%% offer %%%%%%%%%%%%%")
-//        print(itemTransfer.TypeOfOffer!)
-//        print("%%%%%%%%%%%%% selling %%%%%%%%%%%%%")
-//        print(itemTransfer.TypeOfSelling!)
-//        print("\n%%%%%%%%%%%%% address %%%%%%%%%%%%%")
-//        print(itemTransfer.Address!)
-        
+
         
         for items in arrayItems4 {
 

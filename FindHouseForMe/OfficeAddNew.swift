@@ -76,7 +76,12 @@ class OfficeAddNew: UIViewController  {
             
     }
     
-   
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        chickEditing = false
+
+    }
     
     
     
@@ -89,16 +94,16 @@ class OfficeAddNew: UIViewController  {
         switch TypeOfOfferSeg.selectedSegmentIndex {
         case 0:
             print("=========================== 0")
-            SelectTypeOfOffer = "بيت"
+            SelectTypeOfOffer = "house"
             
         case 1:
             print("=========================== 1")
-            SelectTypeOfOffer = "شقة"
+            SelectTypeOfOffer = "department"
             
             
         case 2:
             print("=========================== 2")
-            SelectTypeOfOffer = "أرض"
+            SelectTypeOfOffer = "land"
             
             
         default:
@@ -116,11 +121,11 @@ class OfficeAddNew: UIViewController  {
         switch TypeOfSellingSeg.selectedSegmentIndex {
         case 0:
             print("=========================== 0")
-            SelectTypeOfselling = "بيع"
+            SelectTypeOfselling = "buy"
             
         case 1:
             print("=========================== 1")
-            SelectTypeOfselling = "أيجار"
+            SelectTypeOfselling = "rent"
             
         default:
             let alert = UIAlertController(title: "OPPS!", message: "You didn't choose any tpye of selling ", preferredStyle: UIAlertController.Style.alert)
@@ -153,64 +158,59 @@ class OfficeAddNew: UIViewController  {
 
     
     @IBAction func AddYourNewButton(_ sender: UIButton)  {
-        
-
-        
+    
 //        sender.setTitle("asd", for: .highlighted)
 
         if SelectTypeOfOffer == "" || SelectTypeOfselling == "" || AddressTextFeild.text == "" || NumberOfRoomsTextFeild.text == "" ||
             NumberOFBathsTextField.text == "" || HouseAreaTextField.text == "" || PriceTextFeild.text == "" || image1 == nil {
             print("!@#!@#!@#!@#!@#!@#!@#!@#!@#!@#!@#!@#")
             
-            let alert = UIAlertController(title: "تنبيه", message: "يجب ادخال كل البيانات ", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "نعم", style: UIAlertAction.Style.default, handler: nil))
+            let alert = UIAlertController(title: "OPPS!", message: "You didn't choose any tpye of selling ", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "ok", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
             return
         }
         
         
-        if let myUID = Auth.auth().currentUser?.uid {
-            
-            let rendomNameImage = String.random()
-            
-            
-            let storageRef = Storage.storage().reference().child("photos").child("\(rendomNameImage).jpg")
-            //$$$$$$$$$$$$
-            //            To load: let image = UIImage(data: data)
-            let data = image1!.jpegData(compressionQuality: 0.5)
-            //$$$$$$$$$$$$
-            if let mydata = data {
+            chickEditing = false
+        
+            print("\n\\n\n\n")
+        
+            if let myUID = Auth.auth().currentUser?.uid {
                 
+                let rendomNameImage = String.random()
                 
-                _ = storageRef.putData(mydata, metadata: nil) { (metadata, error) in
-                    guard metadata != nil else {
-                        print("metadata ###############################")
-                        return
-                    }
-                    // You can also access to download URL after upload.
-                    storageRef.downloadURL { (url, error) in
-                        guard url != nil else {
-                            print("url ###############################")
+                let storageRef = Storage.storage().reference().child("photos").child("\(rendomNameImage).jpg")
+                //$$$$$$$$$$$$
+                //            To load: let image = UIImage(data: data)
+                let data = image1!.jpegData(compressionQuality: 0.5)
+                //$$$$$$$$$$$$
+                if let mydata = data {
+                    
+                    
+                    _ = storageRef.putData(mydata, metadata: nil) { (metadata, error) in
+                        guard metadata != nil else {
+                            print("metadata ###############################")
                             return
                         }
-                        
-                        let myurl = url?.absoluteString
-                        print("okay ###############################")
-                         
-                        
-                       let newItem = ItemObject(TypeOfOffer: self.SelectTypeOfOffer , TypeOfSelling: self.SelectTypeOfselling , Address: self.AddressTextFeild.text , NumberOfRoom: self.NumberOfRoomsTextFeild.text , NumberOfBath : self.NumberOFBathsTextField.text , HouseArea : self.HouseAreaTextField.text , Price: self.PriceTextFeild.text, Image: myurl, ID: myUID,itemId : itemId)
-                        
-                        newItem.Upload()
-                        
-                        
-//                        self.dismiss(animated: true, completion: nil)
-                        
-                        
-                        
+                        // You can also access to download URL after upload.
+                        storageRef.downloadURL { (url, error) in
+                            guard url != nil else {
+                                print("url ###############################")
+                                return
+                            }
+                            let myurl = url?.absoluteString
+                            print("okay ###############################")
+                            
+                            let newItem = ItemObject(TypeOfOffer: self.SelectTypeOfOffer , TypeOfSelling: self.SelectTypeOfselling , Address: self.AddressTextFeild.text , NumberOfRoom: self.NumberOfRoomsTextFeild.text , NumberOfBath : self.NumberOFBathsTextField.text , HouseArea : self.HouseAreaTextField.text , Price: self.PriceTextFeild.text, Image: myurl, ID: myUID,itemId : itemId)
+                            
+                            newItem.Upload()
+                            //                        self.dismiss(animated: true, completion: nil)
+                            
+                        }
                     }
                 }
             }
-        }
     }
    
     
@@ -240,44 +240,4 @@ class OfficeAddNew: UIViewController  {
 
 
 
- // it's convert to string
-extension UIImage {
-    func toString() -> String? {
-        let data: Data? = self.pngData()
-        return data?.base64EncodedString(options: .endLineWithLineFeed)
-    }
-}
-
-
-
-// to create rendom name for image when upload it to firebase
-extension String {
-    static func random(length: Int = 20) -> String {
-        let base = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        var randomString: String = ""
-        
-        for _ in 0..<length {
-            let randomValue = arc4random_uniform(UInt32(base.count))
-            randomString += "\(base[base.index(base.startIndex, offsetBy: Int(randomValue))])"
-        }
-        return randomString
-    }
-}
-
-
-//MARK: show keyboard 3
-extension UIViewController {
-    func hideKeyboardWhenTappedAround() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
-    }
-
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
-    }
-}
-
-
-
-
+ 
